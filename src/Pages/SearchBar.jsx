@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-
+import bluebg from '../Assets/bluebg.jpg'
+import pinkbg from '../Assets/pinkbg.jpg'
+import orangebg from '../Assets/orangebg.jpg'
 const SearchBar = () => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -17,35 +19,39 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Enter Location"
-          className="border-2 border-gray-300 rounded-md px-4 py-2 w-full md:w-auto focus:outline-none focus:border-blue-500"
+          className="w-full md:w-64 border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
 
         {/* Property Type Filter */}
-        <select
-          value={propertyType}
-          onChange={(e) => setPropertyType(e.target.value)}
-          className="border-2 border-gray-300 rounded-md px-4 py-2 w-full md:w-auto focus:outline-none focus:border-blue-500"
-        >
-          <option value="">Select Property Type</option>
-          <option value="house">House</option>
-          <option value="apartment">Apartment</option>
-          <option value="villa">Villa</option>
-        </select>
+        <div className="relative">
+          <select
+            value={propertyType}
+            onChange={(e) => setPropertyType(e.target.value)}
+            className="w-full md:w-64 border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+          >
+            <option value="">Select Property Type</option>
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+            <option value="villa">Villa</option>
+          </select>
+        </div>
 
         {/* Price Range Filter */}
-        <select
-          value={priceRange}
-          onChange={(e) => setPriceRange(e.target.value)}
-          className="border-2 border-gray-300 rounded-md px-4 py-2 w-full md:w-auto focus:outline-none focus:border-blue-500"
-        >
-          <option value="">Select Price Range (INR)</option>
-          <option value="0-5000000">Up to ₹50 Lakh</option>
-          <option value="5000000-10000000">₹50 Lakh - ₹1 Crore</option>
-          <option value="10000000-20000000">₹1 Crore - ₹2 Crores</option>
-          <option value="20000000+">Above ₹2 Crores</option>
-        </select>
+        <div className="relative">
+          <select
+            value={priceRange}
+            onChange={(e) => setPriceRange(e.target.value)}
+            className="w-full md:w-64 border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+          >
+            <option value="">Select Price Range</option>
+            <option value="0-5000000">Up to ₹50 Lakh</option>
+            <option value="5000000-10000000">₹50 Lakh - ₹1 Crore</option>
+            <option value="10000000-20000000">₹1 Crore - ₹2 Crores</option>
+            <option value="20000000+">Above ₹2 Crores</option>
+          </select>
+        </div>
 
         {/* Search Button */}
         <button

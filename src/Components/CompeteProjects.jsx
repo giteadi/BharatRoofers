@@ -7,21 +7,21 @@ const CompletedProjects = () => {
       id: 1,
       title: 'Modern Apartment',
       description: 'A luxurious apartment project completed in 2023.',
-      imageUrl: 'https://via.placeholder.com/300', // Replace with actual image URL
+      imageUrl: 'https://greecebnb.gr/wp-content/uploads/2020/11/apartment-11.jpg', // Replace with actual image URL
       tags: ['Residential', 'Luxury'],
     },
     {
       id: 2,
       title: 'Corporate Office Building',
       description: 'State-of-the-art office building designed for productivity.',
-      imageUrl: 'https://via.placeholder.com/300', // Replace with actual image URL
+      imageUrl: 'https://media.istockphoto.com/id/488120139/photo/modern-real-estate.jpg?s=612x612&w=0&k=20&c=88jk1VLSoYboMmLUx173sHs_XrZ9pH21as8lC7WINQs=', // Replace with actual image URL
       tags: ['Commercial', 'Office'],
     },
     {
       id: 3,
       title: 'Renovated Historic Landmark',
       description: 'Historical landmark restored to its former glory.',
-      imageUrl: 'https://via.placeholder.com/300', // Replace with actual image URL
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCxJPT1Px3ZlzJFpJ_BPZkI3Z7TqrABpMmww&s', // Replace with actual image URL
       tags: ['Historical', 'Renovation'],
     },
   ];

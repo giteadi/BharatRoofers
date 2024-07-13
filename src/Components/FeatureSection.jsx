@@ -5,13 +5,14 @@ import CompletedProjects from './CompeteProjects';
 import Slider from '../Pages/Slider';
 import SearchBar from '../Pages/SearchBar';
 
+
 const FeatureSection = () => {
   return (
     <div>
       {/* Search bar */}
-      <section>
+      {/* <section>
        <SearchBar/>
-      </section>
+      </section> */}
       {/* Image Grid Section */}
       <section className="mt-8 md:mt-12 max-w-screen mx-auto flex items-center justify-center px-4 hover:cursor-pointer">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl w-full">
