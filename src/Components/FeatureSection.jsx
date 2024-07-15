@@ -82,19 +82,32 @@ const FeatureSection = () => {
       <section className="mt-8 md:mt-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-24 px-4">
         <div className="w-full lg:max-w-lg relative">
           {/* Laptop Image */}
-          <img src={lapi} alt="laptopimage" className="w-full" />
-          
-          {/* YouTube Video Embed */}
-          <iframe
-            width="57%"
-            height="35%"
-            src="https://www.youtube.com/embed/u7-B6ezSLI8"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            className="absolute md:top-[12.4rem] md:left-[7.3rem] rounded-md top-[8.7rem] left-[4.9rem]"
-          ></iframe>
+          <div
+            className="w-96 h-96 relative"
+            style={{
+              backgroundImage: `url(${lapi})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
+            {/* YouTube Video Embed */}
+            <div
+              className="absolute inset-0 flex justify-center items-center"
+              style={{ width: '100%', height: '100%' }}
+            >
+              <iframe
+                width="56%"
+                height="35%"
+                src="https://www.youtube.com/embed/u7-B6ezSLI8"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className='rounded-md mt-12 ml-3'
+              ></iframe>
+            </div>
+          </div>
         </div>
 
         <div className="text-center lg:text-left w-full lg:max-w-sm">
