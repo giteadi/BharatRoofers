@@ -3,16 +3,11 @@ import { FaHome, FaBuilding, FaRegBuilding } from 'react-icons/fa';
 import Carausal from './Carausal';
 import CompletedProjects from './CompeteProjects';
 import Slider from '../Pages/Slider';
-import SearchBar from '../Pages/SearchBar';
-
+import lapi from '../Assets/lapi.png';
 
 const FeatureSection = () => {
   return (
     <div>
-      {/* Search bar */}
-      {/* <section>
-       <SearchBar/>
-      </section> */}
       {/* Image Grid Section */}
       <section className="mt-8 md:mt-12 max-w-screen mx-auto flex items-center justify-center px-4 hover:cursor-pointer">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl w-full">
@@ -46,9 +41,7 @@ const FeatureSection = () => {
               alt="home4"
               className="transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover"
             />
-            <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-green-400 font-bold absolute top-5 left-5">
-  Beach House
-</p>
+            <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-green-400 font-bold absolute top-5 left-5">Beach House</p>
           </div>
           <div className="col-span-2 sm:col-span-3 md:col-span-2 relative overflow-hidden">
             <img
@@ -85,16 +78,25 @@ const FeatureSection = () => {
         </div>
       </section>
 
-      {/* Carausal Section */}
-      <section className="mt-8 md:mt-12">
-        <Carausal />
-      </section>
-
-      {/* Completed Projects Section */}
+      {/* Larger Laptop Image with YouTube Video */}
       <section className="mt-8 md:mt-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-24 px-4">
-        <div className="w-full lg:max-w-lg">
-          <Slider />
+        <div className="w-full lg:max-w-lg relative">
+          {/* Laptop Image */}
+          <img src={lapi} alt="laptopimage" className="w-full" />
+          
+          {/* YouTube Video Embed */}
+          <iframe
+            width="57%"
+            height="35%"
+            src="https://www.youtube.com/embed/u7-B6ezSLI8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            className="absolute md:top-[12.4rem] md:left-[7.3rem] rounded-md top-[8.7rem] left-[4.9rem]"
+          ></iframe>
         </div>
+
         <div className="text-center lg:text-left w-full lg:max-w-sm">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Completed Projects</h2>
           <p className="text-lg text-gray-600">
