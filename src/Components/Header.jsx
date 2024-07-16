@@ -17,10 +17,10 @@ const Header = () => {
           <a href="#sell" className="text-gray-600 hover:text-gray-900">Sell</a>
           <a href="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</a>
         </nav>
-        <div className="flex space-x-4 items-center">
+        {/* <div className="flex space-x-4 items-center">
           <FaSearch className="text-gray-600" />
           <FaUser className="text-gray-600" />
-        </div>
+        </div> */}
       </div>
       <div className="w-full transition-transform duration-300 ease-in-out hover:scale-105 overflow-hidden relative">
         <img 

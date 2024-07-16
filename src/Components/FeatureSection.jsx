@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FaHome, FaBuilding, FaRegBuilding, FaTimes } from 'react-icons/fa';
 import Carausal from './Carausal';
-
+import Carousel3 from './Carausal3';
+import CarouselSlider from '../Pages/CardSlider';
 const FeatureSection = () => {
   const imageArray = [
     "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-1.png",
@@ -9,7 +10,15 @@ const FeatureSection = () => {
     "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-3.png",
     "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-4.png"
   ];
-
+  const titles = [
+    "Image 1 Title",
+    "Image 2 Title",
+    "Image 3 Title",
+    "Image 4 Title",
+    "Image 5 Title",
+    "Image 6 Title",
+    "Image 7 Title"
+];
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   function handleClick() {
@@ -123,11 +132,24 @@ const FeatureSection = () => {
         </div>
       </section>
 
-      {/* Additional Completed Projects Section */}
-      <section>
-        <Carausal pics={imageArray} />
+      {/* Recommanded */}
+      <span className=' font-bold flex  items-center justify-center text-3xl font-bold text-center mb-6 md:mb-8 mt-6'>Our Property</span>
+      <section  className='flex justify-around items-center flex-wrap'>
+        <div>
+          <p className='text-2xl font-bold flex items-center justify-center'>Recomended Property</p>
+        <CarouselSlider titles={titles} images={imageArray}/>
+        </div>
+        <div>
+          <p className='text-2xl font-bold flex items-center justify-center'>Most View</p>
+        <CarouselSlider titles={titles} images={imageArray}/>
+        </div>
+       <div>
+        <p className='text-2xl font-bold flex items-center justify-center'>Recents projects</p>
+       <CarouselSlider titles={titles} images={imageArray}/>
+       </div>
       </section>
     </div>
+
   );
 };
 
