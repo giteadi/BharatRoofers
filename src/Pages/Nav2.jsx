@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Nav2() {
     return (
-        <div className="w-full">
+        <div className="w-full relative">
             {/* Backside div with options */}
-            <div className="max-h-20 flex flex-col md:flex-row relative  justify-center md:justify-start">
-                <div className="text-white flex justify-center  space-x-1 md:space-x-20 text-md bg-black opacity-90 font-semibold rounded-lg pb-7">
+            <div className="max-h-20 flex flex-col md:flex-row justify-center md:justify-start max-w-full relative">
+                <div className="text-white flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-lg pb-7 w-[40rem] backdrop-blur-lg">
                     <button className="py-1 px-2 md:px-4">Buy</button>
                     <button className="py-1 px-2 md:px-4">Rent</button>
                     <button className="py-1 px-2 md:px-4">PG/Co</button>
