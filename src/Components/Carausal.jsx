@@ -8,7 +8,7 @@ import pic2 from '../Assets/blog2.avif';
 import pic3 from '../Assets/blog3.avif';
 import pic4 from '../Assets/blog4.avif';
 
-const Carousel = () => {
+const Carousel = ({ pics }) => {
   const settings = {
     autoplay: true,
     autoplaySpeed: 3000,
@@ -32,7 +32,7 @@ const Carousel = () => {
     ],
   };
 
-  const images = [pic1, pic2, pic3, pic4];
+  const images = pics ? pics : [pic1, pic2, pic3, pic4]; 
 
   return (
     <div className="py-5 relative">

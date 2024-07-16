@@ -1,11 +1,21 @@
-import React from 'react';
-import { FaHome, FaBuilding, FaRegBuilding } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaHome, FaBuilding, FaRegBuilding, FaTimes } from 'react-icons/fa';
 import Carausal from './Carausal';
-import CompletedProjects from './CompeteProjects';
-import Slider from '../Pages/Slider';
-import lapi from '../Assets/lapi.png';
 
 const FeatureSection = () => {
+  const imageArray = [
+    "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-1.png",
+    "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-2.png",
+    "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-3.png",
+    "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-4.png"
+  ];
+
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  function handleClick() {
+    setIsVideoOpen(!isVideoOpen); 
+  }
+
   return (
     <div>
       {/* Image Grid Section */}
@@ -78,50 +88,44 @@ const FeatureSection = () => {
         </div>
       </section>
 
-      {/* Larger Laptop Image with YouTube Video */}
-      <section className="mt-8 md:mt-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-24 px-4">
-        <div className="w-full lg:max-w-lg relative">
-          {/* Laptop Image */}
-          <div
-            className="w-96 h-96 relative"
-            style={{
-              backgroundImage: `url(${lapi})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
-          >
-            {/* YouTube Video Embed */}
-            <div
-              className="absolute inset-0 flex justify-center items-center"
-              style={{ width: '100%', height: '100%' }}
-            >
+      {/* Carosal */}
+      <section>
+        <Carausal />
+      </section>
+
+      {/* Video section */}
+      <section className="bg-black w-full h-[35rem] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="https://c4.wallpaperflare.com/wallpaper/846/173/87/5c1cbaf96bcec-wallpaper-preview.jpg" alt="bg_image" className="object-cover w-full h-full filter blur-sm opacity-20" />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          {isVideoOpen ? (
+            <div className="relative w-screen">
+              <button onClick={handleClick} className="absolute top-2 right-2 text-white">
+                <FaTimes className="text-2xl hover:text-gray-300" />
+              </button>
               <iframe
-                width="56%"
-                height="35%"
-                src="https://www.youtube.com/embed/u7-B6ezSLI8"
+                width="100%"
+                height="525"
+                src="https://www.youtube.com/embed/4BzjUq921Y4?si=OayxmXarULwq_ZY3"
                 title="YouTube video player"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                className='rounded-md mt-12 ml-3'
               ></iframe>
             </div>
-          </div>
-        </div>
-
-        <div className="text-center lg:text-left w-full lg:max-w-sm">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Completed Projects</h2>
-          <p className="text-lg text-gray-600">
-            Explore some of our completed projects that demonstrate our commitment to quality and craftsmanship.
-          </p>
-          {/* Additional content or links can be added here */}
+          ) : (
+            <button onClick={handleClick} className="flex items-center justify-center h-20 w-20 bg-gray-800 bg-opacity-50 rounded-full hover:bg-opacity-75">
+              <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA5L3JtNTgxLWVsZW1lbnQtMTA2LnBuZw.png" alt="click button" className="h-12 w-12 object-contain" />
+            </button>
+          )}
         </div>
       </section>
 
       {/* Additional Completed Projects Section */}
-      <section className="mt-8 md:mt-12">
-        <CompletedProjects />
+      <section>
+        <Carausal pics={imageArray} />
       </section>
     </div>
   );
