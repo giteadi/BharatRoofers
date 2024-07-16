@@ -104,33 +104,42 @@ const FeatureSection = () => {
 
       {/* Video section */}
       <section className="bg-black w-full h-[35rem] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://c4.wallpaperflare.com/wallpaper/846/173/87/5c1cbaf96bcec-wallpaper-preview.jpg" alt="bg_image" className="object-cover w-full h-full filter blur-sm opacity-20" />
+  <div className="absolute inset-0">
+    <img src="https://c4.wallpaperflare.com/wallpaper/846/173/87/5c1cbaf96bcec-wallpaper-preview.jpg" alt="bg_image" className="object-cover w-full h-full filter blur-sm opacity-20" />
+  </div>
+  <div className="absolute inset-0 flex items-center justify-center">
+    {isVideoOpen ? (
+      <div className="relative w-screen">
+        <button onClick={handleClick} className="absolute top-2 right-2 text-white">
+          <FaTimes className="text-2xl hover:text-gray-300" />
+        </button>
+        <iframe
+          width="100%"
+          height="525"
+          src="https://www.youtube.com/embed/4BzjUq921Y4?si=OayxmXarULwq_ZY3"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      </div>
+    ) : (
+      <div className="flex items-center space-x-8">
+        <button onClick={handleClick} className="flex items-center justify-center h-20 w-20 bg-gray-800 bg-opacity-50 rounded-full hover:bg-opacity-75">
+          <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA5L3JtNTgxLWVsZW1lbnQtMTA2LnBuZw.png" alt="click button" className="h-12 w-12 object-contain" />
+        </button>
+        <div className="text-white">
+          <h2 className="text-2xl font-bold mb-2">Watch Our Work</h2>
+          <p className="text-lg">
+            Discover the amazing projects and creative work we have done. Click the button to watch the video and see for yourself!
+          </p>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          {isVideoOpen ? (
-            <div className="relative w-screen">
-              <button onClick={handleClick} className="absolute top-2 right-2 text-white">
-                <FaTimes className="text-2xl hover:text-gray-300" />
-              </button>
-              <iframe
-                width="100%"
-                height="525"
-                src="https://www.youtube.com/embed/4BzjUq921Y4?si=OayxmXarULwq_ZY3"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
-            </div>
-          ) : (
-            <button onClick={handleClick} className="flex items-center justify-center h-20 w-20 bg-gray-800 bg-opacity-50 rounded-full hover:bg-opacity-75">
-              <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA5L3JtNTgxLWVsZW1lbnQtMTA2LnBuZw.png" alt="click button" className="h-12 w-12 object-contain" />
-            </button>
-          )}
-        </div>
-      </section>
+      </div>
+    )}
+  </div>
+</section>
+
 
       {/* Recommanded */}
       <span className=' font-bold flex  items-center justify-center text-3xl font-bold text-center mb-6 md:mb-8 mt-6'>Our Property</span>

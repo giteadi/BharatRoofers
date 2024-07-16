@@ -4,8 +4,8 @@ export default function Nav2() {
     return (
         <div className="w-full relative">
             {/* Backside div with options */}
-            <div className="max-h-20 flex flex-col md:flex-row justify-center md:justify-start max-w-full relative">
-                <div className="text-white flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-lg pb-7 w-[40rem] backdrop-blur-lg">
+            <div className="max-h-20 flex flex-col md:flex-row justify-center md:justify-start max-w-full relative ">
+                <div className="text-white flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl">
                     <button className="py-1 px-2 md:px-4">Buy</button>
                     <button className="py-1 px-2 md:px-4">Rent</button>
                     <button className="py-1 px-2 md:px-4">PG/Co</button>
@@ -23,14 +23,14 @@ export default function Nav2() {
                     <option value="pune">Pune</option>
                 </select>
                 {/* Divider */}
-                <div className="border-l h-full mx-2 hidden md:block">|</div> {/* Hide on small screens */}
+                <div className="border-l h-full mx-2 hidden md:block"></div> {/* Hide on small screens */}
                 <div className="flex flex-grow items-center md:items-stretch md:pl-4">
                     <input
                         type="text"
                         className="flex-grow px-2 py-1 border-none rounded-l-md focus:outline-none"
                         placeholder="Search..."
                     />
-                    <button className="bg-green-500 text-white md:w-20 rounded-2xl ml-2 md:ml-0 mt-2 md:mt-0">Search</button>
+                    <button className="bg-green-500 text-white md:w-20 rounded-2xl ml-2 md:ml-0 mt-2 md:mt-0 font-bold">Search</button>
                 </div>
             </div>
         </div>
