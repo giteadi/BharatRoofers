@@ -4,17 +4,17 @@ export default function Nav2() {
     return (
         <div className="w-full relative">
             {/* Backside div with options */}
-            <div className="max-h-20 flex flex-col md:flex-row justify-center md:justify-start max-w-full relative ">
-                <div className="text-white flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl">
-                    <button className="py-1 px-2 md:px-4">Buy</button>
-                    <button className="py-1 px-2 md:px-4">Rent</button>
-                    <button className="py-1 px-2 md:px-4">PG/Co</button>
-                    <button className="py-1 px-2 md:px-4">Plots</button>
+            <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start max-w-full relative ">
+                <div className="text-white flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl pb-15 ">
+                    <button className="py-1 px-2 md:px-4 pt-3">Buy</button>
+                    <button className="py-1 px-2 md:px-4 pt-3">Rent</button>
+                    <button className="py-1 px-2 md:px-4 pt-3">PG/Co</button>
+                    <button className="py-1 px-2 md:px-4 pt-3">Plots</button>
                 </div>
             </div>
 
             {/* Navbar absolute positioning */}
-            <div className="absolute top-[2rem] md:top-[2rem] bg-white p-2 md:p-4 flex flex-col md:flex-row w-full rounded-lg md:rounded-full space-y-2 md:space-y-0">
+            <div className="absolute top-[2rem] md:top-[3rem] bg-white p-2 md:p-4 flex flex-col md:flex-row w-full rounded-lg md:rounded-full space-y-2 md:space-y-0">
                 <select className="mr-2 mb-2 md:mb-0 border border-gray-300 rounded-md">
                     <option value="">City</option>
                     <option value="bhopal">Bhopal</option>

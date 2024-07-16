@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="bg-black py-8">
+      <div className="bg-blue-900 py-8">
         <div className="flex flex-col mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-white">
             <div className="col-span-1 md:col-span-1 px-4">
-              <h6 className="text-white border-b border-red-600 pb-2 mb-4 text-center">Popular Residential Property Searches</h6>
-              <ul className="text-white">
+              <h6 className="border-b border-white pb-2 mb-4 text-center">Popular Residential Property Searches</h6>
+              <ul>
                 <li><a href="/property/propertyType/house" target="_blank">Houses in Jabalpur</a></li>
                 <li><a href="/property/propertyType/villa" target="_blank">Villas in Jabalpur</a></li>
                 <li><a href="/property/propertyType/plot" target="_blank">Plots in Jabalpur</a></li>
@@ -24,8 +24,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-span-1 md:col-span-1 px-4">
-              <h6 className="text-white border-b border-red-600 pb-2 mb-4 text-center">Popular BHK Searches</h6>
-              <ul className="text-white">
+              <h6 className="border-b border-white pb-2 mb-4 text-center">Popular BHK Searches</h6>
+              <ul>
                 <li><a href="/property/flat/1" target="_blank">1 BHK Flats in Jabalpur</a></li>
                 <li><a href="/property/flat/2" target="_blank">2 BHK Flats in Jabalpur</a></li>
                 <li><a href="/property/flat/3" target="_blank">3 BHK Flats in Jabalpur</a></li>
@@ -37,8 +37,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-span-1 md:col-span-1 px-4">
-              <h6 className="text-white border-b border-red-600 pb-2 mb-4 text-center">Popular Rental Property Searches</h6>
-              <ul className="text-white">
+              <h6 className="border-b border-white pb-2 mb-4 text-center">Popular Rental Property Searches</h6>
+              <ul>
                 <li><a href="/property/propertiesForRent/house" target="_blank">Houses for Rent in Jabalpur</a></li>
                 <li><a href="/property/propertiesForRent/villa" target="_blank">Villas for Rent in Jabalpur</a></li>
                 <li><a href="/property/propertiesForRent/plot" target="_blank">Plots for Rent in Jabalpur</a></li>
@@ -50,8 +50,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-span-1 md:col-span-1 px-4">
-              <h6 className="text-white border-b border-red-600 pb-2 mb-4 text-center">Popular Resale Property Searches</h6>
-              <ul className="text-white">
+              <h6 className="border-b border-white pb-2 mb-4 text-center">Popular Resale Property Searches</h6>
+              <ul>
                 <li><a href="/property/propertiesForResale/house" target="_blank">House for Resale in Jabalpur</a></li>
                 <li><a href="/property/propertiesForResale/villa" target="_blank">Villas for Resale in Jabalpur</a></li>
                 <li><a href="/property/propertiesForResale/plot" target="_blank">Plots for Resale in Jabalpur</a></li>
