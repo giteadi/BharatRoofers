@@ -5,6 +5,7 @@ import orangeBgImagw from '../Assets/orangebg.jpg';
 import pinkBhImage from '../Assets/pinkbg.jpg';
 import greenBg from '../Assets/bluebg.jpg'
 import Nav2 from '../Pages/Nav2';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -12,10 +13,10 @@ const Header = () => {
       <div className="container mx-auto flex flex-wrap justify-between items-center p-4">
         <div className="text-2xl font-bold">BharatRoofers</div>
         <nav className="hidden md:flex flex-wrap space-x-4 font-bold">
-          <a href="#buy" className="text-gray-600 hover:text-gray-900">Buy</a>
-          <a href="#rent" className="text-gray-600 hover:text-gray-900">Rent</a>
-          <a href="#sell" className="text-gray-600 hover:text-gray-900">Sell</a>
-          <a href="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</a>
+          <Link to="/blogs" className="text-gray-600 hover:text-gray-900">Blogs</Link>
+          <Link to="#rent" className="text-gray-600 hover:text-gray-900">Rent</Link>
+          <Link to="#sell" className="text-gray-600 hover:text-gray-900">Sell</Link>
+          <Link to="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</Link>
         </nav>
         {/* <div className="flex space-x-4 items-center">
           <FaSearch className="text-gray-600" />
@@ -36,10 +37,10 @@ const Header = () => {
 
       </div>
       <nav className="flex md:hidden flex-wrap justify-center w-1/2 mx-auto p-4 font-bold bg-white shadow-md">
-        <a href="#buy" className="text-gray-600 hover:text-gray-900">Buy</a>
-        <a href="#rent" className="text-gray-600 hover:text-gray-900">Rent</a>
-        <a href="#sell" className="text-gray-600 hover:text-gray-900">Sell</a>
-        <a href="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</a>
+        <Link to="#buy" className="text-gray-600 hover:text-gray-900">Buy</Link>
+        <Link to="#rent" className="text-gray-600 hover:text-gray-900">Rent</Link>
+        <Link to="#sell" className="text-gray-600 hover:text-gray-900">Sell</Link>
+        <Link to="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</Link>
       </nav>
     </header>
   );
