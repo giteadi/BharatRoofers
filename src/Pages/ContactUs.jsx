@@ -1,24 +1,122 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaBuilding, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 
 const ContactUs = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log({ firstName, lastName, email, phoneNumber, message });
+
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhoneNumber('');
+    setMessage('');
+  };
+
   return (
-    <div className="bg-gray-100 py-12" id="contact">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900">Contact Us</h2>
-          <p className="mt-4 text-lg leading-6 text-gray-500">
-            We'd love to hear from you! Reach out to us at:
-          </p>
+    <div className="relative flex justify-center items-center bg-gray-600" style={{ minHeight: '100vh' }}>
+      <div className="absolute inset-0 bg-cover bg-center object-fit backdrop-blur-sm" style={{ backgroundImage: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxsSOPmD5COM3KhkD69yUOBtyVhBUu_Nk9hQ7BqyyaHJhE5BQ5FFQpYaRquiAxBB1BB5o&usqp=CAU)', opacity: 0.3 }}></div>
+      <div className="relative bg-white bg-opacity-50 p-8 rounded-lg shadow-lg w-full max-w-screen flex flex-col lg:flex-row gap-8">
+        <div className="w-full lg:w-1/2">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 mt-9">Contact Us</h2>
+          <p className="mb-8 text-gray-500">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
+            <div>
+              <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                placeholder="First Name"
+                required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                placeholder="Last Name"
+                required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+              <input
+                type="email"
+                id="email"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                placeholder="name@flowbite.com"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="phoneNumber" className="block mb-2 text-sm font-medium text-gray-900">Phone Number</label>
+              <input
+                type="text"
+                id="phoneNumber"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                placeholder="+12 345 6789"
+                required
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900">Your message</label>
+              <textarea
+                id="message"
+                rows="6"
+                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                placeholder="Leave a comment..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="bg-blue-900 transition-all transform hover:bg-blue-800 delay-200 py-3 px-5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-primary-300"
+            >
+              Send message
+            </button>
+          </form>
         </div>
-        <div className="mt-8 flex justify-center">
-          <div className="bg-white shadow sm:rounded-lg">
-            <div className="px-4 py-5 sm:p-6">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">Contact Information</h3>
-              <div className="mt-2 text-sm text-gray-500">
-                <p>Email: contact@company.com</p>
-                <p>Phone: +91000-0000</p>
-                <p>Address: 794 Mcallister St</p>
-              </div>
+        <div className="w-full lg:w-1/2 flex flex-col gap-10 md:mt-[10rem]">
+          <div className="flex items-center">
+            <FaBuilding className="mr-3 text-gray-500 text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-10" />
+            <div>
+              <h3 className="text-lg font-medium text-gray-900">Company information:</h3>
+              <p>BharatRoofers PVT</p>
+              <p>bharatroofers@gmail.com</p>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <FaMapMarkerAlt className="mr-3 text-gray-500 text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-10" />
+            <div>
+              <h3 className="text-lg font-medium text-gray-900">Address:</h3>
+              <p>Bhopal</p>
+              <p>Zip Code/Postal code: 03875</p>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <FaPhoneAlt className="mr-3 text-gray-500 text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-10" />
+            <div>
+              <h3 className="text-lg font-medium text-gray-900">Call us:</h3>
+              <p>Call us to speak to a member of our team. We are always happy to help.</p>
+              <p>+1 234566789</p>
             </div>
           </div>
         </div>

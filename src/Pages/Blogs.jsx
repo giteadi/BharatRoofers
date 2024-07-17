@@ -49,7 +49,7 @@ const Blog = () => {
             <img
               src={post.image}
               alt={post.title}
-              className="h-64 md:min-w-[40rem] cursor-pointer object-fit rounded-lg transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover"
+              className="h-64 md:min-w-[40rem] cursor-pointer object-cover rounded-lg transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover"
             />
           </div>
           <div className="w-full md:w-1/2 p-4">

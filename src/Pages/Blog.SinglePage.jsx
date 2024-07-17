@@ -12,7 +12,7 @@ const SinglePage = () => {
       post: {
         id: 1,
         title: "Post 1",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur consequuntur iure minus a, voluptatum veritatis aut similique delectus quia vel maiores mollitia porro architecto placeat commodi ex! Optio unde officiis beatae amet odit omnis nam exercitationem culpa. Debitis, excepturi quae iste maxime explicabo enim ipsum cumque consequatur quam, necessitatibus velit reprehenderit molestias veniam. Accusamus quasi ipsum ratione eum impedit possimus?",
         imagePosition: "left"
       }
     },
@@ -54,9 +54,11 @@ const SinglePage = () => {
   if (!post) return <div>Post not found</div>;
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">{post.post.title}</h2>
-      <img src={post.link} alt={post.post.title} className="h-auto w-full object-cover rounded-lg mb-4" />
+    <div className="p-4 max-w-screen">
+      <h2 className="text-3xl hover:underline font-bold mb-4 flex flex-col items-center justify-center">{post.post.title}</h2>
+      <div className='flex flex-col items-center justify-center'>
+      <img src={post.link} alt={post.post.title} className=" object-cover rounded-lg mb-4 w-1/2 " />
+      </div>
       <p className="text-gray-700">{post.post.content}</p>
     </div>
   );

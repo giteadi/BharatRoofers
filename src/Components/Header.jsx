@@ -14,7 +14,7 @@ const Header = () => {
         <div className="text-2xl font-bold">BharatRoofers</div>
         <nav className="hidden md:flex flex-wrap space-x-4 font-bold">
           <Link to="/blogs" className="text-gray-600 hover:text-gray-900">Blogs</Link>
-          <Link to="#rent" className="text-gray-600 hover:text-gray-900">Rent</Link>
+          <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact us</Link>
           <Link to="#sell" className="text-gray-600 hover:text-gray-900">Sell</Link>
           <Link to="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</Link>
         </nav>
