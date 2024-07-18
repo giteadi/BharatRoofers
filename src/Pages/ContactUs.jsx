@@ -21,7 +21,7 @@ const ContactUs = () => {
 
   return (
     <div className="relative flex justify-center items-center bg-black text-white" style={{ minHeight: '100vh' }}>
-      <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm" style={{ backgroundImage: 'url("https://thinkshout.com/wp-content/uploads/2023/03/fade-to-black-header.jpg")', opacity: 0.3 }}></div>
+      <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm" style={{ backgroundImage: 'url("https://thumbs.wbm.im/pw/small/e79ed78f33ea2825b7bb5598d66fe60c.jpg")', opacity: 0.3 , objectFit:"cover" }}></div>
       <div className="relative text-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-screen flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-1/2">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold mt-9">Contact Us</h2>

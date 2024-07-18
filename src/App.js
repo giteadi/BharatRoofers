@@ -6,12 +6,14 @@ import Blogs from "./Pages/Blogs";
 import SinglePage from "./Pages/Blog.SinglePage"; 
 import Header from "./Components/Header";
 import LoginForm from "./Pages/Login";
+import RegisterForm from "./Pages/Registration";
+import UpperNav from "./Components/UpperNav";
 
 
 function App() {
   return (
     <div>
-      {/* <Header/> */}
+      <UpperNav/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<ContactUs />} />
@@ -20,6 +22,7 @@ function App() {
         <Route path="/blog/:postId" element={<SinglePage />} /> 
         <Route path="/contact" element={<ContactUs/>}/>
         <Route path='/login' element={<LoginForm/>}/>
+        <Route path='/register' element={<RegisterForm/>}/>
       </Routes>
     </div>
   );

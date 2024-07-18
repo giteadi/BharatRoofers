@@ -7,22 +7,11 @@ import greenBg from '../Assets/bluebg.jpg'
 import Nav2 from '../Pages/Nav2';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
   return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto flex flex-wrap justify-between items-center p-4">
-        <div className="text-2xl font-bold">BharatRoofers</div>
-        <nav className="hidden md:flex flex-wrap space-x-4 font-bold">
-          <Link to="/blogs" className="text-gray-600 hover:text-gray-900">Blogs</Link>
-          <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact us</Link>
-          <Link to="#sell" className="text-gray-600 hover:text-gray-900">Sell</Link>
-          <Link to="#commercial" className="text-gray-600 hover:text-gray-900">Commercial</Link>
-        </nav>
-        {/* <div className="flex space-x-4 items-center">
-          <FaSearch className="text-gray-600" />
-          <FaUser className="text-gray-600" />
-        </div> */}
-      </div>
+    <header className="bg-gray-100 shadow-md rounded-md">
+    
       <div className="w-full transition-transform duration-300 ease-in-out hover:scale-105 overflow-hidden relative">
         <img 
           // src="https://static.ieplads.com/bmsjs/banners/99acres-hp/1366/1366-krisumi-v9.jpg" 
