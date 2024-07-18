@@ -20,19 +20,19 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="relative flex justify-center items-center bg-gray-600" style={{ minHeight: '100vh' }}>
-      <div className="absolute inset-0 bg-cover bg-center object-fit backdrop-blur-sm" style={{ backgroundImage: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxsSOPmD5COM3KhkD69yUOBtyVhBUu_Nk9hQ7BqyyaHJhE5BQ5FFQpYaRquiAxBB1BB5o&usqp=CAU)', opacity: 0.3 }}></div>
-      <div className="relative bg-white bg-opacity-50 p-8 rounded-lg shadow-lg w-full max-w-screen flex flex-col lg:flex-row gap-8">
+    <div className="relative flex justify-center items-center bg-black text-white" style={{ minHeight: '100vh' }}>
+      <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm" style={{ backgroundImage: 'url("https://thinkshout.com/wp-content/uploads/2023/03/fade-to-black-header.jpg")', opacity: 0.3 }}></div>
+      <div className="relative text-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-screen flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-1/2">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 mt-9">Contact Us</h2>
-          <p className="mb-8 text-gray-500">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold mt-9">Contact Us</h2>
+          <p className="mb-8 text-white">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
             <div>
-              <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+              <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-white">First Name</label>
               <input
                 type="text"
                 id="firstName"
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                 placeholder="First Name"
                 required
                 value={firstName}
@@ -40,11 +40,11 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+              <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-white">Last Name</label>
               <input
                 type="text"
                 id="lastName"
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                 placeholder="Last Name"
                 required
                 value={lastName}
@@ -52,11 +52,11 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
               <input
                 type="email"
                 id="email"
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                 placeholder="name@flowbite.com"
                 required
                 value={email}
@@ -64,11 +64,11 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label htmlFor="phoneNumber" className="block mb-2 text-sm font-medium text-gray-900">Phone Number</label>
+              <label htmlFor="phoneNumber" className="block mb-2 text-sm font-medium text-white">Phone Number</label>
               <input
                 type="text"
                 id="phoneNumber"
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                 placeholder="+12 345 6789"
                 required
                 value={phoneNumber}
@@ -76,11 +76,11 @@ const ContactUs = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900">Your message</label>
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-white">Your message</label>
               <textarea
                 id="message"
                 rows="6"
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                className="block p-2.5 w-full text-sm text-white bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
                 placeholder="Leave a comment..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -98,7 +98,7 @@ const ContactUs = () => {
           <div className="flex items-center">
             <FaBuilding className="mr-3 text-gray-500 text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-10" />
             <div>
-              <h3 className="text-lg font-medium text-gray-900">Company information:</h3>
+              <h3 className="text-lg font-medium text-white">Company information:</h3>
               <p>BharatRoofers PVT</p>
               <p>bharatroofers@gmail.com</p>
             </div>
@@ -106,7 +106,7 @@ const ContactUs = () => {
           <div className="flex items-center">
             <FaMapMarkerAlt className="mr-3 text-gray-500 text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-10" />
             <div>
-              <h3 className="text-lg font-medium text-gray-900">Address:</h3>
+              <h3 className="text-lg font-medium text-white">Address:</h3>
               <p>Bhopal</p>
               <p>Zip Code/Postal code: 03875</p>
             </div>
@@ -114,7 +114,7 @@ const ContactUs = () => {
           <div className="flex items-center">
             <FaPhoneAlt className="mr-3 text-gray-500 text-2xl mt-4 sm:mt-6 md:mt-8 lg:mt-10" />
             <div>
-              <h3 className="text-lg font-medium text-gray-900">Call us:</h3>
+              <h3 className="text-lg font-medium text-white">Call us:</h3>
               <p>Call us to speak to a member of our team. We are always happy to help.</p>
               <p>+1 234566789</p>
             </div>

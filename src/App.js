@@ -5,6 +5,7 @@ import About from "./Pages/About";
 import Blogs from "./Pages/Blogs";
 import SinglePage from "./Pages/Blog.SinglePage"; 
 import Header from "./Components/Header";
+import LoginForm from "./Pages/Login";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:postId" element={<SinglePage />} /> 
         <Route path="/contact" element={<ContactUs/>}/>
+        <Route path='/login' element={<LoginForm/>}/>
       </Routes>
     </div>
   );
