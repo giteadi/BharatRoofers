@@ -20,10 +20,11 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="relative flex justify-center items-center bg-black text-white" style={{ minHeight: '100vh' }}>
+    <div className="relative flex justify-center items-center bg-black text-white max-w-screen">
       <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm" style={{ backgroundImage: 'url("https://thumbs.wbm.im/pw/small/e79ed78f33ea2825b7bb5598d66fe60c.jpg")', opacity: 0.3 , objectFit:"cover" }}></div>
-      <div className="relative text-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-screen flex flex-col lg:flex-row gap-8">
-        <div className="w-full lg:w-1/2">
+      <div className="mx-auto text-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-screen flex flex-col lg:flex-row gap-8 justify-center items-ceter">
+
+        <div className="w-full lg:w-1/2 max-w-md">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold mt-9">Contact Us</h2>
           <p className="mb-8 text-white">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">

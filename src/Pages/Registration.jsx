@@ -9,7 +9,7 @@ const RegisterForm = () => {
   const toggleConfirmPasswordVisibility = () => setConfirmPasswordVisible(!confirmPasswordVisible);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center  bg-gray-100">
       <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm"
         style={{
           backgroundImage: 'url("https://thinkshout.com/wp-content/uploads/2023/03/fade-to-black-header.jpg")',

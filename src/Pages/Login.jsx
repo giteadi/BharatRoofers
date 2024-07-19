@@ -7,7 +7,7 @@ const LoginForm = () => {
   const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center  bg-gray-100">
         <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm"
         style={{
           backgroundImage: 'url("https://thinkshout.com/wp-content/uploads/2023/03/fade-to-black-header.jpg")',
@@ -15,7 +15,7 @@ const LoginForm = () => {
           backdropFilter: 'blur(4px)'  // Optional: Adjust blur amount if needed
         }}
       ></div>
-      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md relative">
+      <div className="bg-white md:p-5 rounded-xl shadow-lg w-full max-w-md relative">
         <div className="flex justify-center mb-4">
           <img src="https://bharatroofers.com/static/media/Real-Estate-Logo.97cdaa8455c577626d89.png" alt="Logo" className="h-12 w-12 object-cover" />
         </div>

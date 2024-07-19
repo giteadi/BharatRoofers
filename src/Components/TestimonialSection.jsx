@@ -16,10 +16,10 @@ const Testimonial = ({ text, author, image }) => {
 
 const TestimonialSection = ({ testimonials }) => {
   return (
-    <section className="bg-white py-12">
+    <section className="bg-white py-12 ">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">What Our Customers Are Saying</h2>
-        <div className="flex flex-wrap justify-around items-center">
+        <div className="md:flex md:flex-wrap md:justify-around md:items-center flex flex-wrap gap-4 p-5">
           {testimonials.map((testimonial, index) => (
             <Testimonial
               key={index}

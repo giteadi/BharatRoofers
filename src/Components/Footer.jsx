@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center items-center gap-5 mb-8">
           {/* Popular Residential Property Searches */}
           <div className="px-4">
-            <h6 className="border-b border-white pb-2 mb-4 text-center font-bold">Popular Residential Property Searches</h6>
+            <h6 className="border-b border-white pb-2 mb-4 text-start font-bold">Popular Residential Property Searches</h6>
             <div className="flex flex-col items-start">
               <div className="mb-2">
                 <a href="/property/propertyType/house" target="_blank" className="text-white hover:text-gray-300 text-start">Houses in Jabalpur</a>
@@ -41,8 +41,8 @@ const Footer = () => {
 
           {/* Popular BHK Searches */}
           <div className="px-4">
-            <h6 className="border-b border-white pb-2 mb-4 text-center font-bold">Popular BHK Searches</h6>
-            <div className="flex flex-col items-center">
+            <h6 className="border-b border-white pb-2 mb-4 text-start font-bold">Popular BHK Searches</h6>
+            <div className="flex flex-col items-start">
               <div className="mb-2">
                 <a href="/property/flat/1" target="_blank" className="text-white hover:text-gray-300 text-start">1 BHK Flats in Jabalpur</a>
               </div>
@@ -72,8 +72,8 @@ const Footer = () => {
 
           {/* Popular Rental Property Searches */}
           <div className="px-4">
-            <h6 className="border-b border-white pb-2 mb-4 text-center font-bold">Popular Rental Property Searches</h6>
-            <div className="flex flex-col items-center">
+            <h6 className="border-b border-white pb-2 mb-4 text-start font-bold">Popular Rental Property Searches</h6>
+            <div className="flex flex-col items-start">
               <div className="mb-2">
                 <a href="/property/propertiesForRent/house" target="_blank" className="text-white hover:text-gray-300">Houses for Rent in Jabalpur</a>
               </div>
@@ -103,8 +103,8 @@ const Footer = () => {
 
           {/* Popular Resale Property Searches */}
           <div className="px-4">
-            <h6 className="border-b border-white pb-2 mb-4 text-center font-bold">Popular Resale Property Searches</h6>
-            <div className="flex flex-col items-center">
+            <h6 className="border-b border-white pb-2 mb-4 text-start font-bold">Popular Resale Property Searches</h6>
+            <div className="flex flex-col items-start">
               <div className="mb-2">
                 <a href="/property/propertiesForResale/house" target="_blank" className="text-white hover:text-gray-300">House for Resale in Jabalpur</a>
               </div>
@@ -147,7 +147,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Text */}
-        <div className="text-center">
+        <div className="text-start">
           <h5 className="text-sm">&copy; 2024 Bharatroofers.com | All Rights Reserved</h5>
           <p className="text-sm"><a href="https://bharatroofers.com/info/terms-and-conditions" target="_blank" className="text-white font-bold">Terms and Conditions</a> | <a href="https://bharatroofers.com/info/privacy-policy" target="_blank" className="text-white font-bold">Privacy Policy</a></p>
         </div>
