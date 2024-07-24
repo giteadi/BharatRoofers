@@ -4,7 +4,7 @@ export default function Nav2() {
     return (
         <div className="w-full relative">
             {/* Backside div with options */}
-            <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start w-full md:max-w-full relative">
+            <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start w-full md:max-w-full relative s">
                 <div className="text-white w-[15rem] flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl pb-15">
                     <button className="py-1 px-2 md:px-4 pt-3">Buy</button>
                     <button className="py-1 px-2 md:px-4 pt-3">Rent</button>
