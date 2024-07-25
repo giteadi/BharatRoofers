@@ -8,6 +8,8 @@ import LoginForm from "./Pages/Login";
 import RegisterForm from "./Pages/Registration";
 import UpperNav from "./Components/UpperNav";
 import PropertyCard from "./Pages/PropertyCard";
+import Box from "./Components/LightBox";
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
         <Route path='/login' element={<LoginForm />} />
         <Route path='/register' element={<RegisterForm />} />
         <Route path="/property/:id" element={<PropertyCard />} />
+        <Route path='/box' element={<Box/>}/>
       </Routes>
     </div>
   );

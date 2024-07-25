@@ -34,7 +34,8 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.166.1",
     "three-globe": "^2.31.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yet-another-react-lightbox": "^3.21.1"
   },
   "scripts": {
     "start": "react-scripts start",

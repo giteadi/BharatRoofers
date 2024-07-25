@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { FaHome, FaBuilding, FaRegBuilding, FaTimes } from 'react-icons/fa';
+import {
+  FaTimes,
+  FaRegBuilding,
+  FaHome,
+  FaBuilding,
+  FaLightbulb,
+  FaRoad,
+  FaWater,
+  FaSun,
+} from "react-icons/fa";
 import Carausal from './Carausal';
 import CarouselSlider from '../Pages/CardSlider';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +19,7 @@ const imageArray = [
     link: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-1.png",
     title: "Silver Park",
     description: "3 BHK House in Vijay Nagar, Jabalpur",
-    price: "Price on Request",
+    price: "240000",
     status: "Ready to Move",
     propertyDetails: {
       area: "2000 sq.ft",
@@ -28,7 +37,34 @@ const imageArray = [
       propertiesListed: 3,
       localities: ["Vijay Nagar", "Jabalpur City"],
       phoneNumber: "9876543210",
-    }
+    },
+    amenities: [
+      { icon: FaLightbulb, label: "Lights" },
+      { icon: FaRoad, label: "Road" },
+      { icon: FaWater, label: "Drainage" },
+      { icon: FaSun, label: "Road Light" },
+    ],
+    about: {
+      location: "Chowkital Lamheta Ghat Main Road",
+      approval: "TNCP (Town And Country Planning) Approved",
+      type: "Market With Shops Available",
+      minimumPrice: "24 Lakhs",
+    },
+    propertyId: 101,
+    type: "Residential",
+    commercialPropertyType: undefined,
+    propertyFor: "Sale",
+    newOrResale: "New",
+    tncpApproved: "Yes",
+    reraNumber: "RERA1234",
+    squareFeet: "2000 sq.ft",
+    dimension: "40x50",
+    carParking: "2 Covered",
+    yearBuilt: "2010",
+    facing: "East",
+    flooring: "Marble",
+    ageOfProperty: "10 years",
+    lift: "Yes",
   },
   {
     id: 2,
@@ -53,7 +89,22 @@ const imageArray = [
       propertiesListed: 2,
       localities: ["Central Avenue", "Jabalpur City"],
       phoneNumber: "9876543211",
-    }
+    },
+    propertyId: 102,
+    type: "Residential",
+    commercialPropertyType: undefined,
+    propertyFor: "Sale",
+    newOrResale: "New",
+    tncpApproved: "No",
+    reraNumber: "RERA5678",
+    squareFeet: "1500 sq.ft",
+    dimension: "30x50",
+    carParking: "1 Covered",
+    yearBuilt: "2022",
+    facing: "West",
+    flooring: "Tiles",
+    ageOfProperty: "2 years",
+    lift: "No",
   },
   {
     id: 3,
@@ -78,7 +129,22 @@ const imageArray = [
       propertiesListed: 1,
       localities: ["Prime Location", "Jabalpur City"],
       phoneNumber: "9876543212",
-    }
+    },
+    propertyId: 103,
+    type: "Residential",
+    commercialPropertyType: undefined,
+    propertyFor: "Sale",
+    newOrResale: "Resale",
+    tncpApproved: "Yes",
+    reraNumber: "RERA4321",
+    squareFeet: "4000 sq.ft",
+    dimension: "50x80",
+    carParking: "3 Covered",
+    yearBuilt: "2015",
+    facing: "North",
+    flooring: "Wooden",
+    ageOfProperty: "9 years",
+    lift: "Yes",
   },
   {
     id: 4,
@@ -103,7 +169,22 @@ const imageArray = [
       propertiesListed: 4,
       localities: ["City Center", "Jabalpur City"],
       phoneNumber: "9876543213",
-    }
+    },
+    propertyId: 104,
+    type: "Residential",
+    commercialPropertyType: undefined,
+    propertyFor: "Sale",
+    newOrResale: "New",
+    tncpApproved: "Yes",
+    reraNumber: "RERA8765",
+    squareFeet: "1000 sq.ft",
+    dimension: "20x50",
+    carParking: "1 Covered",
+    yearBuilt: "2023",
+    facing: "South",
+    flooring: "Ceramic",
+    ageOfProperty: "1 year",
+    lift: "No",
   },
   {
     id: 5,
@@ -128,9 +209,25 @@ const imageArray = [
       propertiesListed: 2,
       localities: ["Beachfront", "Jabalpur City"],
       phoneNumber: "9876543214",
-    }
-  }
+    },
+    propertyId: 105,
+    type: "Residential",
+    commercialPropertyType: undefined,
+    propertyFor: "Sale",
+    newOrResale: "New",
+    tncpApproved: "Yes",
+    reraNumber: "RERA9999",
+    squareFeet: "6000 sq.ft",
+    dimension: "60x100",
+    carParking: "4 Covered",
+    yearBuilt: "2018",
+    facing: "West",
+    flooring: "Marble",
+    ageOfProperty: "6 years",
+    lift: "Yes",
+  },
 ];
+
 
 
 
