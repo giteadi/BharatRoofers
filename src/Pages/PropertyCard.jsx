@@ -13,10 +13,15 @@ import {
   FaRoad,
   FaWater,
   FaSun,
+  FaTelegram,
+  FaWhatsapp,
+  FaFacebookMessenger,
+  FaTwitter,
+  FaInstagram,
 } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
-
+import { Link } from "react-router-dom";
 const PropertyCard = () => {
   const { id } = useParams();
 
@@ -234,7 +239,29 @@ const PropertyCard = () => {
       lift: "Yes",
     },
   ];
-  
+  const blogPosts = [
+    {
+      id: 1,
+      title: "5 Tips for Buying Your First Home",
+      image:
+        "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
+      link: "/blog/1",
+    },
+    {
+      id: 2,
+      title: "The Importance of Location in Real Estate",
+      image:
+        "https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw=",
+      link: "/blog/2",
+    },
+    {
+      id: 3,
+      title: "How to Get the Best Mortgage Rate",
+      image:
+        "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
+      link: "/blog/3",
+    },
+  ];
 
   const imageId = parseInt(id);
 
@@ -250,175 +277,100 @@ const PropertyCard = () => {
   }
 
   return (
-    <div className="max-w-full px-4 py-8">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <div className="flex flex-col text-xl font-semibold text-gray-700 mb-4 m-5">
-          <h1 className="text-3xl font-bold mb-2">{selectedImage.title}</h1>
-          <p className="mr-4">Price: ${selectedImage.price}</p>
-          <p>{selectedImage.description}</p>
-        </div>
-        <div className="bg-gray-100">
-          {/* <img
-            src={selectedImage.link}
-            alt={selectedImage.title}
-            className="flex mx-auto w-1/2 object-fit"
-          /> */}
-          <Box />
-        </div>
-        <div className="p-6">
-          <div className="">
-            <div className="w-full">
-              <h2 className="text-lg font-bold mb-4">Property Details</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <DetailItem
-                  icon={FaHome}
-                  label={`Property Id: ${selectedImage.propertyId}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Type: ${selectedImage.type}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Commercial Property Type: ${selectedImage.commercialPropertyType || "N/A"}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Property For: ${selectedImage.propertyFor}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`New/Resale: ${selectedImage.newOrResale}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`TNCP Approved: ${selectedImage.tncpApproved}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`RERA Number: ${selectedImage.reraNumber}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Square Feet: ${selectedImage.squareFeet}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Dimension: ${selectedImage.dimension}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Car Parking: ${selectedImage.carParking}`}
-                />
-                <DetailItem
-                  icon={FaCalendarAlt}
-                  label={`Year Built: ${selectedImage.yearBuilt}`}
-                />
-                <DetailItem
-                  icon={FaMapMarkerAlt}
-                  label={`Facing: ${selectedImage.facing}`}
-                />
-                <DetailItem
-                  icon={FaClipboardCheck}
-                  label={`Furnishing: ${selectedImage.propertyDetails.furnishing}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Property On Floor: ${selectedImage.propertyDetails.propertyOnFloor || "N/A"}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Flooring: ${selectedImage.flooring}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Age of Property: ${selectedImage.ageOfProperty}`}
-                />
-                <DetailItem
-                  icon={FaHome}
-                  label={`Lift: ${selectedImage.lift}`}
-                />
-              </div>
-            </div>
+   <div className="max-w-full px-4 py-8">
+  <div className="bg-white shadow-lg rounded-lg">
+    <div className="flex flex-col text-xl font-semibold text-gray-700 mb-4 m-5">
+      <h1 className="text-3xl font-bold mb-2">{selectedImage.title}</h1>
+      <p className="mr-4">Price: ${selectedImage.price}</p>
+      <div className="flex items-center mb-2">
+        <FaMapMarkerAlt className="mr-2 text-green-500" />
+        <p>{selectedImage.description}</p>
+        <p className="text-gray-600">{selectedImage.location}</p>
+      </div>
+    </div>
 
-            <div className="w-full mt-5 mb-10">
-              <h2 className="text-lg font-bold mb-4">Amenities</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                {selectedImage.amenities ? (
-                  selectedImage.amenities.map((amenity, index) => (
-                    <DetailItem key={index} icon={amenity.icon} label={amenity.label} />
-                  ))
-                ) : (
-                  <p>No amenities available.</p>
-                )}
-              </div>
-            </div>
+    {/* Lightbox image */}
+    <div className="bg-gray-100">
+      <Box />
+    </div>
+
+    <div className="flex p-6">
+      {/* Main Content */}
+      <div className="w-2/3 pr-4">
+      {/* social media */}
+      <div className="flex gap-5 items-center">
+        <p className="font-semibold text-2xl">Share:</p>
+      <FaTelegram className="cursor-pointer hover:animate-bounce text-blue-500" size={32} />
+      <FaWhatsapp className="cursor-pointer hover:animate-bounce text-green-500" size={32} />
+      <FaFacebookMessenger className="cursor-pointer hover:animate-bounce text-blue-600" size={32} />
+      <FaTwitter className="cursor-pointer hover:animate-bounce text-blue-400" size={32} />
+      <FaInstagram className="cursor-pointer hover:animate-bounce text-pink-500" size={32} />
+    </div>
+        {/* Property details */}
+        <div className="mb-10">
+          <h2 className="text-lg font-bold mb-4">Property Details</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Property detail items */}
+            <DetailItem icon={FaHome} label={`Property Id: ${selectedImage.propertyId}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Type: ${selectedImage.type}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Commercial Property Type: ${selectedImage.commercialPropertyType || "N/A"}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Property For: ${selectedImage.propertyFor}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`New/Resale: ${selectedImage.newOrResale}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedImage.tncpApproved}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`RERA Number: ${selectedImage.reraNumber}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Square Feet: ${selectedImage.squareFeet}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Dimension: ${selectedImage.dimension}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Car Parking: ${selectedImage.carParking}`} color="text-green-500" />
+            <DetailItem icon={FaCalendarAlt} label={`Year Built: ${selectedImage.yearBuilt}`} color="text-green-500" />
+            <DetailItem icon={FaMapMarkerAlt} label={`Facing: ${selectedImage.facing}`} color="text-green-500" />
+            <DetailItem icon={FaClipboardCheck} label={`Furnishing: ${selectedImage.propertyDetails.furnishing}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Property On Floor: ${selectedImage.propertyDetails.propertyOnFloor || "N/A"}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Flooring: ${selectedImage.flooring}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Age of Property: ${selectedImage.ageOfProperty}`} color="text-green-500" />
+            <DetailItem icon={FaHome} label={`Lift: ${selectedImage.lift}`} color="text-green-500" />
           </div>
+        </div>
 
-          <div className="bg-white p-4 rounded-lg shadow-md w-1/2 shadow-md">
-            <h2 className="text-lg font-bold mb-4">Send Enquiry to Owner</h2>
-            <form onSubmit={formSubmit}>
-              <div className="mb-4">
-                <label className="block text-sm font-bold mb-2" htmlFor="name">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-3 py-2 border rounded"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-bold mb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-3 py-2 border rounded"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-bold mb-2" htmlFor="phone">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="w-full px-3 py-2 border rounded"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-sm font-bold mb-2"
-                  htmlFor="message"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  className="w-full px-3 py-2 border rounded"
-                  rows="4"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-              >
-                Submit
-              </button>
-            </form>
+        <div className="mt-5 mb-10">
+          <h2 className="text-lg font-bold mb-4">Amenities</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {selectedImage.amenities.map((amenity, index) => (
+              <DetailItem key={index} icon={amenity.icon} label={amenity.label} color="text-green-500" />
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Blog Section */}
+     <div className="w-1/3">
+    <h2 className="text-lg font-bold mb-4">Related Blog Posts</h2>
+    <div className="flex flex-col space-y-4">
+      {blogPosts.map((post) => (
+        <Link key={post.id} to={post.link} className="flex items-center bg-white rounded-lg shadow-md p-4">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-24 h-24 object-cover rounded-lg mr-4"
+          />
+          <div>
+            <h3 className="text-lg font-bold">{post.title}</h3>
+          </div>
+        </Link>
+      ))}
     </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
   );
 };
 
-const DetailItem = ({ icon: Icon, label }) => (
+const DetailItem = ({ icon: Icon, label, color }) => (
   <div className="flex items-center">
-    <Icon className="mr-2 text-green-500" />
-    <span>{label}</span>
+    <Icon className={`mr-2 ${color}`} />
+    <p>{label}</p>
   </div>
 );
 

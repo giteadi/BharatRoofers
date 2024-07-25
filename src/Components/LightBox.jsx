@@ -18,7 +18,7 @@ export default function Box() {
         alt="Thumbnail Image"
         onClick={() => setOpen(true)}
         style={{ cursor: "pointer"}}
-        className="max-w-[50rem] mx-auto"
+        className="max-w-[50rem] h-[30rem] mx-auto"
       />
 
       <Lightbox
