@@ -262,6 +262,31 @@ const PropertyCard = () => {
       link: "/blog/3",
     },
   ];
+  const specialHighlights = [
+    { icon: FaCar, label: "Good No. of Common/Visitor Parking" },
+    { icon: FaRoad, label: "Main Road Facing" },
+    { icon: FaHome, label: "Good Ceiling Height" },
+    { icon: FaLightbulb, label: "Good Natural Light in the unit" },
+    { icon: FaWater, label: "24/7 Bore Well Water" },
+    { icon: FaCheckCircle, label: "Environment Clearance Available" }
+  ];
+  const relatedProperties = [
+    {
+      id: 1,
+      title: "Silver Park",
+      link: "/property/101",
+      image: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-1.png",
+      description: "3 BHK House in Vijay Nagar, Jabalpur"
+    },
+    {
+      id: 2,
+      title: "Another Property",
+      link: "/property/102",
+      image: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-2.png",
+      description: "Description of another property"
+    },
+    
+  ];
 
   const imageId = parseInt(id);
 
@@ -277,101 +302,128 @@ const PropertyCard = () => {
   }
 
   return (
-   <div className="max-w-full px-4 py-8">
-  <div className="bg-white shadow-lg rounded-lg">
-    <div className="flex flex-col text-xl font-semibold text-gray-700 mb-4 m-5">
-      <h1 className="text-3xl font-bold mb-2">{selectedImage.title}</h1>
-      <p className="mr-4">Price: ${selectedImage.price}</p>
-      <div className="flex items-center mb-2">
-        <FaMapMarkerAlt className="mr-2 text-green-500" />
-        <p>{selectedImage.description}</p>
-        <p className="text-gray-600">{selectedImage.location}</p>
+    <div className="max-w-full px-4 py-8">
+    <div className="bg-white shadow-lg rounded-lg">
+      <div className="flex flex-col text-xl font-semibold text-gray-700 mb-4 m-5">
+        <h1 className="text-3xl font-bold mb-2">{selectedImage.title}</h1>
+        <p className="mr-4">Price: ${selectedImage.price}</p>
+        <div className="flex items-center mb-2">
+          <FaMapMarkerAlt className="mr-2 text-green-500" />
+          <p>{selectedImage.description}</p>
+          <p className="text-green-500">{selectedImage.propertyDetails.address}</p>
+        </div>
       </div>
-    </div>
 
-    {/* Lightbox image */}
-    <div className="bg-gray-100">
-      <Box />
-    </div>
+      {/* Lightbox image */}
+      <div className="bg-gray-100">
+        <Box />
+      </div>
 
-    <div className="flex p-6">
-      {/* Main Content */}
-      <div className="w-2/3 pr-4">
-      {/* social media */}
-      <div className="flex gap-5 items-center">
-        <p className="font-semibold text-2xl">Share:</p>
-      <FaTelegram className="cursor-pointer hover:animate-bounce text-blue-500" size={32} />
-      <FaWhatsapp className="cursor-pointer hover:animate-bounce text-green-500" size={32} />
-      <FaFacebookMessenger className="cursor-pointer hover:animate-bounce text-blue-600" size={32} />
-      <FaTwitter className="cursor-pointer hover:animate-bounce text-blue-400" size={32} />
-      <FaInstagram className="cursor-pointer hover:animate-bounce text-pink-500" size={32} />
-    </div>
-        {/* Property details */}
-        <div className="mb-10">
-          <h2 className="text-lg font-bold mb-4">Property Details</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* Property detail items */}
-            <DetailItem icon={FaHome} label={`Property Id: ${selectedImage.propertyId}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Type: ${selectedImage.type}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Commercial Property Type: ${selectedImage.commercialPropertyType || "N/A"}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Property For: ${selectedImage.propertyFor}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`New/Resale: ${selectedImage.newOrResale}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedImage.tncpApproved}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`RERA Number: ${selectedImage.reraNumber}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Square Feet: ${selectedImage.squareFeet}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Dimension: ${selectedImage.dimension}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Car Parking: ${selectedImage.carParking}`} color="text-green-500" />
-            <DetailItem icon={FaCalendarAlt} label={`Year Built: ${selectedImage.yearBuilt}`} color="text-green-500" />
-            <DetailItem icon={FaMapMarkerAlt} label={`Facing: ${selectedImage.facing}`} color="text-green-500" />
-            <DetailItem icon={FaClipboardCheck} label={`Furnishing: ${selectedImage.propertyDetails.furnishing}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Property On Floor: ${selectedImage.propertyDetails.propertyOnFloor || "N/A"}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Flooring: ${selectedImage.flooring}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Age of Property: ${selectedImage.ageOfProperty}`} color="text-green-500" />
-            <DetailItem icon={FaHome} label={`Lift: ${selectedImage.lift}`} color="text-green-500" />
+      <div className="flex p-6">
+        {/* Main Content */}
+        <div className="w-2/3 pr-4">
+          {/* Social media */}
+          <div className="flex gap-5 items-center">
+            <p className="font-semibold text-2xl">Share:</p>
+            <FaTelegram className="cursor-pointer hover:animate-bounce text-blue-500" size={32} />
+            <FaWhatsapp className="cursor-pointer hover:animate-bounce text-green-500" size={32} />
+            <FaFacebookMessenger className="cursor-pointer hover:animate-bounce text-blue-600" size={32} />
+            <FaTwitter className="cursor-pointer hover:animate-bounce text-blue-400" size={32} />
+            <FaInstagram className="cursor-pointer hover:animate-bounce text-pink-500" size={32} />
+          </div>
+
+          {/* Property details */}
+          <div className="mt-5 p-1">
+            <h2 className="text-xl font-semibold mb-4">Property Details</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {/* Property detail items */}
+              <DetailItem icon={FaHome} label={`Property Id: ${selectedImage.propertyId}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Type: ${selectedImage.type}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Commercial Property Type: ${selectedImage.commercialPropertyType || "N/A"}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Property For: ${selectedImage.propertyFor}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`New/Resale: ${selectedImage.newOrResale}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedImage.tncpApproved}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`RERA Number: ${selectedImage.reraNumber}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Square Feet: ${selectedImage.squareFeet}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Dimension: ${selectedImage.dimension}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Car Parking: ${selectedImage.carParking}`} color="text-green-500" />
+              <DetailItem icon={FaCalendarAlt} label={`Year Built: ${selectedImage.yearBuilt}`} color="text-green-500" />
+              <DetailItem icon={FaMapMarkerAlt} label={`Facing: ${selectedImage.facing}`} color="text-green-500" />
+              <DetailItem icon={FaClipboardCheck} label={`Furnishing: ${selectedImage.propertyDetails.furnishing}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Property On Floor: ${selectedImage.propertyDetails.propertyOnFloor || "N/A"}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Flooring: ${selectedImage.flooring}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Age of Property: ${selectedImage.ageOfProperty}`} color="text-green-500" />
+              <DetailItem icon={FaHome} label={`Lift: ${selectedImage.lift}`} color="text-green-500" />
+            </div>
+          </div>
+
+          {/* Property About */}
+          <div className="bg-white rounded-lg ">
+            <div className="mt-3 p-1 ">
+              <h2 className="text-xl font-semibold mb-5">About</h2>
+              <p className=" mb-4 flex items-center gap-1">
+                <FaMapMarkerAlt className="text-green-500" />
+                {selectedImage.description}
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <DetailItem icon={FaMapMarkerAlt} label={`Location: ${selectedImage.about?.location || 'N/A'}`} color="text-green-500" />
+                <DetailItem icon={FaClipboardCheck} label={`Approval: ${selectedImage.about?.approval || 'N/A'}`} color="text-green-500" />
+                <DetailItem icon={FaHome} label={`Type: ${selectedImage.about?.type || 'N/A'}`} color="text-green-500" />
+                <DetailItem icon={FaCheckCircle} label={`Minimum Price: ${selectedImage.about?.minimumPrice || 'N/A'}`} color="text-green-500" />
+              </div>
+            </div>
+          </div>
+           {/* Special Highlights */}
+           <div className="bg-white p-1 rounded-lg mt-5 mb-6">
+            <h2 className="text-xl font-semibold mb-4">Special Highlights</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {specialHighlights.map((highlight, index) => (
+                <DetailItem key={index} icon={highlight.icon} label={highlight.label} color="text-green-500" />
+              ))}
+            </div>
+          </div>
+
+          {/* Amenities */}
+          <div className="mt-5 mb-10">
+            <h2 className="text-lg font-bold mb-4">Amenities</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {selectedImage.amenities.map((amenity, index) => (
+                <DetailItem key={index} icon={amenity.icon} label={amenity.label} color="text-green-500" />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-5 mb-10">
-          <h2 className="text-lg font-bold mb-4">Amenities</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {selectedImage.amenities.map((amenity, index) => (
-              <DetailItem key={index} icon={amenity.icon} label={amenity.label} color="text-green-500" />
+        {/* Blog Section */}
+        <div className="w-1/3">
+          <h2 className="text-lg font-bold mb-4">Related Blog Posts</h2>
+          <div className="flex flex-col space-y-4">
+            {blogPosts.map((post) => (
+              <Link key={post.id} to={post.link} className="flex items-center bg-white rounded-lg shadow-md p-4">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-24 h-24 object-cover rounded-lg mr-4"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">{post.title}</h3>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Blog Section */}
-     <div className="w-1/3">
-    <h2 className="text-lg font-bold mb-4">Related Blog Posts</h2>
-    <div className="flex flex-col space-y-4">
-      {blogPosts.map((post) => (
-        <Link key={post.id} to={post.link} className="flex items-center bg-white rounded-lg shadow-md p-4">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-24 h-24 object-cover rounded-lg mr-4"
-          />
-          <div>
-            <h3 className="text-lg font-bold">{post.title}</h3>
-          </div>
-        </Link>
-      ))}
     </div>
   </div>
-</div>
-  </div>
-</div>
-
-
-  );
+);
 };
 
 const DetailItem = ({ icon: Icon, label, color }) => (
-  <div className="flex items-center">
-    <Icon className={`mr-2 ${color}`} />
-    <p>{label}</p>
-  </div>
+<div className="flex items-center">
+  <Icon className={`mr-2 ${color}`} />
+  <p>{label}</p>
+</div>
 );
 
 export default PropertyCard;
