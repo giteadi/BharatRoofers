@@ -9,8 +9,7 @@ import RegisterForm from "./Pages/Registration";
 import UpperNav from "./Components/UpperNav";
 import PropertyCard from "./Pages/PropertyCard";
 import Box from "./Components/LightBox";
-
-
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -28,6 +27,7 @@ function App() {
         <Route path="/property/:id" element={<PropertyCard />} />
         <Route path='/box' element={<Box/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

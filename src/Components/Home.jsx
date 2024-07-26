@@ -9,7 +9,7 @@ export default function Home(){
             <Header/>
             <FeatureSection/>
             <TestimonialSection/>
-            <Footer/>
+            
         </div>
     )
 }

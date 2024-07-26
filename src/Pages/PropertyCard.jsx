@@ -22,9 +22,10 @@ import {
 import { useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import { Link } from "react-router-dom";
+import styled, { keyframes } from 'styled-components';
 const PropertyCard = () => {
   const { id } = useParams();
-
+  const formRef = React.useRef(null);
   const imageArray = [
     {
       id: 1,
@@ -300,7 +301,11 @@ const PropertyCard = () => {
     e.preventDefault();
     toast.success("Form submitted successfully");
   }
-
+  function scrollToForm() {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
   return (
     <div className="max-w-full px-4 py-8">
     <div className="bg-white shadow-lg rounded-lg">
@@ -308,9 +313,9 @@ const PropertyCard = () => {
         <h1 className="text-3xl font-bold mb-2">{selectedImage.title}</h1>
         <p className="mr-4">Price: ${selectedImage.price}</p>
         <div className="flex items-center mb-2">
-          <FaMapMarkerAlt className="mr-2 text-green-500" />
+          <FaMapMarkerAlt className="mr-2 " />
           <p>{selectedImage.description}</p>
-          <p className="text-green-500">{selectedImage.propertyDetails.address}</p>
+       
         </div>
       </div>
 
@@ -335,45 +340,47 @@ const PropertyCard = () => {
           {/* Property details */}
           <div className="mt-5 p-1">
             <h2 className="text-xl font-semibold mb-4">Property Details</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {/* Property detail items */}
-              <DetailItem icon={FaHome} label={`Property Id: ${selectedImage.propertyId}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Type: ${selectedImage.type}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Commercial Property Type: ${selectedImage.commercialPropertyType || "N/A"}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Property For: ${selectedImage.propertyFor}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`New/Resale: ${selectedImage.newOrResale}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedImage.tncpApproved}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`RERA Number: ${selectedImage.reraNumber}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Square Feet: ${selectedImage.squareFeet}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Dimension: ${selectedImage.dimension}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Car Parking: ${selectedImage.carParking}`} color="text-green-500" />
-              <DetailItem icon={FaCalendarAlt} label={`Year Built: ${selectedImage.yearBuilt}`} color="text-green-500" />
-              <DetailItem icon={FaMapMarkerAlt} label={`Facing: ${selectedImage.facing}`} color="text-green-500" />
-              <DetailItem icon={FaClipboardCheck} label={`Furnishing: ${selectedImage.propertyDetails.furnishing}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Property On Floor: ${selectedImage.propertyDetails.propertyOnFloor || "N/A"}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Flooring: ${selectedImage.flooring}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Age of Property: ${selectedImage.ageOfProperty}`} color="text-green-500" />
-              <DetailItem icon={FaHome} label={`Lift: ${selectedImage.lift}`} color="text-green-500" />
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+  {/* Property detail items */}
+  <DetailItem icon={FaHome} label={`Property Id: ${selectedImage.propertyId}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Type: ${selectedImage.type}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Commercial Property Type: ${selectedImage.commercialPropertyType || "N/A"}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Property For: ${selectedImage.propertyFor}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`New/Resale: ${selectedImage.newOrResale}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedImage.tncpApproved}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`RERA Number: ${selectedImage.reraNumber}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Square Feet: ${selectedImage.squareFeet}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Dimension: ${selectedImage.dimension}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Car Parking: ${selectedImage.carParking}`} color="text-green-500" />
+  <DetailItem icon={FaCalendarAlt} label={`Year Built: ${selectedImage.yearBuilt}`} color="text-green-500" />
+  <DetailItem icon={FaMapMarkerAlt} label={`Facing: ${selectedImage.facing}`} color="text-green-500" />
+  <DetailItem icon={FaClipboardCheck} label={`Furnishing: ${selectedImage.propertyDetails.furnishing}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Property On Floor: ${selectedImage.propertyDetails.propertyOnFloor || "N/A"}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Flooring: ${selectedImage.flooring}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Age of Property: ${selectedImage.ageOfProperty}`} color="text-green-500" />
+  <DetailItem icon={FaHome} label={`Lift: ${selectedImage.lift}`} color="text-green-500" />
+</div>
+
           </div>
 
           {/* Property About */}
-          <div className="bg-white rounded-lg ">
-            <div className="mt-3 p-1 ">
-              <h2 className="text-xl font-semibold mb-5">About</h2>
-              <p className=" mb-4 flex items-center gap-1">
-                <FaMapMarkerAlt className="text-green-500" />
-                {selectedImage.description}
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <DetailItem icon={FaMapMarkerAlt} label={`Location: ${selectedImage.about?.location || 'N/A'}`} color="text-green-500" />
-                <DetailItem icon={FaClipboardCheck} label={`Approval: ${selectedImage.about?.approval || 'N/A'}`} color="text-green-500" />
-                <DetailItem icon={FaHome} label={`Type: ${selectedImage.about?.type || 'N/A'}`} color="text-green-500" />
-                <DetailItem icon={FaCheckCircle} label={`Minimum Price: ${selectedImage.about?.minimumPrice || 'N/A'}`} color="text-green-500" />
-              </div>
-            </div>
-          </div>
+          <div className="bg-white rounded-lg">
+  <div className="mt-3 p-1">
+    <h2 className="text-xl font-semibold mb-5">About</h2>
+    <p className="mb-4 flex items-center gap-2">
+      <FaMapMarkerAlt className="text-green-500" />
+      {selectedImage.description}
+    </p>
+    
+    <div className="flex flex-col gap-6">
+      <DetailItem icon={FaMapMarkerAlt} label={`Location: ${selectedImage.about?.location || 'N/A'}`} color="text-green-500" />
+      <DetailItem icon={FaClipboardCheck} label={`Approval: ${selectedImage.about?.approval || 'N/A'}`} color="text-green-500" />
+      <DetailItem icon={FaHome} label={`Type: ${selectedImage.about?.type || 'N/A'}`} color="text-green-500" />
+      <DetailItem icon={FaCheckCircle} label={`Minimum Price: ${selectedImage.about?.minimumPrice || 'N/A'}`} color="text-green-500" />
+    </div>
+  </div>
+</div>
+
            {/* Special Highlights */}
            <div className="bg-white p-1 rounded-lg mt-5 mb-6">
             <h2 className="text-xl font-semibold mb-4">Special Highlights</h2>
@@ -395,21 +402,50 @@ const PropertyCard = () => {
           </div>
            {/* RECOMMENDED */}
            <div>
-      <p className="font-semibold text-xl">Recommended</p>
-      <ul className="list-disc pl-1">
-        <li className="flex items-center"><FaLongArrowAltRight className="mr-2 text-green-500" /> Long term investment</li>
-        <li className="flex items-center"><FaHome className="mr-2 text-green-500" /> Own purpose</li>
-        <li className="flex items-center"><FaDollarSign className="mr-2 text-green-500" /> Investment</li>
-      </ul>
-         </div>
+  <p className="font-semibold text-xl mb-4">Recommended</p>
+  <ul className="list-disc pl-1 space-y-4">
+    <li className="flex items-center">
+      <FaLongArrowAltRight className="mr-3 text-green-500" />
+      Long term investment
+    </li>
+    <li className="flex items-center">
+      <FaHome className="mr-3 text-green-500" />
+      Own purpose
+    </li>
+    <li className="flex items-center">
+      <FaDollarSign className="mr-3 text-green-500" />
+      Investment
+    </li>
+  </ul>
+</div>
+
          {/* Related property */}
-         <div>
-          
-         </div>
-        </div>
+         <div className="mt-5 mb-5">
+              <h2 className="text-lg font-bold mb-4">Related Properties</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {relatedProperties.map((property) => (
+                  <Link key={property.id} to={property.link} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                    <img
+                      src={property.image}
+                      alt={property.title}
+                      className="w-full h-48 object-cover rounded-lg mb-3"
+                    />
+                    <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
+                    <p className="text-gray-600">{property.description}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
        
         {/* Blog Section */}
         <div className="w-1/3">
+        {/* Contact us button */}
+        <div className="mb-4">
+      <HeartbeatButton onClick={scrollToForm}>
+        Contact Us
+      </HeartbeatButton>
+    </div>
           <h2 className="text-lg font-bold mb-4">Related Blog Posts</h2>
           <div className="flex flex-col space-y-4">
             {blogPosts.map((post) => (
@@ -427,6 +463,87 @@ const PropertyCard = () => {
           </div>
         </div>
       </div>
+       {/* Form */}
+       <div className="w-1/3 p-4 bg-gray-100 mx-auto" ref={formRef}>
+  <h2 className="text-lg font-bold mb-4">Contact Us</h2>
+  <form onSubmit={formSubmit} className="space-y-4">
+    {/* Property Id and Name Fields in Same Row */}
+    <div className="flex space-x-4 mb-4">
+      {/* Property Id Field */}
+      <div className="flex-1">
+        <label htmlFor="propertyId" className="font-semibold mb-1 block">Property Id:</label>
+        <input
+          name="propertyId"
+          value={selectedImage.propertyId}
+          id="propertyId"
+          className="w-full p-2 border border-gray-300 rounded"
+          readOnly
+        />
+      </div>
+
+      {/* Property Name Field */}
+      <div className="flex-1">
+        <label htmlFor="propertyName" className="font-semibold mb-1 block">Property Name:</label>
+        <input
+          name="propertyName"
+          value={selectedImage.title}
+          id="propertyName"
+          className="w-full p-2 border border-gray-300 rounded"
+          readOnly
+        />
+      </div>
+    </div>
+
+    {/* Name Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="name" className="font-semibold mb-1">Your Name:</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        id="name"
+        className="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+    </div>
+
+    {/* Email Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="email" className="font-semibold mb-1">Your Email:</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        id="email"
+        className="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+    </div>
+
+    {/* Message Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="message" className="font-semibold mb-1">Your Message:</label>
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        id="message"
+        rows="4"
+        className="w-full p-2 border border-gray-300 rounded"
+        required
+      />
+    </div>
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      className="w-full py-2 bg-green-500 text-white rounded"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+
     </div>
   </div>
 );
@@ -440,3 +557,41 @@ const DetailItem = ({ icon: Icon, label, color }) => (
 );
 
 export default PropertyCard;
+
+
+
+
+const heartbeat = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+// Styled button component
+const HeartbeatButton = styled.button`
+  background-color: #38a169; /* Tailwind's green-500 */
+  color: white;
+  padding: 0.5rem 1rem; /* Tailwind's py-2 px-4 */
+  border-radius: 0.375rem; /* Tailwind's rounded */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-md */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 12rem; /* Tailwind's w-48 */
+  animation: ${heartbeat} 4s infinite; /* Increased duration for slower effect */
+  
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Tailwind's shadow-lg */
+    transform: scale(1.05);
+  }
+`;
