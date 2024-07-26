@@ -6,8 +6,8 @@ import {
   FaHome,
   FaCalendarAlt,
   FaClipboardCheck,
-  FaKey,
-  FaCouch,
+  FaLongArrowAltRight,
+  FaDollarSign,
   FaCar,
   FaLightbulb,
   FaRoad,
@@ -385,7 +385,7 @@ const PropertyCard = () => {
           </div>
 
           {/* Amenities */}
-          <div className="mt-5 mb-10">
+          <div className="mt-5 mb-5">
             <h2 className="text-lg font-bold mb-4">Amenities</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {selectedImage.amenities.map((amenity, index) => (
@@ -393,8 +393,21 @@ const PropertyCard = () => {
               ))}
             </div>
           </div>
+           {/* RECOMMENDED */}
+           <div>
+      <p className="font-semibold text-xl">Recommended</p>
+      <ul className="list-disc pl-1">
+        <li className="flex items-center"><FaLongArrowAltRight className="mr-2 text-green-500" /> Long term investment</li>
+        <li className="flex items-center"><FaHome className="mr-2 text-green-500" /> Own purpose</li>
+        <li className="flex items-center"><FaDollarSign className="mr-2 text-green-500" /> Investment</li>
+      </ul>
+         </div>
+         {/* Related property */}
+         <div>
+          
+         </div>
         </div>
-
+       
         {/* Blog Section */}
         <div className="w-1/3">
           <h2 className="text-lg font-bold mb-4">Related Blog Posts</h2>
