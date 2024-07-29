@@ -10,7 +10,7 @@ import UpperNav from "./Components/UpperNav";
 import PropertyCard from "./Pages/PropertyCard";
 import Box from "./Components/LightBox";
 import Footer from "./Components/Footer";
-
+import Category from "./Pages/CategoryPage";
 function App() {
   return (
     <div>
@@ -26,6 +26,7 @@ function App() {
         <Route path='/register' element={<RegisterForm />} />
         <Route path="/property/:id" element={<PropertyCard />} />
         <Route path='/box' element={<Box/>}/>
+        <Route path="/categoryPage/:category" element={<Category/>}/>
       </Routes>
       <Footer/>
     </div>

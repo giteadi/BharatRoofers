@@ -42,7 +42,7 @@ const Carousel = ({ pics }) => {
             <img
               src={src}
               alt={`Image ${index + 1}`}
-              className="w-full h-48 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-[1.01]"
+              className="w-full h-48 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-[1.01] hover:cursor-pointer "
             />
           </div>
         ))}
