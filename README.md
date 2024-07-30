@@ -1,3 +1,8 @@
+client id:709902163543-fk6muis1q2q81heftf25g4p3n11tlu1t.apps.googleusercontent.com
+
+client secret:-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
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

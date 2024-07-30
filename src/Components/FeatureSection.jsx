@@ -228,9 +228,6 @@ const imageArray = [
   },
 ];
 
-
-
-
 const titles = [
   "Image 1 Title",
   "Image 2 Title",
