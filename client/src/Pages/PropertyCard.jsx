@@ -23,6 +23,7 @@ import { useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from 'styled-components';
+import axios from 'axios'
 const PropertyCard = () => {
   const { id } = useParams();
   const formRef = React.useRef(null);
@@ -306,6 +307,16 @@ const PropertyCard = () => {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }
+  // Function to fetch property details by propertyId
+const fetchPropertyDetails = async (propertyId) => {
+  try {
+    const response = await axios.get(`https://bharatroofers.com/api/property/getPropertyById/${propertyId}`);
+    return response.data.data;
+  } catch (error) {
+    console.error('Error fetching property details:', error);
+    throw error; // Re-throw the error to be handled by the caller
+  }
+};
   return (
     <div className="max-w-full px-4 py-8">
     <div className="bg-white shadow-lg rounded-lg">

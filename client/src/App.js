@@ -10,25 +10,25 @@ import UpperNav from "./Components/UpperNav";
 import PropertyCard from "./Pages/PropertyCard";
 import Box from "./Components/LightBox";
 import Footer from "./Components/Footer";
-import Category from "./Pages/CategoryPage";
+import CategoryPage from "./Pages/CategoryPage";  // Correctly import CategoryPage
+
 function App() {
   return (
     <div>
-      <UpperNav/>
+      <UpperNav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:postId" element={<SinglePage />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path='/login' element={<LoginForm />} />
-        <Route path='/register' element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
         <Route path="/property/:id" element={<PropertyCard />} />
-        <Route path='/box' element={<Box/>}/>
-        <Route path="/categoryPage/:category" element={<Category/>}/>
+        <Route path="/box" element={<Box />} />
+        <Route path="/category" element={<CategoryPage />} />  
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
