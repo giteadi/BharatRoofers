@@ -156,7 +156,7 @@ const Nav2 = () => {
                         })
                       ) : (
                         <div className="text-center text-gray-500 mt-4">
-                          <h5>No properties available</h5>
+                          
                         </div>
                       )}
                     </div>

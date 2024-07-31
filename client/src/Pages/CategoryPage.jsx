@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-import { FaLightbulb, FaRoad, FaWater } from 'react-icons/fa';  // Example icons
+import { FaLightbulb, FaRoad, FaWater } from 'react-icons/fa';
 
 const CategoryPage = () => {
   const location = useLocation();
   const { filteredProperties } = location.state || { filteredProperties: [] };
+  const [propertiesImages, setPropertiesImages] = useState([]);
+
+  useEffect(() => {
+    const getAllPropertiesImages = async () => {
+      try {
+        const response = await axios.get('https://bharatroofers.com/api/property/getAllPropertyImages');
+        const { data } = response.data; // Destructure 'data' from the response
+        console.log('Fetched data:', data); // Log the entire data array
+        if (Array.isArray(data)) {
+          console.log('First item in data array:', data[0]); // Log the first item to inspect its structure
+          setPropertiesImages(data);
+        } else {
+          console.error('Data is not an array:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching property images:', error);
+      }
+    };
+
+    getAllPropertiesImages();
+  }, []);
+
+  const getPropertyImage = (propertyId) => {
+    // Convert propertyId to string for comparison
+    const propertyImage = propertiesImages.find(image => image.property_id === String(propertyId));
+    console.log('Property Image Data:', propertyImage); // Log the found image object
+    return propertyImage && propertyImage.image ? propertyImage.image : 'default_image_url'; // Use 'image' instead of 'image_url'
+  };
 
   return (
     <div className="container mt-4">
@@ -14,7 +43,11 @@ const CategoryPage = () => {
           filteredProperties.map(property => (
             <div className="card bg-white shadow-md rounded-lg overflow-hidden" key={property.id}>
               <a href={`/property/${property.id}`} target="_blank" rel="noopener noreferrer">
-                <img src={property.image} className="w-full h-40 object-cover" alt={`Property ${property.id}`} />
+                <img 
+                  src={getPropertyImage(property.id)} 
+                  className="w-full h-40 object-cover" 
+                  alt={`Property ${property.id}`} 
+                />
               </a>
               <div className="p-4">
                 <p className="text-sm flex items-center space-x-2 text-gray-600">
