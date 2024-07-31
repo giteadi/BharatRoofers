@@ -36,18 +36,20 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mx-auto mt-4 px-4">
       <h1 className="text-2xl font-bold mb-4">Filtered Properties</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredProperties.length > 0 ? (
           filteredProperties.map(property => (
             <div className="card bg-white shadow-md rounded-lg overflow-hidden" key={property.id}>
               <a href={`/property/${property.id}`} target="_blank" rel="noopener noreferrer">
-                <img 
-                  src={getPropertyImage(property.id)} 
-                  className="w-full h-40 object-cover" 
-                  alt={`Property ${property.id}`} 
-                />
+                <div className="w-full h-[15rem] overflow-hidden">
+                  <img 
+                    src={getPropertyImage(property.id)} 
+                    className="w-full h-full object-contain" 
+                    alt={`Property ${property.id}`} 
+                  />
+                </div>
               </a>
               <div className="p-4">
                 <p className="text-sm flex items-center space-x-2 text-gray-600">
