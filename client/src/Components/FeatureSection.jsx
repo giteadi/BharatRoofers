@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   FaTimes,
   FaRegBuilding,
@@ -12,7 +12,7 @@ import {
 import Carausal from './Carausal';
 import CarouselSlider from '../Pages/CardSlider';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 const imageArray = [
   {
     id: 1,
@@ -239,35 +239,80 @@ const titles = [
 ];
 
 const FeatureSection = () => {
+  const [properties, setProperties] = useState([]);
+  const [propertiesImages, setPropertiesImages] = useState([]);
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const handleClick = () => setIsVideoOpen(prev => !prev);
 
-  const navigateToProperty = (id) => {
-    navigate(`/property/${id}`);
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const response = await axios.get('https://bharatroofers.com/api/property/getAllProperty');
+        setProperties(response.data.data);
+      } catch (error) {
+        console.error('Error fetching properties:', error);
+      }
+    };
+
+    const fetchPropertyImages = async () => {
+      try {
+        const response = await axios.get('https://bharatroofers.com/api/property/getAllPropertyImages');
+        setPropertiesImages(response.data.data);
+      } catch (error) {
+        console.error('Error fetching property images:', error);
+      }
+    };
+
+    fetchProperties();
+    fetchPropertyImages();
+  }, []);
+
+  const categories = [
+    { name: 'villa', title: 'Villa', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-1.png' },
+    { name: 'house', title: 'House', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-2.png' },
+    { name: 'land', title: 'Land', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-3.png' },
+    { name: 'farmLand', title: 'Farm Land', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-4.png' },
+    { name: 'commercial', title: 'Commercial', defaultImage: 'default_commercial_image_url' },
+  ];
+
+  const getCategoryCount = (category) => {
+    return properties.filter(property => property.property_type.toLowerCase() === category.toLowerCase()).length;
+  };
+
+  const getCategoryImage = (category, defaultImage) => {
+    const property = properties.find(property => property.property_type.toLowerCase() === category.toLowerCase());
+    if (!property) return defaultImage;
+    const image = propertiesImages.find(image => image.property_id === String(property.id));
+    return image ? image.image : defaultImage;
+  };
+
+  const navigateToCategory = (category) => {
+    const filteredProperties = properties.filter(property => property.property_type.toLowerCase() === category.toLowerCase());
+    navigate('/category', { state: { filteredProperties } });
   };
 
   return (
     <div>
       {/* Image Grid Section */}
       <section className="mt-8 md:mt-12 max-w-screen mx-auto flex items-center justify-center px-4 hover:cursor-pointer md:mb-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl w-full">
-          {imageArray.map((image, index) => (
-            <div key={image.id} className={`col-span-2 sm:col-span-1 md:col-span-${index === 3 ? '4' : '2'} relative overflow-hidden`}>
-              <img
-                src={image.link}
-                alt={`home${index + 1}`}
-                className="transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover cursor-pointer"
-                onClick={() => navigateToProperty(image.id)}
-              />
-              <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-green-400 font-bold absolute top-5 left-5">
-                {index === 3 ? "Beach House" : `Image ${index + 1} Title`}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl w-full">
+        {categories.map((category, index) => (
+          <div key={category.name} className={`col-span-2 sm:col-span-1 md:col-span-${index === 3 ? '4' : '2'} relative overflow-hidden h-64`}>
+            <img
+              src={getCategoryImage(category.name, category.defaultImage)}
+              alt={category.title}
+              className="transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover cursor-pointer"
+              onClick={() => navigateToCategory(category.name)}
+            />
+            <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-green-400 font-bold absolute top-5 left-5">
+              {category.title} ({getCategoryCount(category.name)})
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
 
       {/* Features Section */}
       <section className="bg-gray-100 py-8 md:py-12">
