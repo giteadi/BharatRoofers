@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import { FaLightbulb, FaRoad, FaWater } from 'react-icons/fa';
 
 const CategoryPage = () => {
   const location = useLocation();
   const { filteredProperties } = location.state || { filteredProperties: [] };
   const [propertiesImages, setPropertiesImages] = useState([]);
-
+const navigate=useNavigate();
   useEffect(() => {
     const getAllPropertiesImages = async () => {
       try {
@@ -34,7 +34,9 @@ const CategoryPage = () => {
     console.log('Property Image Data:', propertyImage); // Log the found image object
     return propertyImage && propertyImage.image ? propertyImage.image : 'default_image_url'; // Use 'image' instead of 'image_url'
   };
-
+  const navigateToProperty = (propertyId) => {
+    navigate(`/property/${propertyId}`);
+  };
   return (
     <div className="container mx-auto mt-4 px-4">
     <h1 className="text-2xl font-bold mb-4">Filtered Properties</h1>

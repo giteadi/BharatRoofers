@@ -301,6 +301,7 @@ const FeatureSection = () => {
         {categories.map((category, index) => (
           <div key={category.name} className={`col-span-2 sm:col-span-1 md:col-span-${index === 3 ? '4' : '2'} relative overflow-hidden h-64`}>
             <img
+            loading='lazy'
               src={getCategoryImage(category.name, category.defaultImage)}
               alt={category.title}
               className="transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover cursor-pointer"
