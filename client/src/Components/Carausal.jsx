@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
@@ -66,11 +67,13 @@ const Carousel = () => {
       <Slider {...settings}>
         {properties.map((property, index) => (
           <div key={index} className="px-2">
-            <img
-              src={getImageForProperty(property.id) || 'default_image_path'} // replace 'default_image_path' with actual default image path
-              alt={`Property ${property.id}`}
-              className="w-full h-48 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-[1.01] hover:cursor-pointer"
-            />
+            <Link to={`/property/${property.id}`}>
+              <img
+                src={getImageForProperty(property.id) || 'default_image_path'} // replace 'default_image_path' with actual default image path
+                alt={`Property ${property.id}`}
+                className="w-full h-48 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-[1.01] hover:cursor-pointer"
+              />
+            </Link>
             <div className="text-center mt-2">
               <h3 className="text-lg font-bold">{property.property_name}</h3>
               <p className="text-sm text-gray-500">{property.price}</p>
