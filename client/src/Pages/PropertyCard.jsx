@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import toast from "react-hot-toast";
-import { FaMapMarkerAlt, FaHome, FaTelegram, FaWhatsapp, FaFacebookMessenger, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaMapMarkerAlt, FaHome, FaTelegram, FaWhatsapp, FaFacebookMessenger, FaTwitter, FaInstagram, FaRupeeSign } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import axios from 'axios';
@@ -109,7 +109,7 @@ const PropertyCard = () => {
       <div className="bg-white shadow-lg rounded-lg">
         <div className="p-6">
           <h1 className="text-3xl font-bold text-gray-700 mb-2">{title}</h1>
-          <p className="text-xl text-gray-500 mb-2">Price: ${price}</p>
+          <p className="text-xl text-gray-500 mb-2 flex items-center">Price:<FaRupeeSign /> {price}</p>
           <div className="flex items-center mb-4">
             <FaMapMarkerAlt className="mr-2 text-gray-600" />
             <p className="text-lg text-gray-600">{description}</p>
