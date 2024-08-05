@@ -690,7 +690,7 @@ const addSuggestedPropperty = (req, res) => {
 // method to get most visited property;
 
 const getMostVisitedProperties = (req, res) => {
-    const sqlSelectMostVisited = 'SELECT * FROM properties WHERE property_for = "sale" AND isSold = "0" ORDER BY visits DESC LIMIT 20'; // Adjust the LIMIT as needed
+    const sqlSelectMostVisited = 'SELECT * FROM properties WHERE property_for = "sale" AND isSold = "0" ORDER BY visits DESC LIMIT 20'; 
 
     db.query(sqlSelectMostVisited, (error, results) => {
         if (error) {
