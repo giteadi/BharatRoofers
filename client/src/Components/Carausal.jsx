@@ -71,7 +71,7 @@ const Carousel = () => {
   return (
     <div className="relative">
       <Slider {...settings}>
-        {properties.map((property, index) => (
+        {properties.slice(0, 10).map((property, index) => ( 
           <div key={index} className="px-2">
             <Link to={`/property/${property.id}`}>
               <img
