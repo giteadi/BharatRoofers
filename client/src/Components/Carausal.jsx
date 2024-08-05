@@ -77,7 +77,7 @@ const Carousel = () => {
               <img
                 src={getImageForProperty(property.id)}
                 alt={`Property ${property.id}`}
-                className="w-full h-56 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-105 hover:cursor-pointer"
+                className="w-full h-56 object-cover rounded-md  hover:cursor-pointer"
               />
             </Link>
             <div className="text-center mt-2">

@@ -14,10 +14,10 @@ const CarouselSlider = ({ images, titles }) => {
     return (
         <div className="relative max-w-md mx-auto">
             <div className="carousel carousel-center bg-neutral rounded-box space-x-4 p-4 overflow-hidden">
-                <div className="flex items-center justify-center relative">
+                <div className="flex items-center justify-center relative w-72 h-72"> {/* Fixed size */}
                     <img
                         src={images[currentIndex]}
-                        className="rounded-box object-cover w-full h-64 md:h-72" // Adjust height as needed
+                        className="rounded-box object-cover w-full h-full" // Adjusted Tailwind classes
                         alt={`Carousel Image ${currentIndex + 1}`}
                     />
                     <h2 className="text-xl md:text-2xl font-bold absolute bottom-4 left-4 bg-white p-2 rounded-lg shadow-lg">
