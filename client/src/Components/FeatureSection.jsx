@@ -417,8 +417,8 @@ console.log("Recently Posted",recentlyPosted)
       <section className='flex justify-around items-center flex-wrap'>
         {
           ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
-            <div key={index} className='flex flex-col items-center '>
-              <p className='text-2xl font-bold'>{title}</p>
+            <div key={index} className='flex flex-col items-center'>
+              <p className='text-2xl font-bold'>{title}</p> 
               {title === 'Recent Projects' ? (
                 <CarouselSlider
                   titles={recentlyPosted.map(prop => prop.title)}
