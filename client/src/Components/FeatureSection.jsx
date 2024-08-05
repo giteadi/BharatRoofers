@@ -8,235 +8,13 @@ import {
   FaRoad,
   FaWater,
   FaSun,
+  FaPlay
 } from "react-icons/fa";
 import Carausal from './Carausal';
 import CarouselSlider from '../Pages/CardSlider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-const imageArray = [
-  {
-    id: 1,
-    link: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-1.png",
-    title: "Silver Park",
-    description: "3 BHK House in Vijay Nagar, Jabalpur",
-    price: "240000",
-    status: "Ready to Move",
-    propertyDetails: {
-      area: "2000 sq.ft",
-      configuration: "3 Bedrooms, 3 Bathrooms, 1 Balcony",
-      address: "Vijay Nagar, Jabalpur",
-      floors: "3 Floors",
-      possession: "Immediate",
-      status: "Available",
-      ownership: "Freehold",
-      furnishing: "Semi-Furnished",
-      parking: "2 Covered",
-    },
-    ownerDetails: {
-      name: "Rahul Sharma",
-      propertiesListed: 3,
-      localities: ["Vijay Nagar", "Jabalpur City"],
-      phoneNumber: "9876543210",
-    },
-    amenities: [
-      { icon: FaLightbulb, label: "Lights" },
-      { icon: FaRoad, label: "Road" },
-      { icon: FaWater, label: "Drainage" },
-      { icon: FaSun, label: "Road Light" },
-    ],
-    about: {
-      location: "Chowkital Lamheta Ghat Main Road",
-      approval: "TNCP (Town And Country Planning) Approved",
-      type: "Market With Shops Available",
-      minimumPrice: "24 Lakhs",
-    },
-    propertyId: 101,
-    type: "Residential",
-    commercialPropertyType: undefined,
-    propertyFor: "Sale",
-    newOrResale: "New",
-    tncpApproved: "Yes",
-    reraNumber: "RERA1234",
-    squareFeet: "2000 sq.ft",
-    dimension: "40x50",
-    carParking: "2 Covered",
-    yearBuilt: "2010",
-    facing: "East",
-    flooring: "Marble",
-    ageOfProperty: "10 years",
-    lift: "Yes",
-  },
-  {
-    id: 2,
-    link: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-2.png",
-    title: "Another Property",
-    description: "Description of another property",
-    price: "$500,000",
-    status: "Under Construction",
-    propertyDetails: {
-      area: "1500 sq.ft",
-      configuration: "4 Bedrooms, 3 Bathrooms, No Balcony",
-      address: "Central Avenue, Jabalpur",
-      floors: "2 Floors",
-      possession: "Within 12 months",
-      status: "Available for Sale",
-      ownership: "Leasehold",
-      furnishing: "Unfurnished",
-      parking: "1 Covered",
-    },
-    ownerDetails: {
-      name: "Sneha Patel",
-      propertiesListed: 2,
-      localities: ["Central Avenue", "Jabalpur City"],
-      phoneNumber: "9876543211",
-    },
-    propertyId: 102,
-    type: "Residential",
-    commercialPropertyType: undefined,
-    propertyFor: "Sale",
-    newOrResale: "New",
-    tncpApproved: "No",
-    reraNumber: "RERA5678",
-    squareFeet: "1500 sq.ft",
-    dimension: "30x50",
-    carParking: "1 Covered",
-    yearBuilt: "2022",
-    facing: "West",
-    flooring: "Tiles",
-    ageOfProperty: "2 years",
-    lift: "No",
-  },
-  {
-    id: 3,
-    link: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-3.png",
-    title: "Luxury Villa",
-    description: "4 BHK Villa with pool in Prime Location",
-    price: "$1,200,000",
-    status: "Ready to Move",
-    propertyDetails: {
-      area: "4000 sq.ft",
-      configuration: "4 Bedrooms, 5 Bathrooms, 2 Balconies",
-      address: "Prime Location, Jabalpur",
-      floors: "4 Floors",
-      possession: "Immediate",
-      status: "Available",
-      ownership: "Freehold",
-      furnishing: "Fully Furnished",
-      parking: "3 Covered",
-    },
-    ownerDetails: {
-      name: "Akash Verma",
-      propertiesListed: 1,
-      localities: ["Prime Location", "Jabalpur City"],
-      phoneNumber: "9876543212",
-    },
-    propertyId: 103,
-    type: "Residential",
-    commercialPropertyType: undefined,
-    propertyFor: "Sale",
-    newOrResale: "Resale",
-    tncpApproved: "Yes",
-    reraNumber: "RERA4321",
-    squareFeet: "4000 sq.ft",
-    dimension: "50x80",
-    carParking: "3 Covered",
-    yearBuilt: "2015",
-    facing: "North",
-    flooring: "Wooden",
-    ageOfProperty: "9 years",
-    lift: "Yes",
-  },
-  {
-    id: 4,
-    link: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-4.png",
-    title: "Cosy Apartment",
-    description: "2 BHK Apartment near City Center",
-    price: "$300,000",
-    status: "Under Construction",
-    propertyDetails: {
-      area: "1000 sq.ft",
-      configuration: "2 Bedrooms, 2 Bathrooms, No Balcony",
-      address: "City Center, Jabalpur",
-      floors: "1 Floor",
-      possession: "Within 6 months",
-      status: "Available for Sale",
-      ownership: "Freehold",
-      furnishing: "Unfurnished",
-      parking: "1 Covered",
-    },
-    ownerDetails: {
-      name: "Neha Gupta",
-      propertiesListed: 4,
-      localities: ["City Center", "Jabalpur City"],
-      phoneNumber: "9876543213",
-    },
-    propertyId: 104,
-    type: "Residential",
-    commercialPropertyType: undefined,
-    propertyFor: "Sale",
-    newOrResale: "New",
-    tncpApproved: "Yes",
-    reraNumber: "RERA8765",
-    squareFeet: "1000 sq.ft",
-    dimension: "20x50",
-    carParking: "1 Covered",
-    yearBuilt: "2023",
-    facing: "South",
-    flooring: "Ceramic",
-    ageOfProperty: "1 year",
-    lift: "No",
-  },
-  {
-    id: 5,
-    link: "https://solverwp.com/demo/react/mingrand/assets/img/product/cat-5.png",
-    title: "Seaside Retreat",
-    description: "Beachfront property with stunning views",
-    price: "$2,500,000",
-    status: "Ready to Move",
-    propertyDetails: {
-      area: "6000 sq.ft",
-      configuration: "5 Bedrooms, 6 Bathrooms, 3 Balconies",
-      address: "Beachfront, Jabalpur",
-      floors: "2 Floors",
-      possession: "Immediate",
-      status: "Available",
-      ownership: "Freehold",
-      furnishing: "Fully Furnished",
-      parking: "4 Covered",
-    },
-    ownerDetails: {
-      name: "Rajesh Singh",
-      propertiesListed: 2,
-      localities: ["Beachfront", "Jabalpur City"],
-      phoneNumber: "9876543214",
-    },
-    propertyId: 105,
-    type: "Residential",
-    commercialPropertyType: undefined,
-    propertyFor: "Sale",
-    newOrResale: "New",
-    tncpApproved: "Yes",
-    reraNumber: "RERA9999",
-    squareFeet: "6000 sq.ft",
-    dimension: "60x100",
-    carParking: "4 Covered",
-    yearBuilt: "2018",
-    facing: "West",
-    flooring: "Marble",
-    ageOfProperty: "6 years",
-    lift: "Yes",
-  },
-];
 
-const titles = [
-  "Image 1 Title",
-  "Image 2 Title",
-  "Image 3 Title",
-  "Image 4 Title",
-  "Image 5 Title",
-  "Image 6 Title",
-  "Image 7 Title"
-];
 
 const FeatureSection = () => {
   const [properties, setProperties] = useState([]);
@@ -388,26 +166,17 @@ console.log("Recently Posted",recentlyPosted)
               <iframe
                 width="100%"
                 height="525"
-                src="https://www.youtube.com/embed/4BzjUq921Y4?si=OayxmXarULwq_ZY3"
+                src="https://www.youtube.com/embed/9bZkp7q19f0"
                 title="YouTube video player"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
           ) : (
-            <div className="flex items-center space-x-8">
-              <button onClick={handleClick} className="flex items-center justify-center h-20 w-20 bg-gray-800 bg-opacity-50 rounded-full hover:bg-opacity-75">
-                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA5L3JtNTgxLWVsZW1lbnQtMTA2LnBuZw.png" alt="click button" className="h-12 w-12 object-contain" />
-              </button>
-              <div className="text-white">
-                <h2 className="text-2xl font-bold mb-2">Watch Our Work</h2>
-                <p className="text-lg">
-                  Discover the amazing projects and creative work we have done. Click the button to watch the video and see for yourself!
-                </p>
-              </div>
-            </div>
+            <button onClick={handleClick} className="bg-blue-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-600 transition">
+              <FaPlay className="inline mr-2" /> Watch Video
+            </button>
           )}
         </div>
       </section>
