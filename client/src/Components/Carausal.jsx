@@ -36,7 +36,7 @@ const Carousel = () => {
 
   const settings = {
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
@@ -54,24 +54,30 @@ const Carousel = () => {
           slidesToShow: 2,
         },
       },
+      {
+        breakpoint: 639, // Added for smaller screens
+        settings: {
+          slidesToShow: 1,
+        },
+      },
     ],
   };
 
   const getImageForProperty = (propertyId) => {
     const images = propertyImages.filter(img => img.property_id === propertyId.toString());
-    return images.length > 0 ? images[0].image : null;
+    return images.length > 0 ? images[0].image : 'default_image_path'; // Replace with actual default image path
   };
 
   return (
-    <div className="py-5 relative">
+    <div className="relative">
       <Slider {...settings}>
         {properties.map((property, index) => (
           <div key={index} className="px-2">
             <Link to={`/property/${property.id}`}>
               <img
-                src={getImageForProperty(property.id) || 'default_image_path'} // replace 'default_image_path' with actual default image path
+                src={getImageForProperty(property.id)}
                 alt={`Property ${property.id}`}
-                className="w-full h-48 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-[1.01] hover:cursor-pointer"
+                className="w-full h-56 object-cover rounded-md transition-all duration-500 grayscale hover:grayscale-0 hover:scale-105 hover:cursor-pointer"
               />
             </Link>
             <div className="text-center mt-2">

@@ -241,6 +241,8 @@ const titles = [
 const FeatureSection = () => {
   const [properties, setProperties] = useState([]);
   const [propertiesImages, setPropertiesImages] = useState([]);
+  const [mostViewedProperties, setMostViewedProperties] = useState([]);
+  const [recentlyPosted,setRecentlyPosted]= useState([]);
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
@@ -255,7 +257,14 @@ const FeatureSection = () => {
         console.error('Error fetching properties:', error);
       }
     };
-
+    const fetchMostViewedProperties = async () => {
+      try {
+        const response = await axios.get('https://bharatroofers.com/api/property/getMostViewed');
+        setMostViewedProperties(response.data.data);
+      } catch (error) {
+        console.error('Error fetching most viewed properties:', error);
+      }
+    };
     const fetchPropertyImages = async () => {
       try {
         const response = await axios.get('https://bharatroofers.com/api/property/getAllPropertyImages');
@@ -264,9 +273,20 @@ const FeatureSection = () => {
         console.error('Error fetching property images:', error);
       }
     };
+    const fetchRecentlyPostedProperties = async () => {
+      try {
+        const response = await axios.get("https://bharatroofers.com/api/property/getRecentlyPostedProperties");
+        setRecentlyPosted(response.data.data);
+        console.log("Recently posted", response.data.data);
+      } catch (error) {
+        console.error("Error in fetching recently posted properties", error);
+      }
+    };
 
     fetchProperties();
     fetchPropertyImages();
+    fetchMostViewedProperties();
+    fetchRecentlyPostedProperties();
   }, []);
 
   const categories = [
@@ -292,7 +312,15 @@ const FeatureSection = () => {
     const filteredProperties = properties.filter(property => property.property_type.toLowerCase() === category.toLowerCase());
     navigate('/category', { state: { filteredProperties } });
   };
+console.log("images",propertiesImages)
+const getImageForProperty = (propertyId) => {
+  const images = propertiesImages.filter(img => img.property_id === propertyId.toString());
+  return images.length > 0 ? images[0].image : 'default_image_path'; // replace 'default_image_path' with actual default image path
+};
 
+const getImagesForCarousel = (properties) => {
+  return properties.map(property => getImageForProperty(property.id));
+};
   return (
     <div>
       {/* Image Grid Section */}
@@ -341,6 +369,7 @@ const FeatureSection = () => {
 
       {/* Carousal */}
       <section className="max-w-screen">
+        <p className='text-3xl font-bold flex justify-center p-4'> Our Properties</p>
         <Carausal />
       </section>
 
@@ -382,16 +411,29 @@ const FeatureSection = () => {
         </div>
       </section>
 
-      {/* Recommended */}
+      {/* 3 carousal */}
       <span className='font-bold flex items-center justify-center text-3xl text-center mb-6 md:mb-8 mt-6'>Our Property</span>
       <section className='flex justify-around items-center flex-wrap'>
-        {['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
-          <div key={index}>
-            <p className='text-2xl font-bold flex items-center justify-center'>{title}</p>
-            <CarouselSlider titles={titles} images={imageArray.map(image => image.link)} />
-          </div>
-        ))}
+        {
+          ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
+            <div key={index} className='flex flex-col items-center '>
+              <p className='text-2xl font-bold'>{title}</p>
+              {title === 'Recent Projects' ? (
+                <CarouselSlider
+                  titles={recentlyPosted.map(prop => prop.title)}
+                  images={getImagesForCarousel(recentlyPosted)}
+                />
+              ) : (
+                <CarouselSlider
+                  titles={recentlyPosted.map(prop => prop.title)} // Adjust this as needed
+                  images={getImagesForCarousel(recentlyPosted)} // Adjust this as needed
+                />
+              )}
+            </div>
+          ))
+        }
       </section>
+       
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import axios from 'axios';
 import styled, { keyframes } from 'styled-components';
+import {  FaCar, FaRuler, FaBuilding } from 'react-icons/fa';
 
 // Heartbeat animation
 const heartbeat = keyframes`
@@ -103,7 +104,7 @@ const PropertyCard = () => {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }
-
+console.log("selacted->",selectedProperty)
   return (
     <div className="max-w-full px-4 py-8">
       <div className="bg-white shadow-lg rounded-lg">
@@ -146,34 +147,56 @@ const PropertyCard = () => {
 
               {/* Property details */}
               <div className="mt-5 p-2">
-                <h2 className="text-xl font-semibold mb-4 text-gray-700">Property Details</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* Property detail items */}
-                  <DetailItem icon={FaHome} label={`Property Id: ${selectedProperty.propertyId || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Type: ${selectedProperty.type || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Commercial Property Type: ${selectedProperty.commercialPropertyType || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Property For: ${selectedProperty.propertyFor || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`New/Resale: ${selectedProperty.newOrResale || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedProperty.tncpApproved || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`RERA Number: ${selectedProperty.reraNumber || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Square Feet: ${selectedProperty.squareFeet || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Dimension: ${selectedProperty.dimension || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Car Parking: ${selectedProperty.carParking || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Year Built: ${selectedProperty.yearBuilt || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Facing: ${selectedProperty.facing || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Flooring: ${selectedProperty.flooring || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Age of Property: ${selectedProperty.ageOfProperty || "N/A"}`} color="text-green-500" />
-                  <DetailItem icon={FaHome} label={`Lift: ${selectedProperty.lift || "N/A"}`} color="text-green-500" />
-                </div>
-              </div>
+      <h2 className="text-xl font-semibold mb-4 text-gray-700">Property Details</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Property detail items */}
+        <DetailItem icon={FaHome} label={`Property Id: ${selectedProperty.id || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Type: ${selectedProperty.property_type || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaBuilding} label={`Commercial Property Type: ${selectedProperty.commercial_property_type || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Property For: ${selectedProperty.property_for || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`New/Resale: ${selectedProperty.new_resale || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`TNCP Approved: ${selectedProperty.tncp || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`RERA Number: ${selectedProperty.rera || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaRuler} label={`Square Feet: ${selectedProperty.square_ft || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaRuler} label={`Dimension: ${selectedProperty.dimension || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaCar} label={`Car Parking: ${selectedProperty.car_parking || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Year Built: ${selectedProperty.year_built || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Facing: ${selectedProperty.facing || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Flooring: ${selectedProperty.flooring || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Age of Property: ${selectedProperty.age_of_property || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Lift: ${selectedProperty.lift || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Price: ₹${selectedProperty.price || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`City: ${selectedProperty.property_city || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Address: ${selectedProperty.property_address || "N/A"}`} color="text-green-500" />
+        
+        <DetailItem icon={FaHome} label={`Number of Visits: ${selectedProperty.visits || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Balcony: ${selectedProperty.balcony || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Bathrooms: ${selectedProperty.bathroom || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Bedrooms: ${selectedProperty.bhk || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Modular Kitchen: ${selectedProperty.modularKitchen || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Furnishing: ${selectedProperty.furnishing || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Swimming Pool: ${selectedProperty.swimming_pool || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Terrace: ${selectedProperty.terrace || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Immediate Possession: ${selectedProperty.immediate_possession || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Investment: ${selectedProperty.investment || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Own Purpose: ${selectedProperty.own_purpose || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Road: ${selectedProperty.road || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Security: ${selectedProperty.security_24_7 || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Lights: ${selectedProperty.lights || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Drainage: ${selectedProperty.drainage || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Entry Gate: ${selectedProperty.entry_gate || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Good Natural Light: ${selectedProperty.good_natural_light || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Gated Community: ${selectedProperty.gated_community || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Attractive Entrance Gate: ${selectedProperty.attractive_entrance_gate || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Near Green Zone: ${selectedProperty.near_green_zone || "N/A"}`} color="text-green-500" />
+        <DetailItem icon={FaHome} label={`Near Temple: ${selectedProperty.near_temple || "N/A"}`} color="text-green-500" />
+      </div>
+    </div>
 
-              {/* Owner details */}
-              <div className="mt-5 p-2">
-                <h2 className="text-xl font-semibold mb-4 text-gray-700">Owner Details</h2>
-                <p className="text-gray-600">Name: {ownerDetails.name || "N/A"}</p>
-                <p className="text-gray-600">Properties Listed: {ownerDetails.propertiesListed || "N/A"}</p>
-                <p className="text-gray-600">Localities: {ownerDetails.localities ? ownerDetails.localities.join(', ') : "N/A"}</p>
-                <p className="text-gray-600">Phone Number: {ownerDetails.phoneNumber || "N/A"}</p>
+              {/* Description */}
+              <div className="mt-5 p-2 w-1/2">
+               <p className="text-2xl font-semibold">Description</p>
+               <p className="text-gray-700">{selectedProperty.property_description }</p>
               </div>
 
               {/* Amenities */}
@@ -189,7 +212,9 @@ const PropertyCard = () => {
               {/* About */}
               <div className="mt-5 p-2">
                 <h2 className="text-xl font-semibold mb-4 text-gray-700">About</h2>
-                <p className="text-gray-600">{about.details || "N/A"}</p>
+                <p className="text-gray-600"> City: {selectedProperty.property_city}</p>
+                <p className="text-gray-600">Address:{selectedProperty.property_address}</p>
+                <p className="text-gray-600">Year Build:{selectedProperty.year_built}</p>
               </div>
 
               {/* Contact Form */}
