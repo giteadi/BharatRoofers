@@ -259,7 +259,7 @@ const FeatureSection = () => {
     };
     const fetchMostViewedProperties = async () => {
       try {
-        const response = await axios.get('https://bharatroofers.com/api/property/getMostViewed');
+        const response = await axios.get('https://bharatroofers.com/api/property/getSuggestedProperty');
         setMostViewedProperties(response.data.data);
       } catch (error) {
         console.error('Error fetching most viewed properties:', error);
@@ -321,6 +321,7 @@ const getImageForProperty = (propertyId) => {
 const getImagesForCarousel = (properties) => {
   return properties.map(property => getImageForProperty(property.id));
 };
+console.log("Recently Posted",recentlyPosted)
   return (
     <div>
       {/* Image Grid Section */}
@@ -423,10 +424,15 @@ const getImagesForCarousel = (properties) => {
                   titles={recentlyPosted.map(prop => prop.title)}
                   images={getImagesForCarousel(recentlyPosted)}
                 />
+              ) : title === 'Most View' ? (
+                <CarouselSlider
+                  titles={mostViewedProperties.map(prop => prop.title)}
+                  images={getImagesForCarousel(mostViewedProperties)}
+                />
               ) : (
                 <CarouselSlider
-                  titles={recentlyPosted.map(prop => prop.title)} // Adjust this as needed
-                  images={getImagesForCarousel(recentlyPosted)} // Adjust this as needed
+                  titles={properties.map(prop => prop.title)}
+                  images={getImagesForCarousel(properties)}
                 />
               )}
             </div>
