@@ -77,7 +77,7 @@ const authSlice = createSlice({
         state.user = action.payload;
         state.isAuthenticated = true;
         localStorage.setItem('user', JSON.stringify(action.payload));
-        toast.success('Registration successful');
+
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
@@ -92,7 +92,7 @@ const authSlice = createSlice({
         state.user = action.payload;
         state.isAuthenticated = true;
         localStorage.setItem('user', JSON.stringify(action.payload));
-        toast.success('Login successful');
+        
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

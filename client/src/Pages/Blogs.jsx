@@ -6,22 +6,53 @@ const Blog = () => {
   const posts = [
     {
       id: 1,
-      title: 'Luxurious Villa with Ocean View',
+      title: 'The Critical Role of Home Inspections: A Buyers Guide to Informed Decisions',
       image: 'https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=',
       content: 'Escape to this stunning villa nestled along the coast, offering breathtaking views of the azure waters. This spacious retreat features modern amenities and expansive living areas, perfect for both relaxation and entertainment. Enjoy seamless indoor-outdoor living with private terraces and a lush garden oasis.',
     },
     {
       id: 2,
-      title: 'Charming Countryside Cottage',
+      title: 'New Construction vs. Resale Homes: Making the Right Choice for Your Next Property',
       image: 'https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw=',
-      content: 'Discover the allure of country living in this picturesque cottage surrounded by rolling hills and tranquil nature. The cottage exudes rustic charm with exposed beams and a cozy fireplace, creating a warm ambiance year-round. Perfect for those seeking serenity and a connection to nature, yet just a short drive from bustling town centers.',
+      content: 'In the quest for a new home, buyers often face the dilemma of choosing between new construction and resale properties. Each option comes with its own set of advantages and drawbacks, making the decision a crucial one in the home-buying journey.',
     },
     {
       id: 3,
-      title: 'Cozy Mountain Cabin',
-      image: 'https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=',
-      content: 'Experience the peace and tranquility of mountain life in this cozy cabin nestled in the heart of the Rockies. With panoramic views and access to hiking trails, this retreat offers a perfect blend of adventure and relaxation. Ideal for those looking to escape the hustle and bustle and reconnect with nature.',
+      title: 'Looking for1 BHK Apartment Duplex',
+      image: 'http://localhost:3001/static/media/blog3.a868ed5bc837e5adec6a.avif',
+      content: "Imagine having a cozy yet multi-level living space. That's precisely what a 1 BHK apartment duplex offers - a one-bedroom home spread across two levels, typically featuring a bedroom, a living area, and a kitchen. It's a smart fusion of compactness and practicality",
     },
+    {
+      id: 4,
+      title: 'Budget Allocations and Real Estate: Paving the Path Ahead',
+      image: 'http://localhost:3001/static/media/blog4.c13b6b74e4ac48492bfa.avif',
+      content: "Budget allocations in real estate are the architectural blueprints of success. They delineate the financial framework within which the industry operates, affecting everything from property development to market stability.",
+    },
+    {
+      id: 5,
+      title: 'Buying a 1 BHK Apartment: Ideal Space for Comfortable Living',
+      image: 'http://localhost:3001/static/media/blog5.0eed389ad68383154b5d.jpg',
+      content: "Finding the perfect home is a thrilling yet daunting task. For many individuals or couples looking for their first property or an investment opportunity, a 1 BHK (Bedroom, Hall, Kitchen) apartment offers a promising and practical choice.",
+    },
+    {
+      id: 6,
+      title: 'Looking for Rented House: Deciphering 2BHK vs. 3BHK',
+      image: 'http://localhost:3001/static/media/blog6.1884f99d91c0b1aade14.avif',
+      content: "The quest for a rented house, be it a 2BHK or 3BHK, is a significant decision that intertwines numerous considerations. Choosing the ideal abode involves a blend of personal preferences, financial analysis, and future aspirations.",
+    },
+    {
+      id: 7,
+      title: 'Looking for a 1 BHK Flat on Rent',
+      image: 'http://localhost:3001/static/media/blog7.1e359b167609acc41a40.avif',
+      content: "Moving into a new place is an exhilarating experience, but the quest for the perfect 1 BHK (One Bedroom Hall Kitchen) flat on rent can often feel like a daunting task. This guide aims to simplify this journey by providing insights, tips, and guidance to ease your search process.",
+    },
+    {
+      id: 8,
+      title: 'Sale on 2-3 BHK House: Navigating the Real Estate Market',
+      image: 'http://localhost:3001/static/media/blog8.893a9c1a3a5bba7ae622.avif',
+      content: "Real estate markets have been abuzz with the enticing prospects of buying or selling 2-3 BHK houses. As the real estate landscape continues to evolve, these properties have garnered substantial attention for their versatility.",
+    },
+
   ];
 
   const navigate = useNavigate();

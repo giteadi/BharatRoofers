@@ -90,7 +90,6 @@ const FeatureSection = () => {
     const filteredProperties = properties.filter(property => property.property_type.toLowerCase() === category.toLowerCase());
     navigate('/category', { state: { filteredProperties } });
   };
-console.log("images",propertiesImages)
 const getImageForProperty = (propertyId) => {
   const images = propertiesImages.filter(img => img.property_id === propertyId.toString());
   return images.length > 0 ? images[0].image : 'default_image_path'; // replace 'default_image_path' with actual default image path
