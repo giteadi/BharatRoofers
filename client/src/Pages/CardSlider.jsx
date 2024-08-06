@@ -12,14 +12,13 @@ const CarouselSlider = ({ images, propertyName, address, price, datePosted }) =>
   };
 
   return (
-    <div className="relative min-w-[500px]  max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden p-5 flex flex-col flex-wrap">
-      <div className="relative" style={{ height: '300px' }}>
+    <div className="relative min-w-[300px] max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden p-5 flex flex-col" style={{ width: '500px' }}>
+      <div className="relative h-64">
         <div className="w-full h-full overflow-hidden">
           <img
             src={images[currentIndex]}
             className="w-full h-full object-cover"
             alt={`Carousel Image ${currentIndex + 1}`}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
           <button
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10"
@@ -43,7 +42,7 @@ const CarouselSlider = ({ images, propertyName, address, price, datePosted }) =>
       </div>
       <div className="p-4">
         <h2 className="text-xl font-bold text-gray-800 mb-2">{propertyName[currentIndex]}</h2>
-        <p className="text-gray-600 max-w-full overflow-hidden text-ellipsis whitespace-nowrap" style={{ maxWidth: '100%' }}>
+        <p className="text-gray-600 truncate">
           {address[currentIndex]}
         </p>
         <p className="text-gray-800">Price: {price[currentIndex]}</p>
