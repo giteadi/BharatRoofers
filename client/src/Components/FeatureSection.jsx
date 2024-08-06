@@ -190,17 +190,29 @@ console.log("Recently Posted",recentlyPosted)
               {title === 'Recent Projects' ? (
                 <CarouselSlider
                   titles={recentlyPosted.map(prop => prop.title)}
+                  propertyName={recentlyPosted.map(prop=>prop.property_name)}
+                  address={recentlyPosted.map(prop=>prop.property_address)}
                   images={getImagesForCarousel(recentlyPosted)}
+                  price={recentlyPosted.map(prop=>prop.price)}
+                  datePosted={recentlyPosted.map(prop=>prop.created_at)}
                 />
               ) : title === 'Most View' ? (
                 <CarouselSlider
                   titles={mostViewedProperties.map(prop => prop.title)}
+                  propertyName={mostViewedProperties.map(prop=>prop.property_name)}
+                  address={mostViewedProperties.map(prop=>prop.property_address)}
                   images={getImagesForCarousel(mostViewedProperties)}
+                  price={mostViewedProperties.map(prop=>prop.price)}
+                  datePosted={mostViewedProperties.map(prop=>prop.created_at)}
                 />
               ) : (
                 <CarouselSlider
                   titles={properties.map(prop => prop.title)}
+                  propertyName={properties.map(prop=>prop.property_name)}
+                  address={properties.map(prop=>prop.property_address)}
                   images={getImagesForCarousel(properties)}
+                  price={properties.map(prop=>prop.price)}
+                  datePosted={properties.map(prop=>prop.created_at)}
                 />
               )}
             </div>
