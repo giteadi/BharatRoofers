@@ -195,6 +195,7 @@ console.log("Recently Posted",recentlyPosted)
                   images={getImagesForCarousel(recentlyPosted)}
                   price={recentlyPosted.map(prop=>prop.price)}
                   datePosted={recentlyPosted.map(prop=>prop.created_at)}
+                  ids={recentlyPosted.map(property => property.id)}
                 />
               ) : title === 'Most View' ? (
                 <CarouselSlider
@@ -204,6 +205,7 @@ console.log("Recently Posted",recentlyPosted)
                   images={getImagesForCarousel(mostViewedProperties)}
                   price={mostViewedProperties.map(prop=>prop.price)}
                   datePosted={mostViewedProperties.map(prop=>prop.created_at)}
+                  ids={mostViewedProperties.map(property => property.id)}
                 />
               ) : (
                 <CarouselSlider
@@ -213,6 +215,8 @@ console.log("Recently Posted",recentlyPosted)
                   images={getImagesForCarousel(properties)}
                   price={properties.map(prop=>prop.price)}
                   datePosted={properties.map(prop=>prop.created_at)}
+                  ids={properties.map(property => property.id)}
+
                 />
               )}
             </div>

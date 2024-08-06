@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const CarouselSlider = ({ images, propertyName, address, price, datePosted }) => {
+const CarouselSlider = ({ images, propertyName, address, price, datePosted, ids }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
@@ -11,14 +13,19 @@ const CarouselSlider = ({ images, propertyName, address, price, datePosted }) =>
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
 
+  const handleImageClick = () => {
+    navigate(`/property/${ids[currentIndex]}`);
+  };
+
   return (
     <div className="relative min-w-[300px] max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden p-5 flex flex-col" style={{ width: '500px' }}>
       <div className="relative h-64">
         <div className="w-full h-full overflow-hidden">
           <img
             src={images[currentIndex]}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover cursor-pointer"
             alt={`Carousel Image ${currentIndex + 1}`}
+            onClick={handleImageClick}
           />
           <button
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10"
