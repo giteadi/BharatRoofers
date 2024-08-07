@@ -142,7 +142,10 @@ const PropertyCard = () => {
   }
   const DetailItem = ({ icon: Icon, label, color }) => {
     if (label.includes("N/A")) {
-      return null; // Hide the item if the label contains "N/A"
+      return null; 
+    }
+    else if(label.includes(0)){
+      return null;
     }
     return (
       <div className="flex items-center">
