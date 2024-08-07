@@ -11,6 +11,7 @@ import PropertyCard from "./Pages/PropertyCard";
 import Box from "./Components/LightBox";
 import Footer from "./Components/Footer";
 import CategoryPage from "./Pages/CategoryPage";  // Correctly import CategoryPage
+import FooterCategory from "./Pages/FooterCategory";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/property/:id" element={<PropertyCard />} />
         <Route path="/box" element={<Box />} />
         <Route path="/category" element={<CategoryPage />} />  
+         <Route path="/footer-category" element={<FooterCategory/>}/>
       </Routes>
       <Footer />
     </div>

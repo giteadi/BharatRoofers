@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../Redux/slices/authSlice'; // Update the path if necessary
+import { logout } from '../Redux/slices/authSlice'; 
 
 const NavbarContainer = styled.div`
   position: sticky;
@@ -34,7 +34,7 @@ export default function UpperNav() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.auth); // Access the authentication state
+  const { isAuthenticated } = useSelector((state) => state.auth); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +54,7 @@ export default function UpperNav() {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/login'); // Redirect to login page after logout
+    navigate('/login'); 
   };
 
   return (

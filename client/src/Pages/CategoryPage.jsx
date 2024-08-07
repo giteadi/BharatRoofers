@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { FaLightbulb, FaRoad, FaWater, FaRupeeSign } from 'react-icons/fa'; // Added FaRupeeSign
 
 const CategoryPage = () => {
   const location = useLocation();
   const { filteredProperties } = location.state || { filteredProperties: [] };
   const [propertiesImages, setPropertiesImages] = useState([]);
-  const navigate = useNavigate();
-
+  useEffect(() => {
+    console.log('Filtered Properties:', filteredProperties); // Add this to debug
+  }, [filteredProperties]);
   useEffect(() => {
     const getAllPropertiesImages = async () => {
       try {
@@ -29,7 +30,7 @@ const CategoryPage = () => {
 
   const getPropertyImage = (propertyId) => {
     const propertyImage = propertiesImages.find(image => image.property_id === String(propertyId));
-    return propertyImage && propertyImage.image ? propertyImage.image : 'default_image_url';
+    return propertyImage && propertyImage.image ? propertyImage.image : 'https://via.placeholder.com/300'; // Placeholder image URL
   };
 
   return (
@@ -43,7 +44,7 @@ const CategoryPage = () => {
                 <div className="w-full h-[15rem] overflow-hidden">
                   <img
                     src={getPropertyImage(property.id)}
-                    className="w-full h-full object-fit"
+                    className="w-full h-full object-cover" // Changed from object-fit to object-cover for proper scaling
                     loading="lazy"
                     alt={`Property ${property.id}`}
                   />
@@ -60,7 +61,7 @@ const CategoryPage = () => {
                   <FaRupeeSign /> {property.price}
                 </h5>
                 <p className="text-sm text-gray-500 mt-2">
-                  <FaWater className="inline text-lg" /> posted on: {new Date(property.created_at).toLocaleDateString()}
+                  <FaWater className="inline text-lg" /> Posted on: {new Date(property.created_at).toLocaleDateString()}
                 </p>
               </div>
             </div>

@@ -1,7 +1,5 @@
-client id:709902163543-fk6muis1q2q81heftf25g4p3n11tlu1t.apps.googleusercontent.com
 
-client secret:-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
-
+sigle page m form pr api lgana hai
 
 # Getting Started with Create React App
 
