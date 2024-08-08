@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
+import { CardContainer, CardBody, CardItem } from './CardComponet'; // Import the 3D card components
 
 const Carousel = () => {
   const [properties, setProperties] = useState([]);
@@ -55,7 +56,7 @@ const Carousel = () => {
         },
       },
       {
-        breakpoint: 639, // Added for smaller screens
+        breakpoint: 639,
         settings: {
           slidesToShow: 1,
         },
@@ -71,19 +72,35 @@ const Carousel = () => {
   return (
     <div className="relative">
       <Slider {...settings}>
-        {properties.slice(0, 10).map((property, index) => ( 
+        {properties.slice(0, 10).map((property, index) => (
           <div key={index} className="px-2">
             <Link to={`/property/${property.id}`}>
-              <img
-                src={getImageForProperty(property.id)}
-                alt={`Property ${property.id}`}
-                className="w-full h-56 object-cover rounded-md  hover:cursor-pointer"
-              />
+              <CardContainer className="hover:cursor-pointer">
+                <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border">
+                  <CardItem translateZ="50" className="text-xl font-bold text-neutral-600 dark:text-white">
+                    {property.property_name}
+                  </CardItem>
+                  <CardItem as="p" translateZ="60" className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">
+                    {property.description}
+                  </CardItem>
+                  <CardItem translateZ="100" className="w-full mt-4">
+                    <img
+                      src={getImageForProperty(property.id)}
+                      alt={`Property ${property.id}`}
+                      className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    />
+                  </CardItem>
+                  <div className="flex justify-between items-center mt-4">
+                    <CardItem translateZ={20} as={Link} to={`/property/${property.id}`} className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white">
+                      View Details →
+                    </CardItem>
+                    <CardItem translateZ={20} as="button" className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
+                      Contact
+                    </CardItem>
+                  </div>
+                </CardBody>
+              </CardContainer>
             </Link>
-            <div className="text-center mt-2">
-              <h3 className="text-lg font-bold">{property.property_name}</h3>
-              <p className="text-sm text-gray-500">{property.price}</p>
-            </div>
           </div>
         ))}
       </Slider>
