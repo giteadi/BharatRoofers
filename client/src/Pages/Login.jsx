@@ -73,21 +73,21 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen  py-8 bg-black">
       <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm"
         style={{
-          backgroundImage: 'url("https://thinkshout.com/wp-content/uploads/2023/03/fade-to-black-header.jpg")',
+          backgroundImage: 'url("https://thumbs.wbm.im/pw/small/e79ed78f33ea2825b7bb5598d66fe60c.jpg")',
           opacity: 0.6,
           backdropFilter: 'blur(4px)'
         }}
       ></div>
-      <div className="bg-white md:p-5 rounded-xl shadow-lg w-full max-w-md relative">
+      <div className="bg-white md:p-5 rounded-xl shadow-lg w-full max-w-md relative my-8">
         <div className="flex justify-center mb-4">
           <img src="https://bharatroofers.com/static/media/Real-Estate-Logo.97cdaa8455c577626d89.png" alt="Logo" className="h-12 w-12 object-cover" />
         </div>
         <h2 className="text-center text-2xl font-bold mb-4">Welcome back</h2>
         <p className="text-center text-gray-600 mb-6">Please enter your details to sign in.</p>
-        <div className="flex justify-around items-center mb-6">
+        {/* <div className="flex justify-around items-center mb-6">
           <p>Login with Google</p>
           <GoogleLogin
             onSuccess={handleGoogleLoginSuccess}
@@ -95,13 +95,13 @@ const LoginForm = () => {
             buttonText="Login with Google"
             className="flex items-center justify-center p-2 border rounded-md"
           />
-        </div>
-        <div className="flex items-center justify-between mb-4">
+        </div> */}
+        {/* <div className="flex items-center justify-between mb-4">
           <hr className="w-full border-gray-300" />
           <span className="px-2 text-gray-600">OR</span>
           <hr className="w-full border-gray-300" />
-        </div>
-        <form onSubmit={handleSubmit}>
+        </div> */}
+        <form onSubmit={handleSubmit} className='p-5'>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 mb-2">E-Mail Address</label>
             <input

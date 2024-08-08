@@ -47,15 +47,15 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-black p-4">
       <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm"
         style={{
-          backgroundImage: 'url("https://thinkshout.com/wp-content/uploads/2023/03/fade-to-black-header.jpg")',
+          backgroundImage: 'url("https://thumbs.wbm.im/pw/small/e79ed78f33ea2825b7bb5598d66fe60c.jpg")',
           opacity: 0.6,
           backdropFilter: 'blur(4px)'
         }}
       ></div>
-      <div className="bg-white md:p-4 rounded-xl shadow-lg w-full max-w-md relative">
+      <div className="bg-white md:p-4 rounded-xl shadow-lg w-full max-w-md relative my-8">
         <div className="flex justify-center mb-3">
           <img src="https://bharatroofers.com/static/media/Real-Estate-Logo.97cdaa8455c577626d89.png" alt="Logo" className="h-10 w-10 object-cover" />
         </div>
