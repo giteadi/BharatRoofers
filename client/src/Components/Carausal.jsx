@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
-import { CardContainer, CardBody, CardItem } from './CardComponet'; // Import the 3D card components
+import { CardContainer, CardBody, CardItem } from './CardComponet';
 
 const Carousel = () => {
   const [properties, setProperties] = useState([]);
@@ -76,7 +76,7 @@ const Carousel = () => {
           <div key={index} className="px-2">
             <Link to={`/property/${property.id}`}>
               <CardContainer className="hover:cursor-pointer">
-                <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border">
+                <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border min-w-[300px]">
                   <CardItem translateZ="50" className="text-xl font-bold text-neutral-600 dark:text-white">
                     {property.property_name}
                   </CardItem>
@@ -84,11 +84,13 @@ const Carousel = () => {
                     {property.description}
                   </CardItem>
                   <CardItem translateZ="100" className="w-full mt-4">
-                    <img
-                      src={getImageForProperty(property.id)}
-                      alt={`Property ${property.id}`}
-                      className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                    />
+                    <div className="relative h-60 w-full">
+                      <img
+                        src={getImageForProperty(property.id)}
+                        alt={`Property ${property.id}`}
+                        className="absolute inset-0 h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                      />
+                    </div>
                   </CardItem>
                   <div className="flex justify-between items-center mt-4">
                     <CardItem translateZ={20} as={Link} to={`/property/${property.id}`} className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white">

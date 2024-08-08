@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BsFacebook, BsWhatsapp, BsInstagram } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io";
 import logo from '../Assets/3dhouse3.jpg';
+import BackgroundBeams from "./BackgroundBeams";
 
 const Footer = () => {
   const [properties, setProperties] = useState([]);
@@ -39,7 +40,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="relative bg-gray-800 text-white py-8 overflow-hidden z-[-1]">
+      {/* BackgroundBeams component */}
+      <BackgroundBeams className="absolute inset-0  z-[1]" />
+
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between mb-8">
           {/* Popular Residential Property Searches */}

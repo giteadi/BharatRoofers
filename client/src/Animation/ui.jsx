@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState, memo } from "react";
 import { twMerge } from "tailwind-merge";
 
+import { cn } from "../libs/utils";
 import { motion } from "framer-motion";
-import { cn } from "../libs/utils"; // Assuming a utility function for class names
+ // Assuming a utility function for class names
 
 export const TextRevealCard = ({
   text,

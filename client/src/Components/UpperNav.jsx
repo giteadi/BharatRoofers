@@ -1,32 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../Redux/slices/authSlice'; 
-
-const NavbarContainer = styled.div`
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: #1a1a1a; /* Dark background for contrast */
-  z-index: 10;
-  transition: transform 0.5s ease-in-out;
-  transform: ${(props) => (props.show ? "translateY(0)" : "translateY(-100%)")};
-  border-bottom: 1px solid #eaeaea;
-`;
-
-const NavLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem; /* Tailwind's rounded-md class */
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-
-  &:focus {
-    outline: 2px solid #1e90ff; /* Blue outline for focus ring */
-    outline-offset: 2px;
-  }
-`;
 
 export default function UpperNav() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -58,30 +33,28 @@ export default function UpperNav() {
   };
 
   return (
-    <NavbarContainer show={showNavbar}>
-      <div className="container mx-auto flex flex-wrap justify-between items-center p-4">
+    <div className={`fixed top-0 w-full bg-gradient-to-r from-transparent via-transparent to-gray-900 bg-opacity-70 shadow-md z-10 transition-transform duration-500 ease-in-out ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}>
+      <div className="container mx-auto flex justify-between items-center p-4">
         <div className="text-2xl font-bold text-white">BharatRoofers</div>
-        <nav className="hidden md:flex flex-wrap space-x-4 font-bold">
-          <NavLink to="/" className="hover:border focus:outline-none focus:ring-2 focus:ring-green-500">Home</NavLink>
-          <NavLink to="/blogs" className="focus:outline-none hover:border focus:ring-green-500">Blogs</NavLink>
-          <NavLink to="/contact" className="focus:outline-none hover:border focus:ring-green-500">Contact us</NavLink>
+        <nav className="hidden md:flex space-x-4">
+          <Link to="/" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Home</Link>
+          <Link to="/blogs" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Blogs</Link>
+          <Link to="/contact" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Contact us</Link>
           {isAuthenticated ? (
-            <>
-              <button
-                onClick={handleLogout}
-                className="focus:outline-none hover:border focus:ring-green-500 text-white bg-black p-2 rounded-md"
-              >
-                Logout
-              </button>
-            </>
+            <button
+              onClick={handleLogout}
+              className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Logout
+            </button>
           ) : (
             <>
-              <NavLink to="/login" className="focus:outline-none hover:border focus:ring-green-500">Login</NavLink>
-              <NavLink to="/register" className="focus:outline-none hover:border focus:ring-green-500">Register</NavLink>
+              <Link to="/login" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</Link>
+              <Link to="/register" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Register</Link>
             </>
           )}
         </nav>
       </div>
-    </NavbarContainer>
+    </div>
   );
 }
