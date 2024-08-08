@@ -173,6 +173,8 @@ const PropertyCard = () => {
             <Box images={selectedProperty.images} />
           </div>
 
+          {/* wrapping both */}
+         <div className="flex felx-col">
           <div className="flex mt-4">
             {/* Main Content */}
             <div className="w-full pr-4 flex flex-col justify-between">
@@ -395,42 +397,21 @@ const PropertyCard = () => {
                     }`}
                     color="text-green-500"
                   />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Road: ${selectedProperty.road || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
+                  
+                  {/* <DetailItem
                     icon={FaHome}
                     label={`Security: ${
                       selectedProperty.security_24_7 || "N/A"
                     }`}
                     color="text-green-500"
-                  />
+                  /> */}
                   <DetailItem
                     icon={FaHome}
                     label={`Lights: ${selectedProperty.lights || "N/A"}`}
                     color="text-green-500"
                   />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Drainage: ${selectedProperty.drainage || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Entry Gate: ${
-                      selectedProperty.entry_gate || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Good Natural Light: ${
-                      selectedProperty.good_natural_light || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
+                  
+                  
                   <DetailItem
                     icon={FaHome}
                     label={`Gated Community: ${
@@ -472,15 +453,65 @@ const PropertyCard = () => {
 
               {/* Amenities */}
               <div className="mt-5 p-2">
-                <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                  Amenities
-                </h2>
-                <ul className="list-disc pl-6 text-gray-600">
-                  {amenities.map((amenity, index) => (
-                    <li key={index}>{amenity}</li>
-                  ))}
-                </ul>
-              </div>
+  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+    Amenities
+  </h2>
+  <ul className="list-disc pl-6 text-gray-600">
+    <DetailItem
+      icon={FaHome}
+      label={`Road: ${selectedProperty.road || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Security: ${selectedProperty.security_24_7 || "N/A"}`}
+      color="text-green-500"
+    />
+           <DetailItem
+                    icon={FaCar}
+                    label={`Car Parking: ${
+                      selectedProperty.car_parking || "N/A"
+                    }`}
+                    color="text-green-500"
+                  />
+    <DetailItem
+      icon={FaHome}
+      label={`Drainage: ${selectedProperty.drainage || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Entry Gate: ${selectedProperty.entry_gate || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Good Natural Light: ${selectedProperty.good_natural_light || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Gated Community: ${selectedProperty.gated_community || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Immediate Possession: ${selectedProperty.immediate_possession || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Investment: ${selectedProperty.investment || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Own Purpose: ${selectedProperty.own_purpose || "N/A"}`}
+      color="text-green-500"
+    />
+  </ul>
+</div>
+
 
               {/* About */}
               <div className="mt-5 p-2">
@@ -605,13 +636,78 @@ const PropertyCard = () => {
             </div>
           </div>
 
-          {/* Additional section */}
-          <div className="mt-5 p-2">
-            <p className="text-gray-600">Any additional section</p>
+          {/* Blogs*/}
+          {/* <div className="mt-5 p-2 w-2/3">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">Blogs</h2>
+        <div className="flex flex-col space-y-6">
+        
+          <div className="flex">
+            <div className="w-1/3">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Blog 1"
+                className="rounded-lg"
+              />
+            </div>
+            <div className="w-2/3 pl-4">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                Blog Title 1
+              </h3>
+              <p className="text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque efficitur, nulla ut bibendum faucibus, nisl ex
+                facilisis nulla, a pretium ligula augue nec risus.
+              </p>
+            </div>
+          </div>
+
+          
+          <div className="flex">
+            <div className="w-1/3">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Blog 2"
+                className="rounded-lg"
+              />
+            </div>
+            <div className="w-2/3 pl-4">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                Blog Title 2
+              </h3>
+              <p className="text-gray-600">
+                Sed auctor nisl sit amet arcu aliquet, in aliquam nunc pharetra.
+                Praesent non orci ac libero facilisis tempus. Integer vitae
+                lectus nec neque facilisis tristique.
+              </p>
+            </div>
+          </div>
+
+          
+          <div className="flex">
+            <div className="w-1/3">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Blog 3"
+                className="rounded-lg"
+              />
+            </div>
+            <div className="w-2/3 pl-4">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                Blog Title 3
+              </h3>
+              <p className="text-gray-600">
+                Mauris non nulla eget dolor vehicula consequat. Vestibulum nec
+                massa eget erat ornare auctor at ac odio.
+              </p>
+            </div>
           </div>
         </div>
+      </div> */}
       </div>
-    </div>
+      </div>
+     </div>
+      </div>
+
   );
 };
 

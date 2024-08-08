@@ -79,8 +79,8 @@ const Nav2 = () => {
   return (
     <div className="w-full relative">
       {/* Backside div with options */}
-      <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start w-full md:max-w-full relative">
-        <div className="text-white w-[15rem] flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl pb-15">
+      <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start w-full md:max-w-full relative ">
+        <div className="text-white w-full flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl pb-15">
           <button className="py-1 px-2 md:px-4 pt-3">Buy</button>
           <button className="py-1 px-2 md:px-4 pt-3">Rent</button>
           <button className="py-1 px-2 md:px-4 pt-3">PG/Co</button>
@@ -89,7 +89,7 @@ const Nav2 = () => {
       </div>
 
       {/* Navbar absolute positioning */}
-      <div className="absolute top-[2.3rem] md:top-[3rem] bg-white md:p-4 flex flex-col md:flex-row md:w-full rounded-lg md:rounded-full space-y-2 md:space-y-0">
+      <div className="absolute top-[2.3rem] md:top-[3rem] bg-white p-2 md:p-4 flex flex-col md:flex-row w-full rounded-lg md:rounded-full space-y-2 md:space-y-0">
         <input
           className="form-control p-2 border rounded-lg md:rounded-none md:border-none md:rounded-l-md focus:outline-none"
           type="text"
@@ -121,13 +121,12 @@ const Nav2 = () => {
           <option value="commercial">Commercial</option>
         </select>
         <button
-  type="button"
-  className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 border border-transparent transition-all duration-200 ease-in-out ml-[3rem]"
-  onClick={handleSearch}
->
-  Search
-</button>
-
+          type="button"
+          className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 border border-transparent transition-all duration-200 ease-in-out ml-auto"
+          onClick={handleSearch}
+        >
+          Search
+        </button>
       </div>
 
       {/* Modal */}
