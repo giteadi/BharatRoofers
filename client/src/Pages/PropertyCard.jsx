@@ -78,7 +78,7 @@ const PropertyCard = () => {
           "https://bharatroofers.com/api/property/getAllPropertyImages"
         );
         const { data } = response.data;
-        console.log("Fetched data:", data); // Log the data to verify
+ 
         setPropertyImages(data);
       } catch (error) {
         console.error("Error fetching property images:", error);
@@ -96,6 +96,8 @@ const PropertyCard = () => {
         const images = propertyImages
           .filter((img) => img.property_id === property.id.toString())
           .map((img) => img.image); // Extract only the image URLs
+          console.log(property, images);
+          
         setSelectedProperty({ ...property, images });
       }
     }
@@ -141,19 +143,41 @@ const PropertyCard = () => {
     }
   }
   const DetailItem = ({ icon: Icon, label, color }) => {
-    if (label.includes("N/A")) {
+    // console.log("label",label);
+
+    if (label.includes("N/A" )) {
       return null; 
     }
-    else if(label.includes(0)){
-      return null;
-    }
-    return (
+   if(label.includes("no")){
+    return null;
+  }
+
+  if(label.includes(": 0")) {
+    return null
+  }
+
+
+
+   if(label.includes("Property Id")){
+    console.log(label);
+   if(label.includes("0")){
+    return null;
+   }
+    return null;
+  }
+
+  // if(label==="0"){
+  //   return null;
+  // }
+       return (
       <div className="flex items-center">
         <Icon className={`mr-2 ${color}`} />
         <p className="text-lg text-gray-600">{label}</p>
       </div>
     );
   };
+console.log("Selected property:",selectedProperty)
+console.log("feet",selectedProperty.square_ft);
   return (
     <div className="max-w-full px-4 py-8">
       <div className="bg-white shadow-lg rounded-lg">
@@ -165,7 +189,7 @@ const PropertyCard = () => {
           </p>
           <div className="flex items-center mb-4">
             <FaMapMarkerAlt className="mr-2 text-gray-600" />
-            <p className="text-lg text-gray-600">{description}</p>
+            <p className="text-lg text-gray-600">{selectedProperty.property_address}</p>
           </div>
 
           {/* Lightbox image */}
@@ -203,7 +227,7 @@ const PropertyCard = () => {
                 />
                 <div className="ml-auto">
                   <HeartbeatButton
-                    className="heartbeat"
+                    className="heartbeat md:w-[20rem] absolute md:right-[5rem] "
                     onClick={() => {
                       scrollToForm();
                       toast.success("Scrolling to Contact Form");
@@ -263,12 +287,9 @@ const PropertyCard = () => {
                     color="text-green-500"
                   />
                   <DetailItem
-                    icon={FaRuler}
-                    label={`Square Feet: ${
-                      selectedProperty.square_ft || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
+                  icon={FaHome}
+                  label={`Square Feet: ${selectedProperty.square_ft || "N/A"}`}
+                  color="text-green-500"/>
                   <DetailItem
                     icon={FaRuler}
                     label={`Dimension: ${selectedProperty.dimension || "N/A"}`}
@@ -347,7 +368,7 @@ const PropertyCard = () => {
                   />
                   <DetailItem
                     icon={FaHome}
-                    label={`Bedrooms: ${selectedProperty.bhk || "N/A"}`}
+                    label={`BHK: ${selectedProperty.bhk || "NA"}`}
                     color="text-green-500"
                   />
                   <DetailItem
@@ -398,19 +419,24 @@ const PropertyCard = () => {
                     color="text-green-500"
                   />
                   
-                  {/* <DetailItem
-                    icon={FaHome}
-                    label={`Security: ${
-                      selectedProperty.security_24_7 || "N/A"
-                    }`}
-                    color="text-green-500"
-                  /> */}
                   <DetailItem
                     icon={FaHome}
-                    label={`Lights: ${selectedProperty.lights || "N/A"}`}
+                    label={`Age: ${
+                      selectedProperty.age_of_property || "N/A"
+                    }`}
+                    color="text-green-500"
+                  />
+                  <DetailItem
+                    icon={FaHome}
+                    label={`Structure: ${selectedProperty.structure || "N/A"}`}
                     color="text-green-500"
                   />
                   
+                  <DetailItem
+                    icon={FaHome}
+                    label={`Facing: ${selectedProperty.facing || "N/A"}`}
+                    color="text-green-500"
+                  />
                   
                   <DetailItem
                     icon={FaHome}
@@ -535,7 +561,7 @@ const PropertyCard = () => {
                 className="my-10 p-4 bg-gray-50 rounded-lg w-1/2 mx-auto"
                 ref={formRef}
               >
-                <h2 className="text-2xl font-bold text-gray-700 mb-4">
+                <h2 className="text-2xl font-bold text-gray-700 mb-4 ">
                   Contact Us
                 </h2>
                 <form onSubmit={formSubmit} className="space-y-4">
@@ -637,14 +663,14 @@ const PropertyCard = () => {
           </div>
 
           {/* Blogs*/}
-          {/* <div className="mt-5 p-2 w-2/3">
+        <div className="md:mt-[7rem] w-2/3 ">
         <h2 className="text-xl font-semibold mb-4 text-gray-700">Blogs</h2>
         <div className="flex flex-col space-y-6">
         
           <div className="flex">
             <div className="w-1/3">
               <img
-                src="https://via.placeholder.com/300"
+                src="https://via.placeholder.com/200"
                 alt="Blog 1"
                 className="rounded-lg"
               />
@@ -665,7 +691,7 @@ const PropertyCard = () => {
           <div className="flex">
             <div className="w-1/3">
               <img
-                src="https://via.placeholder.com/300"
+                src="https://via.placeholder.com/200"
                 alt="Blog 2"
                 className="rounded-lg"
               />
@@ -686,7 +712,7 @@ const PropertyCard = () => {
           <div className="flex">
             <div className="w-1/3">
               <img
-                src="https://via.placeholder.com/300"
+                src="https://via.placeholder.com/200"
                 alt="Blog 3"
                 className="rounded-lg"
               />
@@ -702,7 +728,7 @@ const PropertyCard = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
       </div>
       </div>
      </div>
