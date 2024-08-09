@@ -147,7 +147,7 @@ console.log("Recently Posted",recentlyPosted)
 
       {/* Carousal */}
       <section className="max-w-screen">
-        <p className='text-3xl font-bold flex justify-center p-4'> Our Properties</p>
+        <p className='text-3xl font-bold flex justify-center p-6'> Our Properties</p>
         <Carausal />
       </section>
 
