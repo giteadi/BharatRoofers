@@ -38,18 +38,18 @@ const TestimonialSection = ({ testimonials }) => {
 const testimonialsData = [
   {
     text: "BharatRoofers helped me find the perfect home for my family.",
-    author: "John Doe",
-    image: "https://render.fineartamerica.com/images/rendered/default/poster/7/8/break/images/artworkimages/medium/3/doremon-deepak-pengoria.jpg",
+    author: "Katty",
+    image: "https://th.bing.com/th?id=OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA&w=249&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
   },
   {
     text: "Great service and support throughout the buying process.",
-    author: "Jane Smith",
-    image: "https://i.pinimg.com/736x/53/b6/32/53b6320b4c36ada89533f6d2d3c881e0.jpg",
+    author: "Sweezen",
+    image: "https://th.bing.com/th/id/OIP.NkNw9UFcwKgQ2PqdxCdB8gHaH_?w=700&h=756&rs=1&pid=ImgDetMain",
   },
   {
     text: "I highly recommend BharatRoofers for anyone looking to buy or sell property.",
-    author: "Michael Brown",
-    image: "https://i.pinimg.com/564x/36/53/e5/3653e53d2bdf1402859c6b95dbdae098.jpg",
+    author: "Laslay",
+    image: "https://i.pinimg.com/originals/f2/44/fb/f244fb1e12a243ac1579731284c73ff0.jpg",
   },
 ];
 
