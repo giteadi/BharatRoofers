@@ -20,6 +20,7 @@ const Nav2 = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [propertyType, setPropertyType] = useState('');
   const [propertyFor, setPropertyFor] = useState('sale');
+  const [selectedOption, setSelectedOption] = useState('Buy');
   const [filteredProperties, setFilteredProperties] = useState([]);
   const navigate = useNavigate();
 
@@ -76,15 +77,40 @@ const Nav2 = () => {
     navigate('/category', { state: { filteredProperties } });
   };
 
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    switch (option) {
+      case 'Buy':
+        setPropertyFor('sale');
+        break;
+      case 'Rent':
+        setPropertyFor('rent');
+        break;
+      case 'PG/Co':
+        setPropertyFor('pg/co');
+        break;
+      case 'Plots':
+        setPropertyFor('plots');
+        break;
+      default:
+        setPropertyFor('sale');
+    }
+  };
+
   return (
     <div className="w-full relative">
       {/* Backside div with options */}
       <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start w-full md:max-w-full relative ">
         <div className="text-white w-full flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl pb-15">
-          <button className="py-1 px-2 md:px-4 pt-3">Buy</button>
-          <button className="py-1 px-2 md:px-4 pt-3">Rent</button>
-          <button className="py-1 px-2 md:px-4 pt-3">PG/Co</button>
-          <button className="py-1 px-2 md:px-4 pt-3">Plots</button>
+          {['Buy', 'Rent', 'PG/Co', 'Plots'].map((option) => (
+            <button
+              key={option}
+              className={`py-1 px-2 md:px-4 pt-3 ${selectedOption === option ? 'border' : ''}`}
+              onClick={() => handleOptionClick(option)}
+            >
+              {option}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -104,6 +130,8 @@ const Nav2 = () => {
         >
           <option value="sale">Buy</option>
           <option value="rent">Rent</option>
+          <option value="pg/co">PG/Co</option>
+          <option value="plots">Plots</option>
         </select>
         <select
           className="form-select p-2 border rounded-lg md:border-none md:rounded-none"
@@ -145,7 +173,7 @@ const Nav2 = () => {
               ) : (
                 <div className="text-center text-gray-500 mt-4">
                   {filteredProperties.length > 0 ? (
-                    <p className="text-black">
+                    <p className="text-gray-500">
                       Showing {filteredProperties.length} properties matching your criteria.
                     </p>
                   ) : (
