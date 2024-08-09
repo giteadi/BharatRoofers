@@ -10,7 +10,7 @@ import {
   FaInstagram,
   FaRupeeSign,
 } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import axios from "axios";
 import styled, { keyframes } from "styled-components";
@@ -156,16 +156,6 @@ const PropertyCard = () => {
     return null
   }
 
-
-
-   if(label.includes("Property Id")){
-    console.log(label);
-   if(label.includes("0")){
-    return null;
-   }
-    return null;
-  }
-
   // if(label==="0"){
   //   return null;
   // }
@@ -177,7 +167,7 @@ const PropertyCard = () => {
     );
   };
 console.log("Selected property:",selectedProperty)
-console.log("feet",selectedProperty.square_ft);
+// console.log("feet",selectedProperty.square_ft);
   return (
     <div className="max-w-full px-4 py-8">
       <div className="bg-white shadow-lg rounded-lg">
@@ -239,246 +229,219 @@ console.log("feet",selectedProperty.square_ft);
               </div>
 
               {/* Property details */}
-              <div className="mt-5 p-2">
-                <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                  Property Details
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* Property detail items */}
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Property Id: ${selectedProperty.id || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Type: ${selectedProperty.property_type || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaBuilding}
-                    label={`Commercial Property Type: ${
-                      selectedProperty.commercial_property_type || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Property For: ${
-                      selectedProperty.property_for || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`New/Resale: ${
-                      selectedProperty.new_resale || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`TNCP Approved: ${selectedProperty.tncp || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                  icon={FaHome}
-                  label={`Square Feet: ${selectedProperty.square_ft || "N/A"}`}
-                  color="text-green-500"/>
-                  <DetailItem
-                    icon={FaRuler}
-                    label={`Dimension: ${selectedProperty.dimension || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaCar}
-                    label={`Car Parking: ${
-                      selectedProperty.car_parking || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Year Built: ${
-                      selectedProperty.year_built || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Facing: ${selectedProperty.facing || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Flooring: ${selectedProperty.flooring || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Age of Property: ${
-                      selectedProperty.age_of_property || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Lift: ${selectedProperty.lift || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Price: ₹${selectedProperty.price || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`City: ${selectedProperty.property_city || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Address: ${
-                      selectedProperty.property_address || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
+<div className="mt-5 p-2">
+  <h2 className="text-xl font-semibold mb-4 text-gray-700">Property Details</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    {/* Property detail items */}
+    <DetailItem
+      icon={FaHome}
+      label={`Property Id: ${selectedProperty.id || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Type: ${selectedProperty.property_type || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaBuilding}
+      label={`Commercial Property Type: ${
+        selectedProperty.commercial_property_type || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Property For: ${selectedProperty.property_for || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`New/Resale: ${selectedProperty.new_resale || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`TNCP Approved: ${selectedProperty.tncp || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Square Feet: ${selectedProperty.square_ft || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaRuler}
+      label={`Dimension: ${selectedProperty.dimension || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaCar}
+      label={`Car Parking: ${selectedProperty.car_parking || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Year Built: ${selectedProperty.year_built || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Facing: ${selectedProperty.facing || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Flooring: ${selectedProperty.flooring || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Age of Property: ${selectedProperty.age_of_property || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Lift: ${selectedProperty.lift || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Price: ₹${selectedProperty.price || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`City: ${selectedProperty.property_city || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Address: ${selectedProperty.property_address || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Number of Visits: ${selectedProperty.visits || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Balcony: ${selectedProperty.balcony || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Bathrooms: ${selectedProperty.bathroom || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`BHK: ${selectedProperty.bhk || "NA"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Modular Kitchen: ${
+        selectedProperty.modularKitchen || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Furnishing: ${selectedProperty.furnishing || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Swimming Pool: ${
+        selectedProperty.swimming_pool || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Terrace: ${selectedProperty.terrace || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Immediate Possession: ${
+        selectedProperty.immediate_possession || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Investment: ${selectedProperty.investment || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Own Purpose: ${selectedProperty.own_purpose || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Age: ${selectedProperty.age_of_property || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Structure: ${selectedProperty.structure || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Facing: ${selectedProperty.facing || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Gated Community: ${
+        selectedProperty.gated_community || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Attractive Entrance Gate: ${
+        selectedProperty.attractive_entrance_gate || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Near Green Zone: ${
+        selectedProperty.near_green_zone || "N/A"
+      }`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Near Temple: ${
+        selectedProperty.near_temple || "N/A"
+      }`}
+      color="text-green-500"
+    />
+  </div>
+</div>
 
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Number of Visits: ${
-                      selectedProperty.visits || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Balcony: ${selectedProperty.balcony || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Bathrooms: ${selectedProperty.bathroom || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`BHK: ${selectedProperty.bhk || "NA"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Modular Kitchen: ${
-                      selectedProperty.modularKitchen || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Furnishing: ${
-                      selectedProperty.furnishing || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Swimming Pool: ${
-                      selectedProperty.swimming_pool || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Terrace: ${selectedProperty.terrace || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Immediate Possession: ${
-                      selectedProperty.immediate_possession || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Investment: ${
-                      selectedProperty.investment || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Own Purpose: ${
-                      selectedProperty.own_purpose || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Age: ${
-                      selectedProperty.age_of_property || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Structure: ${selectedProperty.structure || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Facing: ${selectedProperty.facing || "N/A"}`}
-                    color="text-green-500"
-                  />
-                  
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Gated Community: ${
-                      selectedProperty.gated_community || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Attractive Entrance Gate: ${
-                      selectedProperty.attractive_entrance_gate || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Near Green Zone: ${
-                      selectedProperty.near_green_zone || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                  <DetailItem
-                    icon={FaHome}
-                    label={`Near Temple: ${
-                      selectedProperty.near_temple || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
-                </div>
-              </div>
+{/* Description */}
+<div className="mt-5 p-2 w-full lg:w-1/2">
+  <p className="text-2xl font-semibold">Description</p>
+  <p className="text-gray-700">
+    {selectedProperty.property_description}
+  </p>
+</div>
 
-              {/* Description */}
-              <div className="mt-5 p-2 w-1/2">
-                <p className="text-2xl font-semibold">Description</p>
-                <p className="text-gray-700">
-                  {selectedProperty.property_description}
-                </p>
-              </div>
-
-              {/* Amenities */}
-              <div className="mt-5 p-2">
+{/* Amenities */}
+<div className="mt-5 p-2">
   <h2 className="text-xl font-semibold mb-4 text-gray-700">
     Amenities
   </h2>
@@ -493,13 +456,13 @@ console.log("feet",selectedProperty.square_ft);
       label={`Security: ${selectedProperty.security_24_7 || "N/A"}`}
       color="text-green-500"
     />
-           <DetailItem
-                    icon={FaCar}
-                    label={`Car Parking: ${
-                      selectedProperty.car_parking || "N/A"
-                    }`}
-                    color="text-green-500"
-                  />
+    <DetailItem
+      icon={FaCar}
+      label={`Car Parking: ${
+        selectedProperty.car_parking || "N/A"
+      }`}
+      color="text-green-500"
+    />
     <DetailItem
       icon={FaHome}
       label={`Drainage: ${selectedProperty.drainage || "N/A"}`}
@@ -533,6 +496,16 @@ console.log("feet",selectedProperty.square_ft);
     <DetailItem
       icon={FaHome}
       label={`Own Purpose: ${selectedProperty.own_purpose || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Near Green Zone: ${selectedProperty.near_green_zone || "N/A"}`}
+      color="text-green-500"
+    />
+    <DetailItem
+      icon={FaHome}
+      label={`Near Temple: ${selectedProperty.near_temple || "N/A"}`}
       color="text-green-500"
     />
   </ul>
@@ -663,72 +636,108 @@ console.log("feet",selectedProperty.square_ft);
           </div>
 
           {/* Blogs*/}
-        <div className="md:mt-[7rem] w-2/3 ">
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">Blogs</h2>
-        <div className="flex flex-col space-y-6">
-        
-          <div className="flex">
-            <div className="w-1/3">
-              <img
-                src="https://via.placeholder.com/200"
-                alt="Blog 1"
-                className="rounded-lg"
-              />
-            </div>
-            <div className="w-2/3 pl-4">
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                Blog Title 1
-              </h3>
-              <p className="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque efficitur, nulla ut bibendum faucibus, nisl ex
-                facilisis nulla, a pretium ligula augue nec risus.
-              </p>
-            </div>
-          </div>
-
-          
-          <div className="flex">
-            <div className="w-1/3">
-              <img
-                src="https://via.placeholder.com/200"
-                alt="Blog 2"
-                className="rounded-lg"
-              />
-            </div>
-            <div className="w-2/3 pl-4">
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                Blog Title 2
-              </h3>
-              <p className="text-gray-600">
-                Sed auctor nisl sit amet arcu aliquet, in aliquam nunc pharetra.
-                Praesent non orci ac libero facilisis tempus. Integer vitae
-                lectus nec neque facilisis tristique.
-              </p>
-            </div>
-          </div>
-
-          
-          <div className="flex">
-            <div className="w-1/3">
-              <img
-                src="https://via.placeholder.com/200"
-                alt="Blog 3"
-                className="rounded-lg"
-              />
-            </div>
-            <div className="w-2/3 pl-4">
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                Blog Title 3
-              </h3>
-              <p className="text-gray-600">
-                Mauris non nulla eget dolor vehicula consequat. Vestibulum nec
-                massa eget erat ornare auctor at ac odio.
-              </p>
-            </div>
-          </div>
-        </div>
+          <div className="md:mt-[7rem]  md:w-2/3 px-4 md:px-0">
+  <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">Interesting Blogs</h2>
+  <div className="flex flex-col space-y-6">
+    
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-1/3">
+        <img
+          src="https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs="
+          alt="Blog 1"
+          className="rounded-lg w-full"
+        />
       </div>
+      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+        <div className="flex items-center gap-3">
+          <FaHome />
+          <p>Selling a home</p>
+        </div>
+        <Link to="/blogs" className="text-lg font-medium text-gray-800">
+          The Critical Role of Home Inspections: A Buyer's Guide to Informed Decisions
+        </Link>
+      </div>
+    </div>
+
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-1/3">
+        <img
+          src="https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw="
+          alt="Blog 2"
+          className="rounded-lg w-full"
+        />
+      </div>
+      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+        <div className="flex items-center gap-3">
+          <FaHome />
+          <p>Selling a home</p>
+        </div>
+        <Link to="/blogs" className="text-lg font-medium text-gray-800">
+          New Construction vs. Resale Homes: Making the Right Choice for Your Next Property
+        </Link>
+      </div>
+    </div>
+
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-1/3">
+        <img
+          src="https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif"
+          alt="Blog 3"
+          className="rounded-lg w-full"
+        />
+      </div>
+      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+        <div className="flex items-center gap-3">
+          <FaHome />
+          <p>Selling a home</p>
+        </div>
+        <Link to="/blogs" className="text-lg font-medium text-gray-800">
+          Looking for 1 BHK Apartment Duplex
+        </Link>
+      </div>
+    </div>
+
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-1/3">
+        <img
+          src="https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif"
+          alt="Blog 4"
+          className="rounded-lg w-full"
+        />
+      </div>
+      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+        <div className="flex items-center gap-3">
+          <FaHome />
+          <p>Selling a home</p>
+        </div>
+        <Link to="/blogs" className="text-lg font-medium text-gray-800">
+          Budget Allocations and Real Estate: Paving the Path Ahead
+        </Link>
+      </div>
+    </div>
+
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-1/3">
+        <img
+          src="https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif"
+          alt="Blog 5"
+          className="rounded-lg w-full"
+        />
+      </div>
+      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+        <div className="flex items-center gap-3">
+          <FaHome />
+          <p>Selling a home</p>
+        </div>
+        <Link to="/blogs" className="text-lg font-medium text-gray-800">
+          Budget Allocations and Real Estate: Paving the Path Ahead
+        </Link>
+      </div>
+    </div>
+
+  </div>
+</div>
+
       </div>
       </div>
      </div>
