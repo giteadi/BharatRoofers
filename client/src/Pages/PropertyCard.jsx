@@ -528,115 +528,11 @@ console.log("Selected property:",selectedProperty)
                   Year Build:{selectedProperty.year_built}
                 </p>
               </div>
-
-              {/* Contact Form */}
-              <div
-                className="my-10 p-4 bg-gray-50 rounded-lg w-1/2 mx-auto"
-                ref={formRef}
-              >
-                <h2 className="text-2xl font-bold text-gray-700 mb-4 ">
-                  Contact Us
-                </h2>
-                <form onSubmit={formSubmit} className="space-y-4">
-                  {/* Property Id and Name Fields in Same Row */}
-                  <div className="flex space-x-4 mb-4">
-                    {/* Property Id Field */}
-                    <div className="flex-1">
-                      <label
-                        htmlFor="propertyId"
-                        className="font-semibold mb-1 block"
-                      >
-                        Property Id:
-                      </label>
-                      <input
-                        name="propertyId"
-                        value={id || ""}
-                        id="propertyId"
-                        className="w-full p-2 border border-gray-300 rounded"
-                        readOnly
-                      />
-                    </div>
-
-                    {/* Property Name Field */}
-                    <div className="flex-1">
-                      <label
-                        htmlFor="propertyName"
-                        className="font-semibold mb-1 block"
-                      >
-                        Property Name:
-                      </label>
-                      <input
-                        name="propertyName"
-                        value={title || ""}
-                        id="propertyName"
-                        className="w-full p-2 border border-gray-300 rounded"
-                        readOnly
-                      />
-                    </div>
-                  </div>
-
-                  {/* Name Field */}
-                  <div className="flex flex-col mb-4">
-                    <label htmlFor="name" className="font-semibold mb-1">
-                      Your Name:
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      id="name"
-                      className="w-full p-2 border border-gray-300 rounded"
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-
-                  {/* Email Field */}
-                  <div className="flex flex-col mb-4">
-                    <label htmlFor="email" className="font-semibold mb-1">
-                      Your Email:
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      id="email"
-                      className="w-full p-2 border border-gray-300 rounded"
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-
-                  {/* Message Field */}
-                  <div className="flex flex-col mb-4">
-                    <label htmlFor="message" className="font-semibold mb-1">
-                      Your Message:
-                    </label>
-                    <textarea
-                      name="message"
-                      placeholder="Your Message"
-                      id="message"
-                      rows="4"
-                      className="w-full p-2 border border-gray-300 rounded"
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    className="w-full py-2 bg-green-500 text-white rounded"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
             </div>
           </div>
 
           {/* Blogs*/}
-          <div className="md:mt-[7rem]  md:w-2/3 px-4 md:px-0">
+          <div className="md:mt-[7rem] w-full sm:max-w-3/2  md:max-w-2/3 px-4 md:px-0">
   <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">Interesting Blogs</h2>
   <div className="flex flex-col space-y-6">
     
@@ -741,6 +637,110 @@ console.log("Selected property:",selectedProperty)
       </div>
       </div>
      </div>
+      {/* Contact Form */}
+      <div
+  className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
+  ref={formRef}
+>
+  <h2 className="text-2xl font-bold text-gray-700 mb-4 text-center">
+    Contact Us
+  </h2>
+  <form onSubmit={formSubmit} className="space-y-4">
+    {/* Property Id and Name Fields in Same Row */}
+    <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
+      {/* Property Id Field */}
+      <div className="flex-1">
+        <label
+          htmlFor="propertyId"
+          className="font-semibold mb-1 block"
+        >
+          Property Id:
+        </label>
+        <input
+          name="propertyId"
+          value={id || ""}
+          id="propertyId"
+          className="w-full p-2 border border-gray-300 rounded"
+          readOnly
+        />
+      </div>
+
+      {/* Property Name Field */}
+      <div className="flex-1">
+        <label
+          htmlFor="propertyName"
+          className="font-semibold mb-1 block"
+        >
+          Property Name:
+        </label>
+        <input
+          name="propertyName"
+          value={title || ""}
+          id="propertyName"
+          className="w-full p-2 border border-gray-300 rounded"
+          readOnly
+        />
+      </div>
+    </div>
+
+    {/* Name Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="name" className="font-semibold mb-1">
+        Your Name:
+      </label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        id="name"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
+
+    {/* Email Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="email" className="font-semibold mb-1">
+        Your Email:
+      </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        id="email"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
+
+    {/* Message Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="message" className="font-semibold mb-1">
+        Your Message:
+      </label>
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        id="message"
+        rows="4"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
       </div>
 
   );
