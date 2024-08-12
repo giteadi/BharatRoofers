@@ -30,11 +30,14 @@ const FeatureSection = () => {
     const fetchProperties = async () => {
       try {
         const response = await axios.get('https://bharatroofers.com/api/property/getAllProperty');
+        console.log('Response:', response); // Log the full response
         setProperties(response.data.data);
+        console.log('Properties:', response.data.data); // Log the data being set in state
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
     };
+    
     const fetchMostViewedProperties = async () => {
       try {
         const response = await axios.get('https://bharatroofers.com/api/property/getSuggestedProperty');
@@ -46,6 +49,7 @@ const FeatureSection = () => {
     const fetchPropertyImages = async () => {
       try {
         const response = await axios.get('https://bharatroofers.com/api/property/getAllPropertyImages');
+        
         setPropertiesImages(response.data.data);
       } catch (error) {
         console.error('Error fetching property images:', error);
@@ -98,7 +102,8 @@ const getImageForProperty = (propertyId) => {
 const getImagesForCarousel = (properties) => {
   return properties.map(property => getImageForProperty(property.id));
 };
-console.log("Recently Posted",recentlyPosted)
+// console.log("Recently Posted",recentlyPosted)
+// console.log("property",properties);
   return (
     <div>
       {/* Image Grid Section */}
