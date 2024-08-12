@@ -40,9 +40,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-800 text-white py-8 overflow-hidden z-[-1]">
+    <footer className="relative bg-gray-800 text-white py-8 z-0">
       {/* BackgroundBeams component */}
-      <BackgroundBeams className="absolute inset-0  z-[1]" />
+      <BackgroundBeams className="absolute inset-0 z-[-1]" />
 
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between mb-8">
