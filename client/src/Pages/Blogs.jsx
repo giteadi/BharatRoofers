@@ -64,13 +64,13 @@ const Blog = () => {
   return (
     <div className="container max-w-screen mx-auto px-4 py-8">
       {/* <span className="flex justify-center items-center text-4xl font-bold underline">Blogs</span> */}
-      <span>
+      <span >
         <TextRevealCardPreview/>
       </span>
       {posts.map((post, index) => (
         <div
           key={post.id}
-          className={`flex flex-col md:flex-row items-center mb-8 ${
+          className={`flex flex-col md:flex-row items-center  mb-8 ${
             index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
           }`}
           onClick={() => handleClick(post.id)}

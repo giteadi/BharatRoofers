@@ -8,17 +8,17 @@ import {
 
 export function TextRevealCardPreview() {
   return (
-    <div className="flex items-center justify-center  w-full">
+    <div className="flex items-center justify-center w-full mt-12 md:mt-16 lg:mt-20">
       <TextRevealCard
-        text=" Blogs" 
+        text="Blogs" 
         revealText="Blogs "
-        className='text-md'
+        className="text-base md:text-lg lg:text-xl"
       >
-        <TextRevealCardTitle>
-      
+        <TextRevealCardTitle className="text-sm md:text-base lg:text-lg">
+          {/* Add title text here */}
         </TextRevealCardTitle>
-        <TextRevealCardDescription>
-          
+        <TextRevealCardDescription className="text-xs md:text-sm lg:text-base">
+          {/* Add description text here */}
         </TextRevealCardDescription>
       </TextRevealCard>
     </div>
