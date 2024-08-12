@@ -39,17 +39,17 @@ const testimonialsData = [
   {
     text: "BharatRoofers helped me find the perfect home for my family.",
     author: "Katty",
-    image: "https://th.bing.com/th?id=OIP.2i5UaEHaQM3PYAYXQyM1AAAAAA&w=249&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+    image: "https://imgs.search.brave.com/fbxInw05M6mkNEHaT64Qm3dNEzTIVXrwCD4lxk4ve3A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzE3LzM0LzY3/LzM2MF9GXzIxNzM0/Njc4Ml83WHBDVHQ4/YkxOSnF2VkFhRFpK/d3Zaam0wZXBRbWo2/ai5qcGc",
   },
   {
     text: "Great service and support throughout the buying process.",
     author: "Sweezen",
-    image: "https://th.bing.com/th/id/OIP.NkNw9UFcwKgQ2PqdxCdB8gHaH_?w=700&h=756&rs=1&pid=ImgDetMain",
+    image: "https://imgs.search.brave.com/fbxInw05M6mkNEHaT64Qm3dNEzTIVXrwCD4lxk4ve3A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzE3LzM0LzY3/LzM2MF9GXzIxNzM0/Njc4Ml83WHBDVHQ4/YkxOSnF2VkFhRFpK/d3Zaam0wZXBRbWo2/ai5qcGc",
   },
   {
     text: "I highly recommend BharatRoofers for anyone looking to buy or sell property.",
     author: "Laslay",
-    image: "https://i.pinimg.com/originals/f2/44/fb/f244fb1e12a243ac1579731284c73ff0.jpg",
+    image: "https://imgs.search.brave.com/fbxInw05M6mkNEHaT64Qm3dNEzTIVXrwCD4lxk4ve3A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzE3LzM0LzY3/LzM2MF9GXzIxNzM0/Njc4Ml83WHBDVHQ4/YkxOSnF2VkFhRFpK/d3Zaam0wZXBRbWo2/ai5qcGc",
   },
 ];
 

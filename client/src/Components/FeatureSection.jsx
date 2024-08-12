@@ -164,32 +164,51 @@ const getImagesForCarousel = (properties) => {
 
       {/* Video section */}
       <section className="bg-black w-full h-[35rem] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://c4.wallpaperflare.com/wallpaper/846/173/87/5c1cbaf96bcec-wallpaper-preview.jpg" alt="bg_image" className="object-cover w-full h-full filter blur-sm opacity-20" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://c4.wallpaperflare.com/wallpaper/846/173/87/5c1cbaf96bcec-wallpaper-preview.jpg"
+          alt="background"
+          className="object-cover w-full h-full filter blur-sm opacity-30"
+        />
+      </div>
+      {/* Overlay Text */}
+      {!isVideoOpen && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-6">
+          <h2 className="text-3xl font-bold mb-4">Experience Our Properties Virtually</h2>
+          <p className="text-lg mb-6">
+            Discover the unique features and luxurious amenities of our properties. 
+            Watch our video tour to get a closer look at what makes our listings stand out.
+          </p>
+          <button
+            onClick={handleClick}
+            className="bg-blue-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-600 transition"
+          >
+            <FaPlay className="inline mr-2" /> Watch Tour
+          </button>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          {isVideoOpen ? (
-            <div className="relative w-screen">
-              <button onClick={handleClick} className="absolute top-2 right-2 text-white">
-                <FaTimes className="text-2xl hover:text-gray-300" />
-              </button>
-              <iframe
-                width="100%"
-                height="525"
-                src="https://www.youtube.com/embed/9bZkp7q19f0"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          ) : (
-            <button onClick={handleClick} className="bg-blue-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-600 transition">
-              <FaPlay className="inline mr-2" /> Watch Video
-            </button>
-          )}
+      )}
+      {/* Video Player */}
+      {isVideoOpen && (
+        <div className="relative w-full h-full">
+          <button
+            onClick={handleClick}
+            className="absolute top-2 right-2 text-white"
+          >
+            <FaTimes className="text-2xl hover:text-gray-300" />
+          </button>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/9bZkp7q19f0" // Replace with your video URL
+            title="Property Tour"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
-      </section>
+      )}
+    </section>
 
       {/* 3 carousal */}
       <span className='font-bold flex items-center justify-center text-3xl text-center mb-6 md:mb-8 mt-6'>Our Property</span>
