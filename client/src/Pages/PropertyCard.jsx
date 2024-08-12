@@ -10,10 +10,19 @@ import {
   FaInstagram,
   FaRupeeSign,
 } from "react-icons/fa";
-import { FaSwimmer, FaLightbulb, FaFan, FaSnowflake, FaTv, FaWifi, FaDesktop, FaUtensils } from 'react-icons/fa';
-import { PiArrowFatLineRightFill } from 'react-icons/pi';
+import {
+  FaSwimmer,
+  FaLightbulb,
+  FaFan,
+  FaSnowflake,
+  FaTv,
+  FaWifi,
+  FaDesktop,
+  FaUtensils,
+} from "react-icons/fa";
+import { PiArrowFatLineRightFill } from "react-icons/pi";
 
-import PropertyCard2 from './PropertyCard2'
+import PropertyCard2 from "./PropertyCard2";
 import { Link, useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import axios from "axios";
@@ -52,7 +61,6 @@ const HeartbeatButton = styled.button`
   }
 `;
 
-
 const PropertyCard = () => {
   const formRef = useRef(null);
   const { id } = useParams();
@@ -71,26 +79,32 @@ const PropertyCard = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get("https://bharatroofers.com/api/property/getAllProperty");
+        const response = await axios.get(
+          "https://bharatroofers.com/api/property/getAllProperty"
+        );
         setProperties(response.data.data);
       } catch (error) {
         console.error("Error fetching properties:", error);
       }
     };
-  
+
     const fetchPropertyImages = async () => {
       try {
-        const response = await axios.get("https://bharatroofers.com/api/property/getAllPropertyImages");
+        const response = await axios.get(
+          "https://bharatroofers.com/api/property/getAllPropertyImages"
+        );
         const { data } = response.data;
         setPropertyImages(data);
       } catch (error) {
         console.error("Error fetching property images:", error);
       }
     };
-  
+
     const fetchRelatedProperties = async () => {
       try {
-        const response = await axios.get('https://bharatroofers.com/api/property/getSuggestedProperty');
+        const response = await axios.get(
+          "https://bharatroofers.com/api/property/getSuggestedProperty"
+        );
         console.log("Suggested Properties:", response.data.data);
         if (Array.isArray(response.data.data)) {
           setProperties(response.data.data);
@@ -98,17 +112,15 @@ const PropertyCard = () => {
           setProperties([]);
         }
       } catch (error) {
-        console.error('Error fetching properties:', error);
+        console.error("Error fetching properties:", error);
         setProperties([]);
       }
     };
-  
+
     fetchProperties();
     fetchPropertyImages();
     fetchRelatedProperties();
   }, [id]);
-  
-  
 
   useEffect(() => {
     if (properties.length > 0 && propertyImages.length > 0) {
@@ -228,14 +240,16 @@ const PropertyCard = () => {
     }
   };
   // console.log("propertyyy",properties);
-  const propertiesWithImages = properties.map(property => {
-    const image = propertyImages.find(img => img.property_id === property.id.toString());
+  const propertiesWithImages = properties.map((property) => {
+    const image = propertyImages.find(
+      (img) => img.property_id === property.id.toString()
+    );
     return {
       ...property,
-      imageUrl: image ? image.image : null 
+      imageUrl: image ? image.image : null,
     };
   });
-  
+
   return (
     <div className="max-w-full px-4 py-8">
       <div className="bg-white shadow-lg rounded-lg">
@@ -309,265 +323,280 @@ const PropertyCard = () => {
                     Property Details
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-  {/* Property Id */}
-  <DetailItem
-    icon={FaHome}
-    label={`Property Id: ${selectedProperty.id || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Property Id */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Property Id: ${selectedProperty.id || "N/A"}`}
+                      color="text-green-500"
+                    />
 
-  {/* Type */}
-  <DetailItem
-    icon={FaHome}
-    label={`Type: ${selectedProperty.property_type || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Type */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Type: ${selectedProperty.property_type || "N/A"}`}
+                      color="text-green-500"
+                    />
 
-  {/* Commercial Property Type (conditional) */}
-  {selectedProperty.property_type === "commercial" && (
-    <DetailItem
-      icon={FaBuilding}
-      label={`Commercial Property Type: ${
-        selectedProperty.commercial_property_type || "N/A"
-      }`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Commercial Property Type (conditional) */}
+                    {selectedProperty.property_type === "commercial" && (
+                      <DetailItem
+                        icon={FaBuilding}
+                        label={`Commercial Property Type: ${
+                          selectedProperty.commercial_property_type || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Property For */}
-  <DetailItem
-    icon={FaHome}
-    label={`Property For: ${selectedProperty.property_for || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Property For */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Property For: ${
+                        selectedProperty.property_for || "N/A"
+                      }`}
+                      color="text-green-500"
+                    />
 
-  {/* Number of BHK (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Number of BHK: ${selectedProperty.bhk || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Number of BHK (conditional) */}
+                    {!["plot", "land", "farmLand", "commercial"].includes(
+                      selectedProperty.property_type
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Number of BHK: ${
+                          selectedProperty.bhk || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* New/Resale (conditional) */}
-  {selectedProperty.property_for === "sale" && (
-    <DetailItem
-      icon={FaHome}
-      label={`New/Resale: ${selectedProperty.new_resale || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* New/Resale (conditional) */}
+                    {selectedProperty.property_for === "sale" && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`New/Resale: ${
+                          selectedProperty.new_resale || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* TNCP Approved (conditional) */}
-  {selectedProperty.property_for === "sale" && (
-    <DetailItem
-      icon={FaHome}
-      label={`TNCP Approved: ${selectedProperty.tncp || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* TNCP Approved (conditional) */}
+                    {selectedProperty.property_for === "sale" && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`TNCP Approved: ${
+                          selectedProperty.tncp || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* RERA Number (conditional) */}
-  {selectedProperty.property_for === "sale" && (
-    <DetailItem
-      icon={FaHome}
-      label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* RERA Number (conditional) */}
+                    {selectedProperty.property_for === "sale" && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Structure (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Structure: ${selectedProperty.structure || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Structure (conditional) */}
+                    {!["plot", "land", "farmLand", "commercial"].includes(
+                      selectedProperty.property_type
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Structure: ${
+                          selectedProperty.structure || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Square Feet */}
-  <DetailItem
-    icon={FaHome}
-    label={`Square Feet: ${selectedProperty.square_ft || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Square Feet */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Square Feet: ${
+                        selectedProperty.square_ft || "N/A"
+                      }`}
+                      color="text-green-500"
+                    />
 
-  {/* Dimension */}
-  <DetailItem
-    icon={FaRuler}
-    label={`Dimension: ${selectedProperty.dimension || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Dimension */}
+                    <DetailItem
+                      icon={FaRuler}
+                      label={`Dimension: ${
+                        selectedProperty.dimension || "N/A"
+                      }`}
+                      color="text-green-500"
+                    />
 
-  {/* Car Parking (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    ) ||
-    ["commercial plot", "commercial land"].includes(
-      selectedProperty.commercial_property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaCar}
-      label={`Car Parking: ${selectedProperty.car_parking || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Car Parking (conditional) */}
+                    {!(
+                      ["plot", "land", "farmLand", "commercial"].includes(
+                        selectedProperty.property_type
+                      ) ||
+                      ["commercial plot", "commercial land"].includes(
+                        selectedProperty.commercial_property_type
+                      )
+                    ) && (
+                      <DetailItem
+                        icon={FaCar}
+                        label={`Car Parking: ${
+                          selectedProperty.car_parking || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Modular Kitchen (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Modular Kitchen: ${selectedProperty.modularKitchen || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Modular Kitchen (conditional) */}
+                    {!["plot", "land", "farmLand", "commercial"].includes(
+                      selectedProperty.property_type
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Modular Kitchen: ${
+                          selectedProperty.modularKitchen || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Year Built */}
-  <DetailItem
-    icon={FaHome}
-    label={`Year Built: ${selectedProperty.year_built || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Year Built */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Year Built: ${
+                        selectedProperty.year_built || "N/A"
+                      }`}
+                      color="text-green-500"
+                    />
 
-  {/* Facing */}
-  <DetailItem
-    icon={FaHome}
-    label={`Facing: ${selectedProperty.facing || "N/A"}`}
-    color="text-green-500"
-  />
+                    {/* Facing */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Facing: ${selectedProperty.facing || "N/A"}`}
+                      color="text-green-500"
+                    />
 
-  {/* Furnishing (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    ) ||
-    ["commercial plot", "commercial land"].includes(
-      selectedProperty.commercial_property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Furnishing: ${selectedProperty.furnishing || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Furnishing (conditional) */}
+                    {!(
+                      ["plot", "land", "farmLand", "commercial"].includes(
+                        selectedProperty.property_type
+                      ) ||
+                      ["commercial plot", "commercial land"].includes(
+                        selectedProperty.commercial_property_type
+                      )
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Furnishing: ${
+                          selectedProperty.furnishing || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Carpet Area (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Carpet Area: ${selectedProperty.carpet_area || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Carpet Area (conditional) */}
+                    {!["plot", "land", "farmLand", "commercial"].includes(
+                      selectedProperty.property_type
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Carpet Area: ${
+                          selectedProperty.carpet_area || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Bathroom (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Bathroom: ${selectedProperty.bathroom || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Bathroom (conditional) */}
+                    {!["plot", "land", "farmLand", "commercial"].includes(
+                      selectedProperty.property_type
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Bathroom: ${
+                          selectedProperty.bathroom || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Property On Floor (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    ) ||
-    ["commercial plot", "commercial land"].includes(
-      selectedProperty.commercial_property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Property On Floor: ${
-        selectedProperty.property_on_floor || "N/A"
-      }`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Property On Floor (conditional) */}
+                    {!(
+                      ["plot", "land", "farmLand", "commercial"].includes(
+                        selectedProperty.property_type
+                      ) ||
+                      ["commercial plot", "commercial land"].includes(
+                        selectedProperty.commercial_property_type
+                      )
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Property On Floor: ${
+                          selectedProperty.property_on_floor || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Flooring (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    ) ||
-    ["commercial plot", "commercial land"].includes(
-      selectedProperty.commercial_property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Flooring: ${selectedProperty.flooring || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Flooring (conditional) */}
+                    {!(
+                      ["plot", "land", "farmLand", "commercial"].includes(
+                        selectedProperty.property_type
+                      ) ||
+                      ["commercial plot", "commercial land"].includes(
+                        selectedProperty.commercial_property_type
+                      )
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Flooring: ${
+                          selectedProperty.flooring || "N/A"
+                        }`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Age of Property */}
-  <DetailItem
-    icon={FaHome}
-    label={`Age of Property: ${
-      selectedProperty.age_of_property
-        ? `${selectedProperty.age_of_property} years`
-        : "N/A"
-    }`}
-    color="text-green-500"
-  />
+                    {/* Age of Property */}
+                    <DetailItem
+                      icon={FaHome}
+                      label={`Age of Property: ${
+                        selectedProperty.age_of_property
+                          ? `${selectedProperty.age_of_property} years`
+                          : "N/A"
+                      }`}
+                      color="text-green-500"
+                    />
 
-  {/* Parking (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Parking: ${selectedProperty.parking || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
+                    {/* Parking (conditional) */}
+                    {!["plot", "land", "farmLand", "commercial"].includes(
+                      selectedProperty.property_type
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Parking: ${selectedProperty.parking || "N/A"}`}
+                        color="text-green-500"
+                      />
+                    )}
 
-  {/* Lift (conditional) */}
-  {!(
-    ["plot", "land", "farmLand", "commercial"].includes(
-      selectedProperty.property_type
-    ) ||
-    ["commercial plot", "commercial land"].includes(
-      selectedProperty.commercial_property_type
-    )
-  ) && (
-    <DetailItem
-      icon={FaHome}
-      label={`Lift: ${selectedProperty.lift || "N/A"}`}
-      color="text-green-500"
-    />
-  )}
-</div>
-
+                    {/* Lift (conditional) */}
+                    {!(
+                      ["plot", "land", "farmLand", "commercial"].includes(
+                        selectedProperty.property_type
+                      ) ||
+                      ["commercial plot", "commercial land"].includes(
+                        selectedProperty.commercial_property_type
+                      )
+                    ) && (
+                      <DetailItem
+                        icon={FaHome}
+                        label={`Lift: ${selectedProperty.lift || "N/A"}`}
+                        color="text-green-500"
+                      />
+                    )}
+                  </div>
                 </div>
 
                 {/* Description */}
@@ -579,197 +608,196 @@ const PropertyCard = () => {
                 </div>
 
                 {/* Amenities */}
-<div className="mt-5 p-2">
-  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-    Amenities
-  </h2>
-  <ul className="list-disc pl-6 text-gray-600">
-    {selectedProperty?.road == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Road"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.security_24_7 == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="24/7 Security"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.car_parking == 1 && (
-      <DetailItem
-        icon={FaCar}
-        label="Car Parking"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.drainage == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Drainage"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.entry_gate == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Entry Gate"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.good_natural_light == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Good Natural Light"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.gated_community == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Gated Community"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.immediate_possession == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Immediate Possession"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.investment == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Investment"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.own_purpose == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Own Purpose"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.near_green_zone == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Near Green Zone"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.near_temple == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Near Temple"
-        color="text-green-500"
-      />
-    )}
-    {/* Additional Amenities from the old list */}
-    {selectedProperty?.swimming_pool == 1 && (
-      <DetailItem
-        icon={FaSwimmer}  // You can replace with appropriate icon
-        label="Swimming Pool"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.fall_ceiling == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Fall Ceiling"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.wallpaper == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Wallpaper"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.lights == 1 && (
-      <DetailItem
-        icon={FaLightbulb} // You can replace with appropriate icon
-        label="Lights"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.fans == 1 && (
-      <DetailItem
-        icon={FaFan} // You can replace with appropriate icon
-        label="Fans"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.terrace == 1 && (
-      <DetailItem
-        icon={FaBuilding} // You can replace with appropriate icon
-        label="Terrace"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.air_conditioning == 1 && (
-      <DetailItem
-        icon={FaSnowflake} // You can replace with appropriate icon
-        label="Air Conditioning"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.cable_tv == 1 && (
-      <DetailItem
-        icon={FaTv} // You can replace with appropriate icon
-        label="Cable TV"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.balcony == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Balcony"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.internet == 1 && (
-      <DetailItem
-        icon={FaWifi} // You can replace with appropriate icon
-        label="Internet"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.computer == 1 && (
-      <DetailItem
-        icon={FaDesktop} // You can replace with appropriate icon
-        label="Computer"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.dishwasher == 1 && (
-      <DetailItem
-        icon={FaUtensils} // You can replace with appropriate icon
-        label="Dishwasher"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.activity_area == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Activity Area"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.roadLight == 1 && (
-      <DetailItem
-        icon={FaLightbulb} // You can replace with appropriate icon
-        label="Road Light"
-        color="text-green-500"
-      />
-    )}
-  </ul>
-</div>
-
+                <div className="mt-5 p-2">
+                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+                    Amenities
+                  </h2>
+                  <ul className="list-disc pl-6 text-gray-600">
+                    {selectedProperty?.road == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Road"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.security_24_7 == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="24/7 Security"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.car_parking == 1 && (
+                      <DetailItem
+                        icon={FaCar}
+                        label="Car Parking"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.drainage == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Drainage"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.entry_gate == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Entry Gate"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.good_natural_light == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Good Natural Light"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.gated_community == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Gated Community"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.immediate_possession == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Immediate Possession"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.investment == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Investment"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.own_purpose == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Own Purpose"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.near_green_zone == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Near Green Zone"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.near_temple == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Near Temple"
+                        color="text-green-500"
+                      />
+                    )}
+                    {/* Additional Amenities from the old list */}
+                    {selectedProperty?.swimming_pool == 1 && (
+                      <DetailItem
+                        icon={FaSwimmer} // You can replace with appropriate icon
+                        label="Swimming Pool"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.fall_ceiling == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Fall Ceiling"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.wallpaper == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Wallpaper"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.lights == 1 && (
+                      <DetailItem
+                        icon={FaLightbulb} // You can replace with appropriate icon
+                        label="Lights"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.fans == 1 && (
+                      <DetailItem
+                        icon={FaFan} // You can replace with appropriate icon
+                        label="Fans"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.terrace == 1 && (
+                      <DetailItem
+                        icon={FaBuilding} // You can replace with appropriate icon
+                        label="Terrace"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.air_conditioning == 1 && (
+                      <DetailItem
+                        icon={FaSnowflake} // You can replace with appropriate icon
+                        label="Air Conditioning"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.cable_tv == 1 && (
+                      <DetailItem
+                        icon={FaTv} // You can replace with appropriate icon
+                        label="Cable TV"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.balcony == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Balcony"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.internet == 1 && (
+                      <DetailItem
+                        icon={FaWifi} // You can replace with appropriate icon
+                        label="Internet"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.computer == 1 && (
+                      <DetailItem
+                        icon={FaDesktop} // You can replace with appropriate icon
+                        label="Computer"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.dishwasher == 1 && (
+                      <DetailItem
+                        icon={FaUtensils} // You can replace with appropriate icon
+                        label="Dishwasher"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.activity_area == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Activity Area"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.roadLight == 1 && (
+                      <DetailItem
+                        icon={FaLightbulb} // You can replace with appropriate icon
+                        label="Road Light"
+                        color="text-green-500"
+                      />
+                    )}
+                  </ul>
+                </div>
 
                 {/* About */}
                 <div className="mt-5 p-2">
@@ -788,167 +816,166 @@ const PropertyCard = () => {
                   </p>
                 </div>
                 {/* Recommended Section */}
-<div className="mt-5 p-2">
-  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-    Recommended
-  </h2>
-  <ul className="list-disc  text-gray-600">
-    {selectedProperty?.long_term_investment == 1 && (
-      <DetailItem
-        icon={PiArrowFatLineRightFill}
-        label="Long Term Investment"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.own_purpose == 1 && (
-      <DetailItem
-        icon={PiArrowFatLineRightFill}
-        label="Own Purpose"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.investment == 1 && (
-      <DetailItem
-        icon={PiArrowFatLineRightFill}
-        label="Investment"
-        color="text-green-500"
-      />
-    )}
-  </ul>
-</div>
-
-{/* Related Property */}
-
-
-<div className="properties-list">
-<PropertyCard2 properties={propertiesWithImages} />
-    </div>
-
-            
+                <div className="mt-5 p-2">
+                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+                    Recommended
+                  </h2>
+                  <ul className="list-disc  text-gray-600">
+                    {selectedProperty?.long_term_investment == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Long Term Investment"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.own_purpose == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Own Purpose"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.investment == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Investment"
+                        color="text-green-500"
+                      />
+                    )}
+                  </ul>
+                </div>
               </div>
             </div>
 
             {/* Blogs*/}
-             <div className="md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
-  <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">
-    Interesting Blogs
-  </h2>
-  <div className="flex flex-col space-y-6">
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/3">
-        <img
-          src="https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs="
-          alt="Blog 1"
-          className="rounded-lg w-full"
-        />
-      </div>
-      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-        <div className="flex items-center gap-3">
-          <FaHome />
-          <p>Selling a home</p>
-        </div>
-        <Link
-          to="/blogs"
-          className="text-lg font-medium text-gray-800"
-        >
-          The Critical Role of Home Inspections: A Buyer's Guide to Informed Decisions
-        </Link>
-      </div>
-    </div>
+            <div className="md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
+              <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">
+                Interesting Blogs
+              </h2>
+              <div className="flex flex-col space-y-6">
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-1/3">
+                    <img
+                      src="https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs="
+                      alt="Blog 1"
+                      className="rounded-lg w-full"
+                    />
+                  </div>
+                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+                    <div className="flex items-center gap-3">
+                      <FaHome />
+                      <p>Selling a home</p>
+                    </div>
+                    <Link
+                      to="/blogs"
+                      className="text-lg font-medium text-gray-800"
+                    >
+                      The Critical Role of Home Inspections: A Buyer's Guide to
+                      Informed Decisions
+                    </Link>
+                  </div>
+                </div>
 
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/3">
-        <img
-          src="https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw="
-          alt="Blog 2"
-          className="rounded-lg w-full"
-        />
-      </div>
-      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-        <div className="flex items-center gap-3">
-          <FaHome />
-          <p>Selling a home</p>
-        </div>
-        <Link
-          to="/blogs"
-          className="text-lg font-medium text-gray-800"
-        >
-          New Construction vs. Resale Homes: Making the Right Choice for Your Next Property
-        </Link>
-      </div>
-    </div>
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-1/3">
+                    <img
+                      src="https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw="
+                      alt="Blog 2"
+                      className="rounded-lg w-full"
+                    />
+                  </div>
+                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+                    <div className="flex items-center gap-3">
+                      <FaHome />
+                      <p>Selling a home</p>
+                    </div>
+                    <Link
+                      to="/blogs"
+                      className="text-lg font-medium text-gray-800"
+                    >
+                      New Construction vs. Resale Homes: Making the Right Choice
+                      for Your Next Property
+                    </Link>
+                  </div>
+                </div>
 
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/3">
-        <img
-          src="https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif"
-          alt="Blog 3"
-          className="rounded-lg w-full"
-        />
-      </div>
-      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-        <div className="flex items-center gap-3">
-          <FaHome />
-          <p>Selling a home</p>
-        </div>
-        <Link
-          to="/blogs"
-          className="text-lg font-medium text-gray-800"
-        >
-          Looking for 1 BHK Apartment Duplex
-        </Link>
-      </div>
-    </div>
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-1/3">
+                    <img
+                      src="https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif"
+                      alt="Blog 3"
+                      className="rounded-lg w-full"
+                    />
+                  </div>
+                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+                    <div className="flex items-center gap-3">
+                      <FaHome />
+                      <p>Selling a home</p>
+                    </div>
+                    <Link
+                      to="/blogs"
+                      className="text-lg font-medium text-gray-800"
+                    >
+                      Looking for 1 BHK Apartment Duplex
+                    </Link>
+                  </div>
+                </div>
 
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/3">
-        <img
-          src="https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif"
-          alt="Blog 4"
-          className="rounded-lg w-full"
-        />
-      </div>
-      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-        <div className="flex items-center gap-3">
-          <FaHome />
-          <p>Selling a home</p>
-        </div>
-        <Link
-          to="/blogs"
-          className="text-lg font-medium text-gray-800"
-        >
-          Budget Allocations and Real Estate: Paving the Path Ahead
-        </Link>
-      </div>
-    </div>
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-1/3">
+                    <img
+                      src="https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif"
+                      alt="Blog 4"
+                      className="rounded-lg w-full"
+                    />
+                  </div>
+                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+                    <div className="flex items-center gap-3">
+                      <FaHome />
+                      <p>Selling a home</p>
+                    </div>
+                    <Link
+                      to="/blogs"
+                      className="text-lg font-medium text-gray-800"
+                    >
+                      Budget Allocations and Real Estate: Paving the Path Ahead
+                    </Link>
+                  </div>
+                </div>
 
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/3">
-        <img
-          src="https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif"
-          alt="Blog 5"
-          className="rounded-lg w-full"
-        />
-      </div>
-      <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-        <div className="flex items-center gap-3">
-          <FaHome />
-          <p>Selling a home</p>
-        </div>
-        <Link
-          to="/blogs"
-          className="text-lg font-medium text-gray-800"
-        >
-          Budget Allocations and Real Estate: Paving the Path Ahead
-        </Link>
-      </div>
-    </div>
-  </div>
-</div>
-
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-1/3">
+                    <img
+                      src="https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif"
+                      alt="Blog 5"
+                      className="rounded-lg w-full"
+                    />
+                  </div>
+                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
+                    <div className="flex items-center gap-3">
+                      <FaHome />
+                      <p>Selling a home</p>
+                    </div>
+                    <Link
+                      to="/blogs"
+                      className="text-lg font-medium text-gray-800"
+                    >
+                      Budget Allocations and Real Estate: Paving the Path Ahead
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {/* Related Property */}
+      <div className="properties-list">
+        <span className="flex items-center justify-center">
+          <p className="font-bold text-3xl p-4">Related Property</p>
+        </span>
+      <PropertyCard2 properties={propertiesWithImages} />
+          </div>
       {/* Contact Form */}
       <div
         className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
