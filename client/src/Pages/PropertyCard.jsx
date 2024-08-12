@@ -13,7 +13,7 @@ import {
 import { FaSwimmer, FaLightbulb, FaFan, FaSnowflake, FaTv, FaWifi, FaDesktop, FaUtensils } from 'react-icons/fa';
 import { PiArrowFatLineRightFill } from 'react-icons/pi';
 
-
+import PropertyCard2 from './PropertyCard2'
 import { Link, useParams } from "react-router-dom";
 import Box from "../Components/LightBox";
 import axios from "axios";
@@ -59,6 +59,7 @@ const PropertyCard = () => {
   const [properties, setProperties] = useState([]);
   const [propertyImages, setPropertyImages] = useState([]);
   const [selectedProperty, setSelectedProperty] = useState(null);
+
   const [formData, setFormData] = useState({
     propertyId: id || "",
     propertyName: "",
@@ -70,9 +71,7 @@ const PropertyCard = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get(
-          "https://bharatroofers.com/api/property/getAllProperty"
-        );
+        const response = await axios.get("https://bharatroofers.com/api/property/getAllProperty");
         setProperties(response.data.data);
       } catch (error) {
         console.error("Error fetching properties:", error);
@@ -81,11 +80,8 @@ const PropertyCard = () => {
   
     const fetchPropertyImages = async () => {
       try {
-        const response = await axios.get(
-          "https://bharatroofers.com/api/property/getAllPropertyImages"
-        );
+        const response = await axios.get("https://bharatroofers.com/api/property/getAllPropertyImages");
         const { data } = response.data;
-  
         setPropertyImages(data);
       } catch (error) {
         console.error("Error fetching property images:", error);
@@ -94,12 +90,16 @@ const PropertyCard = () => {
   
     const fetchRelatedProperties = async () => {
       try {
-        const response = await axios.get(
-          `https://bharatroofers.com/api/property/getPropertyForRent/${id}`
-        );
-        setSelectedProperty(response.data.data);
+        const response = await axios.get('https://bharatroofers.com/api/property/getSuggestedProperty');
+        console.log("Suggested Properties:", response.data.data);
+        if (Array.isArray(response.data.data)) {
+          setProperties(response.data.data);
+        } else {
+          setProperties([]);
+        }
       } catch (error) {
-        console.error("Error fetching related properties:", error);
+        console.error('Error fetching properties:', error);
+        setProperties([]);
       }
     };
   
@@ -107,6 +107,7 @@ const PropertyCard = () => {
     fetchPropertyImages();
     fetchRelatedProperties();
   }, [id]);
+  
   
 
   useEffect(() => {
@@ -226,6 +227,15 @@ const PropertyCard = () => {
       window.open(shareUrl, "_blank");
     }
   };
+  // console.log("propertyyy",properties);
+  const propertiesWithImages = properties.map(property => {
+    const image = propertyImages.find(img => img.property_id === property.id.toString());
+    return {
+      ...property,
+      imageUrl: image ? image.image : null 
+    };
+  });
+  
   return (
     <div className="max-w-full px-4 py-8">
       <div className="bg-white shadow-lg rounded-lg">
@@ -806,12 +816,20 @@ const PropertyCard = () => {
     )}
   </ul>
 </div>
+
+{/* Related Property */}
+
+
+<div className="properties-list">
+<PropertyCard2 properties={propertiesWithImages} />
+    </div>
+
             
               </div>
             </div>
 
             {/* Blogs*/}
-            <div className="md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
+             <div className="md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
   <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">
     Interesting Blogs
   </h2>
