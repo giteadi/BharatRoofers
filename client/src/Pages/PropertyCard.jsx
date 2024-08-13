@@ -248,9 +248,10 @@ const PropertyCard = () => {
           </div>
 
           {/* Lightbox image */}
-          <div className="bg-gray-100">
-            <Box images={selectedProperty.images} />
-          </div>
+          <div className="bg-gray-100 max-w-[90%] mx-auto">
+  <Box images={selectedProperty.images} />
+</div>
+
 
           {/* wrapping both */}
           <div className="flex felx-col">
@@ -285,9 +286,9 @@ const PropertyCard = () => {
     size={32}
     onClick={() => handleShareClick("instagram")}
   />
-  <div className="ml-auto">
+  <div className="ml-auto pr-4">
     <HeartbeatButton
-      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 md:w-auto md:max-w-[20rem] absolute md:right-[5rem] w-auto"
+      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 md:w-auto md:max-w-[20rem]"
       onClick={() => {
         scrollToForm();
         toast.success("Scrolling to Contact Form");
@@ -297,6 +298,7 @@ const PropertyCard = () => {
     </HeartbeatButton>
   </div>
 </div>
+
 
 
                 {/* Property details */}

@@ -7,14 +7,14 @@ export default function Box({ images }) {
 
   return (
     <>
-      {/* Replace button with an image */}
+      {/* Display the first image as a thumbnail */}
       {images.length > 0 && (
         <img
           src={images[0]} // Show the first image as a thumbnail
           alt="Thumbnail Image"
           onClick={() => setOpen(true)}
           style={{ cursor: "pointer" }}
-          className="max-w-[50rem] h-[30rem] mx-auto"
+          className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto mx-auto object-cover" // Responsive sizing
         />
       )}
 
@@ -25,8 +25,12 @@ export default function Box({ images }) {
           src: img,
           alt: `Image ${index + 1}`,
           width: 3840, // Adjust width and height according to your images
-          height: 2560
+          height: 2560,
         }))}
+        styles={{
+          container: { maxWidth: "100%", maxHeight: "100%" }, // Limit lightbox size
+          image: { objectFit: "contain", maxWidth: "100%", maxHeight: "100%" }, // Ensure image fits within the viewport
+        }}
       />
     </>
   );

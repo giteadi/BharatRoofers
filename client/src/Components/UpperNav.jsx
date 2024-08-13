@@ -47,7 +47,7 @@ export default function UpperNav() {
         
         {/* Hamburger Menu for Mobile */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className=" p-1 absolute top-1 right-4 text-black">
+          <button onClick={toggleMenu} className=" p-1 absolute top-1 right-4 text-white">
             {isMenuOpen ? <MdClose size={24} /> : <GiHamburgerMenu size={24} />}
           </button>
         </div>
