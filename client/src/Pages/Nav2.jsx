@@ -100,7 +100,7 @@ const Nav2 = () => {
   return (
     <div className="w-full relative">
       {/* Backside div with options */}
-      <div className="max-h-30 flex flex-col md:flex-row justify-center md:justify-start w-full md:max-w-full relative ">
+      <div className="hidden md:flex md:flex-col md:justify-center md:items-center md:max-w-full md:relative">
         <div className="text-white w-full flex justify-center space-x-1 md:space-x-20 text-md bg-black bg-opacity-70 font-semibold rounded-xl pb-10 md:w-[40rem] backdrop-blur-2xl pb-15">
           {['Buy', 'Rent', 'PG/Co', 'Plots'].map((option) => (
             <button
@@ -114,8 +114,8 @@ const Nav2 = () => {
         </div>
       </div>
 
-      {/* Navbar absolute positioning */}
-      <div className="absolute top-[0.01rem] md:top-[3rem] bg-white p-2 md:p-4 flex flex  flex-wrap   md:flex-row max-h-[7rem] w-full rounded-lg md:rounded-full  md:space-y-0">
+      {/* Full navbar for larger screens */}
+      <div className="hidden md:flex absolute top-[0.01rem] md:top-[3rem] bg-white p-2 md:p-4 flex flex-wrap md:flex-row max-h-[7rem] w-full rounded-lg md:rounded-full md:space-y-0">
         <input
           className="form-control p-2 border rounded-lg md:rounded-none md:border-none md:rounded-l-md focus:outline-none"
           type="text"
@@ -124,7 +124,7 @@ const Nav2 = () => {
           onChange={handleSearchTermChange}
         />
         <select
-          className="form-select  p-2 border rounded-lg md:border-none md:rounded-none"
+          className="form-select p-2 border rounded-lg md:border-none md:rounded-none"
           onChange={handlePropertyForChange}
           value={propertyFor}
         >
@@ -150,12 +150,49 @@ const Nav2 = () => {
         </select>
         <button
           type="button"
-          className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 border border-transparent transition-all duration-200 ease-in-out ml-auto "
+          className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 border border-transparent transition-all duration-200 ease-in-out ml-auto"
           onClick={handleSearch}
         >
           Search
         </button>
       </div>
+
+      {/* Simplified navbar for mobile devices */}
+      <div className="md:hidden fixed top-9 left-0 w-full bg-white p-2 rounded-lg shadow-md z-10 ">
+  <div className="flex flex-row items-center space-x-2 justify-center">
+    <button
+      type="button"
+      className="text-blue-600 font-medium hover:text-blue-700 focus:outline-none"
+    >
+      Buy
+    </button>
+    <button
+      type="button"
+      className="text-blue-600 font-medium hover:text-blue-700 focus:outline-none"
+    >
+      Rent
+    </button>
+  </div>
+  <div className="flex  items-center space-y-2 mt-2">
+    <input
+      className="form-control p-2 border rounded-lg w-[10rem] max-w-md focus:outline-none focus:ring-blue-300 focus:border-blue-300"
+      type="text"
+      placeholder="Search..."
+      value={searchTerm}
+      onChange={handleSearchTermChange}
+    />
+    <button
+      type="button"
+      className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all duration-200 ease-in-out "
+      onClick={handleSearch}
+    >
+      Search
+    </button>
+  </div>
+</div>
+
+
+
 
       {/* Modal */}
       <div className="modal fade" id="searchModal" tabIndex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
@@ -173,8 +210,7 @@ const Nav2 = () => {
               ) : (
                 <div className="text-center text-gray-900 mt-4">
                   {filteredProperties.length > 0 ? (
-                   <p className="text-white font-semibold bg-gray-500/50 backdrop-5 rounded-full">
-
+                    <p className="text-white font-semibold bg-gray-500/50 backdrop-5 rounded-full">
                       Showing {filteredProperties.length} properties matching your criteria.
                     </p>
                   ) : (

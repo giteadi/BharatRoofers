@@ -42,12 +42,17 @@ export default function UpperNav() {
   return (
     <div className={`fixed top-0 w-screen max-w-full bg-gradient-to-r from-transparent via-transparent to-gray-900 bg-opacity-70 shadow-md z-10 transition-transform duration-500 ease-in-out ${showNavbar ? "translate-y-0" : "-translate-y-full"} overflow-x-hidden`}>
       <div className="container mx-auto flex justify-between items-center p-4">
-        <div className="text-2xl font-bold text-white">BharatRoofers</div>
+        {/* Logo (Hidden on mobile devices) */}
+        <div className="text-2xl font-bold text-white hidden md:block">BharatRoofers</div>
+        
+        {/* Hamburger Menu for Mobile */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white p-2">
+          <button onClick={toggleMenu} className="text-white p-2 absolute top-4 right-4">
             {isMenuOpen ? <MdClose size={24} /> : <GiHamburgerMenu size={24} />}
           </button>
         </div>
+        
+        {/* Navbar Links (Hidden on mobile devices when menu is closed) */}
         <nav className={`md:flex md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
           <ul className={`flex flex-col md:flex-row md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} md:flex`}>
             <li><Link to="/" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Home</Link></li>
