@@ -158,7 +158,7 @@ const Nav2 = () => {
       </div>
 
       {/* Simplified navbar for mobile devices */}
-      <div className="md:hidden fixed top-9 left-0 w-full bg-white p-2 rounded-lg shadow-md z-10 ">
+      <div className="md:hidden fixed top-6 left-0 w-full  p-2 rounded-lg shadow-md z-10 ">
   <div className="flex flex-row items-center space-x-2 justify-center">
     <button
       type="button"
@@ -172,6 +172,21 @@ const Nav2 = () => {
     >
       Rent
     </button>
+    <select
+          className="form-select  border rounded-lg md:border-none md:rounded-none"
+          onChange={handlePropertyTypeChange}
+          value={propertyType}
+        >
+          <option value="">All Types</option>
+          <option value="house">House</option>
+          <option value="villa">Villa</option>
+          <option value="plot">Plot</option>
+          <option value="flat">Flat</option>
+          <option value="land">Land</option>
+          <option value="farmLand">Farm Land</option>
+          <option value="farmHouse">Farm House</option>
+          <option value="commercial">Commercial</option>
+        </select>
   </div>
   <div className="flex  items-center space-y-2 mt-2">
     <input
