@@ -13,7 +13,7 @@ const Header = () => {
           alt="bg" 
           className="w-full h-[8rem] md:h-[20rem] lg:h-90 object-cover object-center"
         />
-        <div className="absolute top-[1rem] sm:top-[4rem] md:top-[6rem] lg:top-[8rem] max-w-[80rem] left-1/2 transform -translate-x-1/2">
+        <div className="absolute  top-[1rem] sm:top-[4rem] md:top-[6rem] lg:top-[8rem] max-w-[80rem] left-1/2 transform -translate-x-1/2">
           <Nav2 />
         </div>
       </div>

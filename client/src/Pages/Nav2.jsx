@@ -115,7 +115,7 @@ const Nav2 = () => {
       </div>
 
       {/* Navbar absolute positioning */}
-      <div className="absolute top-[2.3rem] md:top-[3rem] bg-white p-2 md:p-4 flex flex-col md:flex-row w-full rounded-lg md:rounded-full space-y-2 md:space-y-0">
+      <div className="absolute top-[0.01rem] md:top-[3rem] bg-white p-2 md:p-4 flex flex  flex-wrap   md:flex-row max-h-[7rem] w-full rounded-lg md:rounded-full  md:space-y-0">
         <input
           className="form-control p-2 border rounded-lg md:rounded-none md:border-none md:rounded-l-md focus:outline-none"
           type="text"
@@ -124,7 +124,7 @@ const Nav2 = () => {
           onChange={handleSearchTermChange}
         />
         <select
-          className="form-select p-2 border rounded-lg md:border-none md:rounded-none"
+          className="form-select  p-2 border rounded-lg md:border-none md:rounded-none"
           onChange={handlePropertyForChange}
           value={propertyFor}
         >
@@ -150,7 +150,7 @@ const Nav2 = () => {
         </select>
         <button
           type="button"
-          className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 border border-transparent transition-all duration-200 ease-in-out ml-auto"
+          className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 border border-transparent transition-all duration-200 ease-in-out ml-auto "
           onClick={handleSearch}
         >
           Search
@@ -178,7 +178,7 @@ const Nav2 = () => {
                       Showing {filteredProperties.length} properties matching your criteria.
                     </p>
                   ) : (
-                    <p>No properties found</p>
+                    <p className="text-white font-semibold bg-gray-500/50 backdrop-5 rounded-full">No properties found</p>
                   )}
                 </div>
               )}

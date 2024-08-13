@@ -212,7 +212,7 @@ const getImagesForCarousel = (properties) => {
 
       {/* 3 carousal */}
       <span className='font-bold flex items-center justify-center text-3xl text-center mb-6 md:mb-8 mt-6'>Our Property</span>
-      <section className='flex justify-around items-center flex-wrap'>
+      <section className='flex justify-around items-center flex-wrap w-full '>
         {
           ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
             <div key={index} className='flex flex-col items-center'>
