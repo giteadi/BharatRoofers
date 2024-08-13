@@ -162,13 +162,13 @@ const Nav2 = () => {
   <div className="flex flex-row items-center space-x-2 justify-center">
     <button
       type="button"
-      className="text-blue-600 font-medium hover:text-blue-700 focus:outline-none"
+      className="text-blue-600 font-medium hover:text-blue-700 focus:outline-none bg-white rounded-md"
     >
       Buy
     </button>
     <button
       type="button"
-      className="text-blue-600 font-medium hover:text-blue-700 focus:outline-none"
+      className="text-blue-600 font-medium hover:text-blue-700 focus:outline-none bg-white rounded-md"
     >
       Rent
     </button>
