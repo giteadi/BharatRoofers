@@ -2,7 +2,7 @@ import React from 'react';
 
 const Testimonial = ({ text, author, image }) => {
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-md transition transform duration-300 ease-in-out hover:scale-105 hover:shadow-blue-400 hover:shadow-md hover:bg-grey-200 max-w-sm flex flex-col items-center justify-around ">
+    <div className="bg-gray-100 p-6 rounded-lg shadow-md transition transform duration-300 ease-in-out hover:scale-105 hover:shadow-blue-400 hover:shadow-md hover:bg-grey-200 max-w-sm flex flex-col gap-5 items-center justify-around">
       <img
         src={image}
         alt={author}
@@ -16,10 +16,10 @@ const Testimonial = ({ text, author, image }) => {
 
 const TestimonialSection = ({ testimonials }) => {
   return (
-    <section className="bg-white py-12 ">
+    <section className="bg-white py-12">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">What Our Customers Are Saying</h2>
-        <div className="md:flex md:flex-wrap md:justify-around md:items-center flex flex-wrap gap-4 p-5">
+        <div className="flex flex-wrap justify-around items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 p-5">
           {testimonials.map((testimonial, index) => (
             <Testimonial
               key={index}

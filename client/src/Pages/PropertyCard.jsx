@@ -29,37 +29,17 @@ import axios from "axios";
 import styled, { keyframes } from "styled-components";
 import { FaCar, FaRuler, FaBuilding } from "react-icons/fa";
 
-// Heartbeat animation
 const heartbeat = keyframes`
   0% { transform: scale(1); }
   20% { transform: scale(1.2); }
   40% { transform: scale(1); }
   60% { transform: scale(1.2); }
   80% { transform: scale(1); }
-  100% { transform: scale(1); }
-`;
+  100% { transform: scale(1); }`;
 
 const HeartbeatButton = styled.button`
-  background-color: #48bb78; /* Tailwind's green-500 */
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem; /* Tailwind's rounded */
-  transition: background-color 0.3s, transform 0.3s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 20rem; /* Adjust as needed */
-
-  &:hover {
-    background-color: #2f855a; /* Tailwind's green-600 */
-    transform: scale(1.05);
-  }
-
-  &.heartbeat {
-    animation: ${heartbeat} 5s infinite;
-  }
-`;
+  animation: ${heartbeat} 5s infinite;
+`
 
 const PropertyCard = () => {
   const formRef = useRef(null);
@@ -253,7 +233,7 @@ const PropertyCard = () => {
   return (
     <div className="max-w-full px-4 py-8">
       <div className="bg-white shadow-lg rounded-lg">
-        <div className="p-6">
+        <div className="">
           <h1 className="text-3xl font-bold text-gray-700 mb-2">{title}</h1>
           <p className="text-xl text-gray-500 mb-2 flex items-center">
             Price:
@@ -278,44 +258,45 @@ const PropertyCard = () => {
               <div className="w-full pr-4 flex flex-col justify-between">
                 {/* Social media */}
                 <div className="flex gap-5 items-center mb-4">
-                  <p className="font-semibold text-2xl text-gray-700">Share:</p>
-                  <FaTelegram
-                    className="cursor-pointer hover:animate-bounce text-blue-500"
-                    size={32}
-                    onClick={() => handleShareClick("telegram")}
-                  />
-                  <FaWhatsapp
-                    className="cursor-pointer hover:animate-bounce text-green-500"
-                    size={32}
-                    onClick={() => handleShareClick("whatsapp")}
-                  />
-                  <FaFacebookMessenger
-                    className="cursor-pointer hover:animate-bounce text-blue-600"
-                    size={32}
-                    onClick={() => handleShareClick("messenger")}
-                  />
-                  <FaTwitter
-                    className="cursor-pointer hover:animate-bounce text-blue-400"
-                    size={32}
-                    onClick={() => handleShareClick("twitter")}
-                  />
-                  <FaInstagram
-                    className="cursor-pointer hover:animate-bounce text-pink-500"
-                    size={32}
-                    onClick={() => handleShareClick("instagram")}
-                  />
-                  <div className="ml-auto">
-                    <HeartbeatButton
-                      className="heartbeat md:w-[20rem] absolute md:right-[5rem] "
-                      onClick={() => {
-                        scrollToForm();
-                        toast.success("Scrolling to Contact Form");
-                      }}
-                    >
-                      Contact us
-                    </HeartbeatButton>
-                  </div>
-                </div>
+  <p className="font-semibold text-2xl text-gray-700">Share:</p>
+  <FaTelegram
+    className="cursor-pointer hover:animate-bounce text-blue-500"
+    size={32}
+    onClick={() => handleShareClick("telegram")}
+  />
+  <FaWhatsapp
+    className="cursor-pointer hover:animate-bounce text-green-500"
+    size={32}
+    onClick={() => handleShareClick("whatsapp")}
+  />
+  <FaFacebookMessenger
+    className="cursor-pointer hover:animate-bounce text-blue-600"
+    size={32}
+    onClick={() => handleShareClick("messenger")}
+  />
+  <FaTwitter
+    className="cursor-pointer hover:animate-bounce text-blue-400"
+    size={32}
+    onClick={() => handleShareClick("twitter")}
+  />
+  <FaInstagram
+    className="cursor-pointer hover:animate-bounce text-pink-500"
+    size={32}
+    onClick={() => handleShareClick("instagram")}
+  />
+  <div className="ml-auto">
+    <HeartbeatButton
+      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 md:w-auto md:max-w-[20rem] absolute md:right-[5rem] w-auto"
+      onClick={() => {
+        scrollToForm();
+        toast.success("Scrolling to Contact Form");
+      }}
+    >
+      Contact us
+    </HeartbeatButton>
+  </div>
+</div>
+
 
                 {/* Property details */}
                 <div className="mt-5 p-2">
@@ -847,125 +828,64 @@ const PropertyCard = () => {
               </div>
             </div>
 
-            {/* Blogs*/}
-            <div className="md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700 text-center">
-                Interesting Blogs
-              </h2>
-              <div className="flex flex-col space-y-6">
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-1/3">
-                    <img
-                      src="https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs="
-                      alt="Blog 1"
-                      className="rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-                    <div className="flex items-center gap-3">
-                      <FaHome />
-                      <p>Selling a home</p>
-                    </div>
-                    <Link
-                      to="/blogs"
-                      className="text-lg font-medium text-gray-800"
-                    >
-                      The Critical Role of Home Inspections: A Buyer's Guide to
-                      Informed Decisions
-                    </Link>
-                  </div>
-                </div>
+           {/* Blogs */}
+<div className="mt-8 md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
+  <h2 className="text-2xl font-semibold mb-6 text-gray-700 text-center">
+    Interesting Blogs
+  </h2>
+  <div className="flex flex-col space-y-8">
+    {[
+      {
+        src: "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
+        alt: "Blog 1",
+        title: "The Critical Role of Home Inspections: A Buyer's Guide to Informed Decisions",
+      },
+      {
+        src: "https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw=",
+        alt: "Blog 2",
+        title: "New Construction vs. Resale Homes: Making the Right Choice for Your Next Property",
+      },
+      {
+        src: "https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif",
+        alt: "Blog 3",
+        title: "Looking for 1 BHK Apartment Duplex",
+      },
+      {
+        src: "https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif",
+        alt: "Blog 4",
+        title: "Budget Allocations and Real Estate: Paving the Path Ahead",
+      },
+      {
+        src: "https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif",
+        alt: "Blog 5",
+        title: "Understanding Real Estate Dynamics: Future Perspectives",
+      },
+    ].map((blog, index) => (
+      <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-6">
+        <div className="w-full md:w-1/3">
+          <img
+            src={blog.src}
+            alt={blog.alt}
+            className="rounded-lg w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-full md:w-2/3 mt-4 md:mt-0">
+          <div className="flex items-center gap-3 mb-2">
+            <FaHome />
+            <p className="text-sm md:text-base">Selling a home</p>
+          </div>
+          <Link
+            to="/blogs"
+            className="text-lg md:text-xl font-medium text-gray-800 leading-snug"
+          >
+            {blog.title}
+          </Link>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-1/3">
-                    <img
-                      src="https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw="
-                      alt="Blog 2"
-                      className="rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-                    <div className="flex items-center gap-3">
-                      <FaHome />
-                      <p>Selling a home</p>
-                    </div>
-                    <Link
-                      to="/blogs"
-                      className="text-lg font-medium text-gray-800"
-                    >
-                      New Construction vs. Resale Homes: Making the Right Choice
-                      for Your Next Property
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-1/3">
-                    <img
-                      src="https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif"
-                      alt="Blog 3"
-                      className="rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-                    <div className="flex items-center gap-3">
-                      <FaHome />
-                      <p>Selling a home</p>
-                    </div>
-                    <Link
-                      to="/blogs"
-                      className="text-lg font-medium text-gray-800"
-                    >
-                      Looking for 1 BHK Apartment Duplex
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-1/3">
-                    <img
-                      src="https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif"
-                      alt="Blog 4"
-                      className="rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-                    <div className="flex items-center gap-3">
-                      <FaHome />
-                      <p>Selling a home</p>
-                    </div>
-                    <Link
-                      to="/blogs"
-                      className="text-lg font-medium text-gray-800"
-                    >
-                      Budget Allocations and Real Estate: Paving the Path Ahead
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row">
-                  <div className="w-full md:w-1/3">
-                    <img
-                      src="https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif"
-                      alt="Blog 5"
-                      className="rounded-lg w-full"
-                    />
-                  </div>
-                  <div className="w-full md:w-2/3 mt-4 md:mt-0 pl-0 md:pl-4">
-                    <div className="flex items-center gap-3">
-                      <FaHome />
-                      <p>Selling a home</p>
-                    </div>
-                    <Link
-                      to="/blogs"
-                      className="text-lg font-medium text-gray-800"
-                    >
-                      Budget Allocations and Real Estate: Paving the Path Ahead
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
