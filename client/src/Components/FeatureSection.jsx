@@ -119,10 +119,10 @@ const getImagesForCarousel = (properties) => {
           onClick={() => navigateToCategory(category.name)}
         />
         <div className="absolute top-4 left-4">
-          <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-green-400 font-bold">
+          <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-yellow-400 font-bold">
             {category.title}
           </p>
-          <p className="text-white hover:text-green-500 font-bold text-xl mt-1">
+          <p className="text-white hover:text-yellow-500 font-bold text-xl mt-1">
             Available Property ({getCategoryCount(category.name)})
           </p>
         </div>

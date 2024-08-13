@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSearch, FaUser } from 'react-icons/fa';
-import greenBg from '../Assets/bluebg.jpg'
+import greenBg from '../Assets/king.jpg'
 import Nav2 from '../Pages/Nav2';
 import { Link } from 'react-router-dom';
 

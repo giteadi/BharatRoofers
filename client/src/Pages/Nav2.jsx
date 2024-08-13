@@ -171,9 +171,10 @@ const Nav2 = () => {
               {loading ? (
                 <CarouselPlaceholder />
               ) : (
-                <div className="text-center text-gray-500 mt-4">
+                <div className="text-center text-gray-900 mt-4">
                   {filteredProperties.length > 0 ? (
-                    <p className="text-gray-500">
+                   <p className="text-white font-semibold bg-gray-500/50 backdrop-5 rounded-full">
+
                       Showing {filteredProperties.length} properties matching your criteria.
                     </p>
                   ) : (
