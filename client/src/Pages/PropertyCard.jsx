@@ -9,6 +9,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaRupeeSign,
+  FaRoad
 } from "react-icons/fa";
 import {
   FaSwimmer,
@@ -581,204 +582,205 @@ const PropertyCard = () => {
                 </div>
 
                 {/* Description */}
-                <div className="mt-5 p-2 w-full lg:w-1/2">
-                  <p className="text-2xl font-semibold">Description</p>
+                <div className="mt-5 p-2 w-full lg:w-1/2 flex flex-col">
+                  <p className="text-2xl font-semibold text-2xl">Description</p>
                   <p className="text-gray-700">
                     {selectedProperty.property_description}
                   </p>
                 </div>
 
                 {/* Amenities */}
-                <div className="mt-5 p-2">
-                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                    Amenities
-                  </h2>
-                  <ul className="list-disc pl-6 text-gray-600">
-                    {selectedProperty?.road == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Road"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.security_24_7 == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="24/7 Security"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.car_parking == 1 && (
-                      <DetailItem
-                        icon={FaCar}
-                        label="Car Parking"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.drainage == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Drainage"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.entry_gate == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Entry Gate"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.good_natural_light == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Good Natural Light"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.gated_community == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Gated Community"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.immediate_possession == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Immediate Possession"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.investment == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Investment"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.own_purpose == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Own Purpose"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.near_green_zone == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Near Green Zone"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.near_temple == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Near Temple"
-                        color="text-green-500"
-                      />
-                    )}
-                    {/* Additional Amenities from the old list */}
-                    {selectedProperty?.swimming_pool == 1 && (
-                      <DetailItem
-                        icon={FaSwimmer} // You can replace with appropriate icon
-                        label="Swimming Pool"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.fall_ceiling == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Fall Ceiling"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.wallpaper == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Wallpaper"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.lights == 1 && (
-                      <DetailItem
-                        icon={FaLightbulb} // You can replace with appropriate icon
-                        label="Lights"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.fans == 1 && (
-                      <DetailItem
-                        icon={FaFan} // You can replace with appropriate icon
-                        label="Fans"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.terrace == 1 && (
-                      <DetailItem
-                        icon={FaBuilding} // You can replace with appropriate icon
-                        label="Terrace"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.air_conditioning == 1 && (
-                      <DetailItem
-                        icon={FaSnowflake} // You can replace with appropriate icon
-                        label="Air Conditioning"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.cable_tv == 1 && (
-                      <DetailItem
-                        icon={FaTv} // You can replace with appropriate icon
-                        label="Cable TV"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.balcony == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Balcony"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.internet == 1 && (
-                      <DetailItem
-                        icon={FaWifi} // You can replace with appropriate icon
-                        label="Internet"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.computer == 1 && (
-                      <DetailItem
-                        icon={FaDesktop} // You can replace with appropriate icon
-                        label="Computer"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.dishwasher == 1 && (
-                      <DetailItem
-                        icon={FaUtensils} // You can replace with appropriate icon
-                        label="Dishwasher"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.activity_area == 1 && (
-                      <DetailItem
-                        icon={FaHome}
-                        label="Activity Area"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.roadLight == 1 && (
-                      <DetailItem
-                        icon={FaLightbulb} // You can replace with appropriate icon
-                        label="Road Light"
-                        color="text-green-500"
-                      />
-                    )}
-                  </ul>
-                </div>
+            
+<div className="mt-5 p-2">
+  <h2 className="text-xl font-semibold mb-4 text-gray-700">Amenities</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    {selectedProperty?.road == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Road"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.security_24_7 == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="24/7 Security"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.car_parking == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Car Parking"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.drainage == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Drainage"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.entry_gate == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Entry Gate"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.good_natural_light == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Good Natural Light"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.gated_community == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Gated Community"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.immediate_possession == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Immediate Possession"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.investment == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Investment"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.own_purpose == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Own Purpose"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.near_green_zone == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Near Green Zone"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.near_temple == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Near Temple"
+        color="text-green-500"
+      />
+    )}
+    {/* Additional Amenities from the old list */}
+    {selectedProperty?.swimming_pool == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Swimming Pool"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.fall_ceiling == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Fall Ceiling"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.wallpaper == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Wallpaper"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.lights == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Lights"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.fans == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Fans"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.terrace == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Terrace"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.air_conditioning == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Air Conditioning"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.cable_tv == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Cable TV"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.balcony == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Balcony"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.internet == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Internet"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.computer == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Computer"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.dishwasher == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Dishwasher"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.activity_area == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Activity Area"
+        color="text-green-500"
+      />
+    )}
+    {selectedProperty?.roadLight == 1 && (
+      <DetailItem
+        icon={FaHome}
+        label="Road Light"
+        color="text-green-500"
+      />
+    )}
+  </div>
+</div>
+
+
 
                 {/* About */}
                 <div className="mt-5 p-2">
@@ -828,7 +830,21 @@ const PropertyCard = () => {
               </div>
             </div>
 
-           {/* Blogs */}
+      
+
+          </div>
+        </div>
+      </div>
+      {/* Related Property */}
+      <div className="properties-list">
+        <span className="flex items-center justify-center">
+          <p className="font-bold text-3xl p-4">Related Property</p>
+        </span>
+      <PropertyCard2 properties={propertiesWithImages} />
+          </div>
+ {/* wrap contactus and blogs  */}
+          <div className="flex flex-col items-center justify-center md:flex-row">
+                 {/* Blogs */}
 <div className="mt-8 md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
   <h2 className="text-2xl font-semibold mb-6 text-gray-700 text-center">
     Interesting Blogs
@@ -885,18 +901,7 @@ const PropertyCard = () => {
     ))}
   </div>
 </div>
-
-          </div>
-        </div>
-      </div>
-      {/* Related Property */}
-      <div className="properties-list">
-        <span className="flex items-center justify-center">
-          <p className="font-bold text-3xl p-4">Related Property</p>
-        </span>
-      <PropertyCard2 properties={propertiesWithImages} />
-          </div>
-      {/* Contact Form */}
+             {/* Contact Form */}
       <div
         className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
         ref={formRef}
@@ -996,6 +1001,8 @@ const PropertyCard = () => {
           </button>
         </form>
       </div>
+          </div>
+     
     </div>
   );
 };
