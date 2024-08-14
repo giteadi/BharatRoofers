@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { BsFacebook, BsWhatsapp, BsInstagram } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io";
 import logo from '../Assets/brLogo.png';
@@ -48,13 +48,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between mb-4 md:gap-4 items-center">
           {/* Popular Residential Property Searches */}
           <div className="mb-4 md:mb-0 text-center md:text-left">
-            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular Residential Property Searches</h6>
+            <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular Residential Property Searches</h6>
             <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
                 <li key={type}>
                   <button
                     onClick={() => navigateToCategory(type)}
-                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
+                    className="text-white hover:text-red-500 text-sm px-2 py-1 rounded"
                   >
                     {title} in Jabalpur
                   </button>
@@ -65,13 +65,13 @@ const Footer = () => {
 
           {/* Popular BHK Searches */}
           <div className="mb-4 md:mb-0 text-center md:text-left">
-            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular BHK Searches</h6>
+            <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular BHK Searches</h6>
             <ul className="space-y-1">
               {[1, 2, 3, 4].map(bhk => (
                 <li key={bhk}>
                   <button
                     onClick={() => navigateToCategory(`flat/${bhk}`)}
-                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
+                    className="text-white hover:text-red-500 text-sm px-2 py-1 rounded"
                   >
                     {bhk} BHK Flats in Jabalpur
                   </button>
@@ -81,7 +81,7 @@ const Footer = () => {
                 <li key={`house-${bhk}`}>
                   <button
                     onClick={() => navigateToCategory(`house/${bhk}`)}
-                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
+                    className="text-white hover:text-red-500 text-sm px-2 py-1 rounded"
                   >
                     {bhk} BHK House for Sale in Jabalpur
                   </button>
@@ -92,13 +92,13 @@ const Footer = () => {
 
           {/* Popular Rental Property Searches */}
           <div className="mb-4 md:mb-0 text-center md:text-left">
-            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular Rental Property Searches</h6>
+            <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular Rental Property Searches</h6>
             <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
                 <li key={type}>
                   <button
                     onClick={() => navigateToCategory(`propertiesForRent/${type}`)}
-                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
+                    className="text-white hover:text-red-500 text-sm px-2 py-1 rounded"
                   >
                     {title} for Rent in Jabalpur
                   </button>
@@ -109,13 +109,13 @@ const Footer = () => {
 
           {/* Popular Resale Property Searches */}
           <div className="text-center md:text-left">
-            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular Resale Property Searches</h6>
+            <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular Resale Property Searches</h6>
             <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
                 <li key={type}>
                   <button
                     onClick={() => navigateToCategory(`propertiesForResale/${type}`)}
-                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
+                    className="text-white hover:text-red-500 text-sm px-2 py-1 rounded"
                   >
                     {title} for Resale in Jabalpur
                   </button>
@@ -148,8 +148,8 @@ const Footer = () => {
 
         {/* Footer Text */}
         <div className="text-center">
-          <h5 className="text-xs mb-1">&copy; 2024 Bharatroofers.com | All Rights Reserved</h5>
-          <p className="text-xs">
+          <h5 className="text-sm mb-1">&copy; 2024 Bharatroofers.com | All Rights Reserved</h5>
+          <p className="text-sm">
             <Link to="/terms" className="text-white font-bold hover:underline">Terms and Conditions</Link> | 
             <Link to="/privacy" className="text-white font-bold hover:underline">Privacy Policy</Link>
           </p>
