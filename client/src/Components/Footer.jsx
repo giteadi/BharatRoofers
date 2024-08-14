@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { BsFacebook, BsWhatsapp, BsInstagram } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io";
-import logo from '../Assets/3dhouse3.jpg';
+import logo from '../Assets/brLogo.png';
 import BackgroundBeams from "./BackgroundBeams";
 
 const Footer = () => {
@@ -150,8 +150,8 @@ const Footer = () => {
         <div className="text-center">
           <h5 className="text-xs mb-1">&copy; 2024 Bharatroofers.com | All Rights Reserved</h5>
           <p className="text-xs">
-            <a href="https://bharatroofers.com/info/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">Terms and Conditions</a> | 
-            <a href="https://bharatroofers.com/info/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">Privacy Policy</a>
+            <Link to="/terms" className="text-white font-bold hover:underline">Terms and Conditions</Link> | 
+            <Link to="/privacy" className="text-white font-bold hover:underline">Privacy Policy</Link>
           </p>
         </div>
       </div>

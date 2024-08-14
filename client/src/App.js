@@ -12,6 +12,8 @@ import Box from "./Components/LightBox";
 import Footer from "./Components/Footer";
 import CategoryPage from "./Pages/CategoryPage";  // Correctly import CategoryPage
 import FooterCategory from "./Pages/FooterCategory";
+import TermsAndCondition from "./Pages/TermsAndConditions";
+import PrivacyPolicy from "./Pages/Privacy";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/box" element={<Box />} />
         <Route path="/category" element={<CategoryPage />} />  
          <Route path="/footer-category" element={<FooterCategory/>}/>
+         <Route path='/terms' element={<TermsAndCondition/>}/>
+         <Route path="/privacy" element={<PrivacyPolicy/>}/>
       </Routes>
       <Footer />
     </div>
