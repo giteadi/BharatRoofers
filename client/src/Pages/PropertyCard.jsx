@@ -157,29 +157,21 @@ const PropertyCard = () => {
     }
   }
   const DetailItem = ({ icon: Icon, label, color }) => {
-    // console.log("label",label);
-
-    if (label.includes("N/A")) {
+    // Conditionally render null if the label includes certain values
+    if (label.includes("N/A") || label.includes("no") || label.includes(": 0")) {
       return null;
     }
-    if (label.includes("no")) {
-      return null;
-    }
-
-    if (label.includes(": 0")) {
-      return null;
-    }
-
-    // if(label==="0"){
-    //   return null;
-    // }
+  
     return (
       <div className="flex items-center">
         <Icon className={`mr-2 ${color}`} />
-        <p className="text-lg text-gray-600">{label}</p>
+        <p className={`text-lg text-gray-600 ${color}`}>
+          {label}
+        </p>
       </div>
     );
   };
+  
   console.log("Selected property:", selectedProperty);
   // console.log("feet",selectedProperty.square_ft);
   const handleShareClick = (platform) => {
@@ -238,7 +230,7 @@ const PropertyCard = () => {
           <p className="text-gray-500 md:mb-5 ">
             All you need to know about {title}
           </p>
-          <h1 className="text-3xl font-bold text-gray-700 mb-2">{title}</h1>
+          <h1 className="text-3xl  text-gray-700 mb-2">{title}</h1>
           <p className="text-xl text-gray-500 mb-2 flex items-center">
             Price:
             <FaRupeeSign /> {price}
@@ -307,285 +299,224 @@ const PropertyCard = () => {
 
                 {/* Property details */}
                 <div className="mt-5 p-2">
-                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                    Property Details
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {/* Property Id */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Property Id: ${selectedProperty.id || "N/A"}`}
-                      color="text-green-500 capitalize"
-                    />
+  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+    Property Details
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    {/* Property Id */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Property Id: ${selectedProperty.id || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Type */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Type: ${selectedProperty.property_type || "N/A"}`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Type */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Type: ${selectedProperty.property_type || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Commercial Property Type (conditional) */}
-                    {selectedProperty.property_type === "commercial" && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Commercial Property Type: ${
-                          selectedProperty.commercial_property_type || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Commercial Property Type (conditional) */}
+    {selectedProperty.property_type === "commercial" && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Commercial Property Type: ${
+          selectedProperty.commercial_property_type || "N/A"
+        }`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Property For */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Property For: ${
-                        selectedProperty.property_for || "N/A"
-                      }`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Property For */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Property For: ${selectedProperty.property_for || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Number of BHK (conditional) */}
-                    {!["plot", "land", "farmLand", "commercial"].includes(
-                      selectedProperty.property_type
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Number of BHK: ${
-                          selectedProperty.bhk || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Number of BHK (conditional) */}
+    {!["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Number of BHK: ${selectedProperty.bhk || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* New/Resale (conditional) */}
-                    {selectedProperty.property_for === "sale" && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`New/Resale: ${
-                          selectedProperty.new_resale || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* New/Resale (conditional) */}
+    {selectedProperty.property_for === "sale" && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`New/Resale: ${selectedProperty.new_resale || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* TNCP Approved (conditional) */}
-                    {selectedProperty.property_for === "sale" && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`TNCP Approved: ${
-                          selectedProperty.tncp || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* TNCP Approved (conditional) */}
+    {selectedProperty.property_for === "sale" && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`TNCP Approved: ${selectedProperty.tncp || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* RERA Number (conditional) */}
-                    {selectedProperty.property_for === "sale" && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* RERA Number (conditional) */}
+    {selectedProperty.property_for === "sale" && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Structure (conditional) */}
-                    {!["plot", "land", "farmLand", "commercial"].includes(
-                      selectedProperty.property_type
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Structure: ${
-                          selectedProperty.structure || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Structure (conditional) */}
+    {!["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Structure: ${selectedProperty.structure || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Square Feet */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Square Feet: ${
-                        selectedProperty.square_ft || "N/A"
-                      }`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Square Feet */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Square Feet: ${selectedProperty.square_ft || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Dimension */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Dimension: ${
-                        selectedProperty.dimension || "N/A"
-                      }`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Dimension */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Dimension: ${selectedProperty.dimension || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Car Parking (conditional) */}
-                    {!(
-                      ["plot", "land", "farmLand", "commercial"].includes(
-                        selectedProperty.property_type
-                      ) ||
-                      ["commercial plot", "commercial land"].includes(
-                        selectedProperty.commercial_property_type
-                      )
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Car Parking: ${
-                          selectedProperty.car_parking || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Car Parking (conditional) */}
+    {!(
+      ["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) ||
+      ["commercial plot", "commercial land"].includes(selectedProperty.commercial_property_type)
+    ) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Car Parking: ${selectedProperty.car_parking || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Modular Kitchen (conditional) */}
-                    {!["plot", "land", "farmLand", "commercial"].includes(
-                      selectedProperty.property_type
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Modular Kitchen: ${
-                          selectedProperty.modularKitchen || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Modular Kitchen (conditional) */}
+    {!["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Modular Kitchen: ${selectedProperty.modularKitchen || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Year Built */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Year Built: ${
-                        selectedProperty.year_built || "N/A"
-                      }`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Year Built */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Year Built: ${selectedProperty.year_built || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Facing */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Facing: ${selectedProperty.facing || "N/A"}`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Facing */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Facing: ${selectedProperty.facing || "N/A"}`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Furnishing (conditional) */}
-                    {!(
-                      ["plot", "land", "farmLand", "commercial"].includes(
-                        selectedProperty.property_type
-                      ) ||
-                      ["commercial plot", "commercial land"].includes(
-                        selectedProperty.commercial_property_type
-                      )
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Furnishing: ${
-                          selectedProperty.furnishing || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Furnishing (conditional) */}
+    {!(
+      ["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) ||
+      ["commercial plot", "commercial land"].includes(selectedProperty.commercial_property_type)
+    ) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Furnishing: ${selectedProperty.furnishing || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Carpet Area (conditional) */}
-                    {!["plot", "land", "farmLand", "commercial"].includes(
-                      selectedProperty.property_type
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Carpet Area: ${
-                          selectedProperty.carpet_area || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Carpet Area (conditional) */}
+    {!["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Carpet Area: ${selectedProperty.carpet_area || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Bathroom (conditional) */}
-                    {!["plot", "land", "farmLand", "commercial"].includes(
-                      selectedProperty.property_type
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Bathroom: ${
-                          selectedProperty.bathroom || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Bathroom (conditional) */}
+    {!["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Bathroom: ${selectedProperty.bathroom || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Property On Floor (conditional) */}
-                    {!(
-                      ["plot", "land", "farmLand", "commercial"].includes(
-                        selectedProperty.property_type
-                      ) ||
-                      ["commercial plot", "commercial land"].includes(
-                        selectedProperty.commercial_property_type
-                      )
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Property On Floor: ${
-                          selectedProperty.property_on_floor || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Property On Floor (conditional) */}
+    {!(
+      ["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) ||
+      ["commercial plot", "commercial land"].includes(selectedProperty.commercial_property_type)
+    ) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Property On Floor: ${selectedProperty.property_on_floor || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Flooring (conditional) */}
-                    {!(
-                      ["plot", "land", "farmLand", "commercial"].includes(
-                        selectedProperty.property_type
-                      ) ||
-                      ["commercial plot", "commercial land"].includes(
-                        selectedProperty.commercial_property_type
-                      )
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Flooring: ${
-                          selectedProperty.flooring || "N/A"
-                        }`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Flooring (conditional) */}
+    {!(
+      ["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) ||
+      ["commercial plot", "commercial land"].includes(selectedProperty.commercial_property_type)
+    ) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Flooring: ${selectedProperty.flooring || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Age of Property */}
-                    <DetailItem
-                      icon={PiArrowFatLineRightFill}
-                      label={`Age of Property: ${
-                        selectedProperty.age_of_property
-                          ? `${selectedProperty.age_of_property} years`
-                          : "N/A"
-                      }`}
-                      color="text-green-500 capitalize"
-                    />
+    {/* Age of Property */}
+    <DetailItem
+      icon={PiArrowFatLineRightFill}
+      label={`Age of Property: ${
+        selectedProperty.age_of_property
+          ? `${selectedProperty.age_of_property} years`
+          : "N/A"
+      }`}
+      color="text-green-500  capitalize"
+    />
 
-                    {/* Parking (conditional) */}
-                    {!["plot", "land", "farmLand", "commercial"].includes(
-                      selectedProperty.property_type
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Parking: ${selectedProperty.parking || "N/A"}`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
+    {/* Parking (conditional) */}
+    {!["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Parking: ${selectedProperty.parking || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
 
-                    {/* Lift (conditional) */}
-                    {!(
-                      ["plot", "land", "farmLand", "commercial"].includes(
-                        selectedProperty.property_type
-                      ) ||
-                      ["commercial plot", "commercial land"].includes(
-                        selectedProperty.commercial_property_type
-                      )
-                    ) && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label={`Lift: ${selectedProperty.lift || "N/A"}`}
-                        color="text-green-500 capitalize"
-                      />
-                    )}
-                  </div>
-                </div>
+    {/* Lift (conditional) */}
+    {!(
+      ["plot", "land", "farmLand", "commercial"].includes(selectedProperty.property_type) ||
+      ["commercial plot", "commercial land"].includes(selectedProperty.commercial_property_type)
+    ) && (
+      <DetailItem
+        icon={PiArrowFatLineRightFill}
+        label={`Lift: ${selectedProperty.lift || "N/A"}`}
+        color="text-green-500  capitalize"
+      />
+    )}
+  </div>
+</div>
+
 
                 {/* Description */}
                 <div className="mt-5 p-2 w-full lg:w-1/2 flex flex-col">
@@ -1008,7 +939,7 @@ const PropertyCard = () => {
           className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
           ref={formRef}
         >
-          <h2 className="text-2xl font-bold text-gray-700 mb-4 text-center">
+          <h2 className="text-2xl  text-gray-700 mb-4 text-center">
             Contact Us
           </h2>
           <form onSubmit={formSubmit} className="space-y-4">
