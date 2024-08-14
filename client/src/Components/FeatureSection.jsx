@@ -211,48 +211,48 @@ const getImagesForCarousel = (properties) => {
     </section>
 
       {/* 3 carousal */}
-      <span className='font-bold flex items-center justify-center text-3xl text-center mb-6 md:mb-8 mt-6'>Our Property</span>
-      <section className='flex justify-around items-center flex-wrap w-full '>
-        {
-          ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
-            <div key={index} className='flex flex-col items-center'>
-              <p className='text-2xl font-bold'>{title}</p> 
-              {title === 'Recent Projects' ? (
-                <CarouselSlider
-                  titles={recentlyPosted.map(prop => prop.title)}
-                  propertyName={recentlyPosted.map(prop=>prop.property_name)}
-                  address={recentlyPosted.map(prop=>prop.property_address)}
-                  images={getImagesForCarousel(recentlyPosted)}
-                  price={recentlyPosted.map(prop=>prop.price)}
-                  datePosted={recentlyPosted.map(prop=>prop.created_at)}
-                  ids={recentlyPosted.map(property => property.id)}
-                />
-              ) : title === 'Most View' ? (
-                <CarouselSlider
-                  titles={mostViewedProperties.map(prop => prop.title)}
-                  propertyName={mostViewedProperties.map(prop=>prop.property_name)}
-                  address={mostViewedProperties.map(prop=>prop.property_address)}
-                  images={getImagesForCarousel(mostViewedProperties)}
-                  price={mostViewedProperties.map(prop=>prop.price)}
-                  datePosted={mostViewedProperties.map(prop=>prop.created_at)}
-                  ids={mostViewedProperties.map(property => property.id)}
-                />
-              ) : (
-                <CarouselSlider
-                  titles={properties.map(prop => prop.title)}
-                  propertyName={properties.map(prop=>prop.property_name)}
-                  address={properties.map(prop=>prop.property_address)}
-                  images={getImagesForCarousel(properties)}
-                  price={properties.map(prop=>prop.price)}
-                  datePosted={properties.map(prop=>prop.created_at)}
-                  ids={properties.map(property => property.id)}
+      <span className='font-bold flex items-center justify-center text-3xl text-center mb-4 md:mb-6 lg:mb-8 mt-5'>Our Property</span>
+<section className='flex flex-col md:flex-row md:justify-around items-center flex-wrap w-full px-4 md:px-6 lg:px-8'>
+  {
+    ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
+      <div key={index} className='flex flex-col items-center mb-6 md:mb-8 lg:mb-10'>
+        <p className='text-xl md:text-2xl font-bold mb-2 md:mb-4'>{title}</p> 
+        {title === 'Recent Projects' ? (
+          <CarouselSlider
+            titles={recentlyPosted.map(prop => prop.title)}
+            propertyName={recentlyPosted.map(prop => prop.property_name)}
+            address={recentlyPosted.map(prop => prop.property_address)}
+            images={getImagesForCarousel(recentlyPosted)}
+            price={recentlyPosted.map(prop => prop.price)}
+            datePosted={recentlyPosted.map(prop => prop.created_at)}
+            ids={recentlyPosted.map(property => property.id)}
+          />
+        ) : title === 'Most View' ? (
+          <CarouselSlider
+            titles={mostViewedProperties.map(prop => prop.title)}
+            propertyName={mostViewedProperties.map(prop => prop.property_name)}
+            address={mostViewedProperties.map(prop => prop.property_address)}
+            images={getImagesForCarousel(mostViewedProperties)}
+            price={mostViewedProperties.map(prop => prop.price)}
+            datePosted={mostViewedProperties.map(prop => prop.created_at)}
+            ids={mostViewedProperties.map(property => property.id)}
+          />
+        ) : (
+          <CarouselSlider
+            titles={properties.map(prop => prop.title)}
+            propertyName={properties.map(prop => prop.property_name)}
+            address={properties.map(prop => prop.property_address)}
+            images={getImagesForCarousel(properties)}
+            price={properties.map(prop => prop.price)}
+            datePosted={properties.map(prop => prop.created_at)}
+            ids={properties.map(property => property.id)}
+          />
+        )}
+      </div>
+    ))
+  }
+</section>
 
-                />
-              )}
-            </div>
-          ))
-        }
-      </section>
        
     </div>
   );

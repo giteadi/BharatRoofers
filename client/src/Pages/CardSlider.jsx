@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaRupeeSign } from 'react-icons/fa';
+import { MdLocationOn } from 'react-icons/md';
 
 const CarouselSlider = ({ images, propertyName, address, price, datePosted, ids }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,8 +52,8 @@ const CarouselSlider = ({ images, propertyName, address, price, datePosted, ids 
       </div>
       <div className="p-4 h-1/3">
         <h2 className="text-xl font-bold text-gray-800 mb-2">{propertyName[currentIndex]}</h2>
-        <p className="text-gray-600 truncate">{address[currentIndex]}</p>
-        <p className="text-gray-800">Price: {price[currentIndex]}</p>
+        <p className="text-gray-600 truncate flex items-center gap-1"><MdLocationOn/>{address[currentIndex]}</p>
+        <p className="text-gray-800 flex items-center "><FaRupeeSign/>Price: {price[currentIndex]}</p>
         {/* <p className="text-gray-800">Date: {new Date(datePosted[currentIndex]).toLocaleDateString()}</p> */}
       </div>
     </div>

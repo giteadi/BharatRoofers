@@ -9,7 +9,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaRupeeSign,
-  FaRoad
+  FaRoad,
 } from "react-icons/fa";
 import {
   FaSwimmer,
@@ -40,7 +40,7 @@ const heartbeat = keyframes`
 
 const HeartbeatButton = styled.button`
   animation: ${heartbeat} 5s infinite;
-`
+`;
 
 const PropertyCard = () => {
   const formRef = useRef(null);
@@ -232,9 +232,12 @@ const PropertyCard = () => {
   });
 
   return (
-    <div className="max-w-full px-4 py-8">
+    <div className="max-w-full px-4 py-8 sm:mt-4 md:mt-10 xl:mt-12 2xl:mt-16">
       <div className="bg-white shadow-lg rounded-lg">
-        <div className="">
+        <div className=" pl-8">
+          <p className="text-gray-500 md:mb-5 ">
+            All you need to know about {title}
+          </p>
           <h1 className="text-3xl font-bold text-gray-700 mb-2">{title}</h1>
           <p className="text-xl text-gray-500 mb-2 flex items-center">
             Price:
@@ -249,9 +252,8 @@ const PropertyCard = () => {
 
           {/* Lightbox image */}
           <div className="bg-gray-100 max-w-[90%] mx-auto">
-  <Box images={selectedProperty.images} />
-</div>
-
+            <Box images={selectedProperty.images} />
+          </div>
 
           {/* wrapping both */}
           <div className="flex felx-col">
@@ -260,46 +262,44 @@ const PropertyCard = () => {
               <div className="w-full pr-4 flex flex-col justify-between">
                 {/* Social media */}
                 <div className="flex gap-5 items-center mb-4">
-  <p className="font-semibold text-2xl text-gray-700">Share:</p>
-  <FaTelegram
-    className="cursor-pointer hover:animate-bounce text-blue-500"
-    size={32}
-    onClick={() => handleShareClick("telegram")}
-  />
-  <FaWhatsapp
-    className="cursor-pointer hover:animate-bounce text-green-500"
-    size={32}
-    onClick={() => handleShareClick("whatsapp")}
-  />
-  <FaFacebookMessenger
-    className="cursor-pointer hover:animate-bounce text-blue-600"
-    size={32}
-    onClick={() => handleShareClick("messenger")}
-  />
-  <FaTwitter
-    className="cursor-pointer hover:animate-bounce text-blue-400"
-    size={32}
-    onClick={() => handleShareClick("twitter")}
-  />
-  <FaInstagram
-    className="cursor-pointer hover:animate-bounce text-pink-500"
-    size={32}
-    onClick={() => handleShareClick("instagram")}
-  />
-  <div className="ml-auto pr-4">
-    <HeartbeatButton
-      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 md:w-auto md:max-w-[20rem]"
-      onClick={() => {
-        scrollToForm();
-        toast.success("Scrolling to Contact Form");
-      }}
-    >
-      Contact us
-    </HeartbeatButton>
-  </div>
-</div>
-
-
+                  <p className="font-semibold text-2xl text-gray-700">Share:</p>
+                  <FaTelegram
+                    className="cursor-pointer hover:animate-bounce text-blue-500"
+                    size={32}
+                    onClick={() => handleShareClick("telegram")}
+                  />
+                  <FaWhatsapp
+                    className="cursor-pointer hover:animate-bounce text-green-500"
+                    size={32}
+                    onClick={() => handleShareClick("whatsapp")}
+                  />
+                  <FaFacebookMessenger
+                    className="cursor-pointer hover:animate-bounce text-blue-600"
+                    size={32}
+                    onClick={() => handleShareClick("messenger")}
+                  />
+                  <FaTwitter
+                    className="cursor-pointer hover:animate-bounce text-blue-400"
+                    size={32}
+                    onClick={() => handleShareClick("twitter")}
+                  />
+                  <FaInstagram
+                    className="cursor-pointer hover:animate-bounce text-pink-500"
+                    size={32}
+                    onClick={() => handleShareClick("instagram")}
+                  />
+                  <div className="ml-auto pr-4">
+                    <HeartbeatButton
+                      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 md:w-auto md:max-w-[20rem]"
+                      onClick={() => {
+                        scrollToForm();
+                        toast.success("Scrolling to Contact Form");
+                      }}
+                    >
+                      Contact us
+                    </HeartbeatButton>
+                  </div>
+                </div>
 
                 {/* Property details */}
                 <div className="mt-5 p-2">
@@ -309,36 +309,36 @@ const PropertyCard = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {/* Property Id */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Property Id: ${selectedProperty.id || "N/A"}`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Type */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Type: ${selectedProperty.property_type || "N/A"}`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Commercial Property Type (conditional) */}
                     {selectedProperty.property_type === "commercial" && (
                       <DetailItem
-                        icon={FaBuilding}
+                        icon={PiArrowFatLineRightFill}
                         label={`Commercial Property Type: ${
                           selectedProperty.commercial_property_type || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* Property For */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Property For: ${
                         selectedProperty.property_for || "N/A"
                       }`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Number of BHK (conditional) */}
@@ -346,42 +346,42 @@ const PropertyCard = () => {
                       selectedProperty.property_type
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Number of BHK: ${
                           selectedProperty.bhk || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* New/Resale (conditional) */}
                     {selectedProperty.property_for === "sale" && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`New/Resale: ${
                           selectedProperty.new_resale || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* TNCP Approved (conditional) */}
                     {selectedProperty.property_for === "sale" && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`TNCP Approved: ${
                           selectedProperty.tncp || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* RERA Number (conditional) */}
                     {selectedProperty.property_for === "sale" && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`RERA Number: ${selectedProperty.rera || "N/A"}`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -390,30 +390,30 @@ const PropertyCard = () => {
                       selectedProperty.property_type
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Structure: ${
                           selectedProperty.structure || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* Square Feet */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Square Feet: ${
                         selectedProperty.square_ft || "N/A"
                       }`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Dimension */}
                     <DetailItem
-                      icon={FaRuler}
+                      icon={PiArrowFatLineRightFill}
                       label={`Dimension: ${
                         selectedProperty.dimension || "N/A"
                       }`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Car Parking (conditional) */}
@@ -426,11 +426,11 @@ const PropertyCard = () => {
                       )
                     ) && (
                       <DetailItem
-                        icon={FaCar}
+                        icon={PiArrowFatLineRightFill}
                         label={`Car Parking: ${
                           selectedProperty.car_parking || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -439,28 +439,28 @@ const PropertyCard = () => {
                       selectedProperty.property_type
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Modular Kitchen: ${
                           selectedProperty.modularKitchen || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* Year Built */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Year Built: ${
                         selectedProperty.year_built || "N/A"
                       }`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Facing */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Facing: ${selectedProperty.facing || "N/A"}`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Furnishing (conditional) */}
@@ -473,11 +473,11 @@ const PropertyCard = () => {
                       )
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Furnishing: ${
                           selectedProperty.furnishing || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -486,11 +486,11 @@ const PropertyCard = () => {
                       selectedProperty.property_type
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Carpet Area: ${
                           selectedProperty.carpet_area || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -499,11 +499,11 @@ const PropertyCard = () => {
                       selectedProperty.property_type
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Bathroom: ${
                           selectedProperty.bathroom || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -517,11 +517,11 @@ const PropertyCard = () => {
                       )
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Property On Floor: ${
                           selectedProperty.property_on_floor || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -535,23 +535,23 @@ const PropertyCard = () => {
                       )
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Flooring: ${
                           selectedProperty.flooring || "N/A"
                         }`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
                     {/* Age of Property */}
                     <DetailItem
-                      icon={FaHome}
+                      icon={PiArrowFatLineRightFill}
                       label={`Age of Property: ${
                         selectedProperty.age_of_property
                           ? `${selectedProperty.age_of_property} years`
                           : "N/A"
                       }`}
-                      color="text-green-500"
+                      color="text-green-500 capitalize"
                     />
 
                     {/* Parking (conditional) */}
@@ -559,9 +559,9 @@ const PropertyCard = () => {
                       selectedProperty.property_type
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Parking: ${selectedProperty.parking || "N/A"}`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
 
@@ -575,9 +575,9 @@ const PropertyCard = () => {
                       )
                     ) && (
                       <DetailItem
-                        icon={FaHome}
+                        icon={PiArrowFatLineRightFill}
                         label={`Lift: ${selectedProperty.lift || "N/A"}`}
-                        color="text-green-500"
+                        color="text-green-500 capitalize"
                       />
                     )}
                   </div>
@@ -592,200 +592,200 @@ const PropertyCard = () => {
                 </div>
 
                 {/* Amenities */}
-            
-<div className="mt-5 p-2">
-  <h2 className="text-xl font-semibold mb-4 text-gray-700">Amenities</h2>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    {selectedProperty?.road == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Road"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.security_24_7 == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="24/7 Security"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.car_parking == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Car Parking"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.drainage == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Drainage"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.entry_gate == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Entry Gate"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.good_natural_light == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Good Natural Light"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.gated_community == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Gated Community"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.immediate_possession == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Immediate Possession"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.investment == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Investment"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.own_purpose == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Own Purpose"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.near_green_zone == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Near Green Zone"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.near_temple == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Near Temple"
-        color="text-green-500"
-      />
-    )}
-    {/* Additional Amenities from the old list */}
-    {selectedProperty?.swimming_pool == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Swimming Pool"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.fall_ceiling == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Fall Ceiling"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.wallpaper == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Wallpaper"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.lights == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Lights"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.fans == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Fans"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.terrace == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Terrace"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.air_conditioning == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Air Conditioning"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.cable_tv == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Cable TV"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.balcony == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Balcony"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.internet == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Internet"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.computer == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Computer"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.dishwasher == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Dishwasher"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.activity_area == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Activity Area"
-        color="text-green-500"
-      />
-    )}
-    {selectedProperty?.roadLight == 1 && (
-      <DetailItem
-        icon={FaHome}
-        label="Road Light"
-        color="text-green-500"
-      />
-    )}
-  </div>
-</div>
 
-
+                <div className="mt-5 p-2">
+                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+                    Amenities
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {selectedProperty?.road == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Road"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.security_24_7 == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="24/7 Security"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.car_parking == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Car Parking"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.drainage == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Drainage"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.entry_gate == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Entry Gate"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.good_natural_light == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Good Natural Light"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.gated_community == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Gated Community"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.immediate_possession == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Immediate Possession"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.investment == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Investment"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.own_purpose == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Own Purpose"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.near_green_zone == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Near Green Zone"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.near_temple == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Near Temple"
+                        color="text-green-500"
+                      />
+                    )}
+                    {/* Additional Amenities from the old list */}
+                    {selectedProperty?.swimming_pool == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Swimming Pool"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.fall_ceiling == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Fall Ceiling"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.wallpaper == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Wallpaper"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.lights == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Lights"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.fans == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Fans"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.terrace == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Terrace"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.air_conditioning == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Air Conditioning"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.cable_tv == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Cable TV"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.balcony == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Balcony"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.internet == 1 && (
+                      <DetailItem
+                        icon={FaHome}
+                        label="Internet"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.computer == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Computer"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.dishwasher == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Dishwasher"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.activity_area == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Activity Area"
+                        color="text-green-500"
+                      />
+                    )}
+                    {selectedProperty?.roadLight == 1 && (
+                      <DetailItem
+                        icon={PiArrowFatLineRightFill}
+                        label="Road Light"
+                        color="text-green-500"
+                      />
+                    )}
+                  </div>
+                </div>
 
                 {/* About */}
-                <div className="mt-5 p-2">
+                {/* <div className="mt-5 p-2">
                   <h2 className="text-xl font-semibold mb-4 text-gray-700">
                     About
                   </h2>
@@ -799,7 +799,99 @@ const PropertyCard = () => {
                   <p className="text-gray-600">
                     Year Build:{selectedProperty.year_built}
                   </p>
+                </div> */}
+                {/* Special heigh light */}
+                <div className="col-12 special-highlights p-4 rounded-lg">
+                  <h5 className="text-lg font-semibold mb-3 text-gray-700">
+                    SPECIAL HIGHLIGHTS :
+                  </h5>
+                  <ul className="list-none p-0 space-y-2">
+                    {selectedProperty?.common_visitor_parking == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          Good No. of Common/Visitor Parking
+                        </p>
+                      </li>
+                    )}
+                    {selectedProperty?.main_road_facing == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">Main Road Facing</p>
+                      </li>
+                    )}
+                    {selectedProperty?.good_ceiling_height == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          Good Ceiling Height
+                        </p>
+                      </li>
+                    )}
+                    {selectedProperty?.good_natural_light == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          Good Natural Light in the Unit
+                        </p>
+                      </li>
+                    )}
+                    {selectedProperty?.attractive_entrance_gate == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          Attractive Entrance Gate
+                        </p>
+                      </li>
+                    )}
+                    {selectedProperty?.gated_community == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">Gated Community</p>
+                      </li>
+                    )}
+                    {selectedProperty?.property_for == "sale" &&
+                      selectedProperty?.immediate_possession == 1 && (
+                        <li className="flex items-center">
+                          <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                          <p className="text-gray-700 uppercase">
+                            Immediate Possession
+                          </p>
+                        </li>
+                      )}
+                    {selectedProperty?.landscape_garden == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">Landscape Garden</p>
+                      </li>
+                    )}
+                    {selectedProperty?.water_supply_24_7 == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          24/7 Water Supply
+                        </p>
+                      </li>
+                    )}
+                    {selectedProperty?.bore_well_water_24_7 == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          24/7 Bore Well Water
+                        </p>
+                      </li>
+                    )}
+                    {selectedProperty?.environment_clearance_available == 1 && (
+                      <li className="flex items-center">
+                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
+                        <p className="text-gray-700 uppercase">
+                          Environment Clearance Available
+                        </p>
+                      </li>
+                    )}
+                  </ul>
                 </div>
+
                 {/* Recommended Section */}
                 <div className="mt-5 p-2">
                   <h2 className="text-xl font-semibold mb-4 text-gray-700">
@@ -831,9 +923,6 @@ const PropertyCard = () => {
                 </div>
               </div>
             </div>
-
-      
-
           </div>
         </div>
       </div>
@@ -842,169 +931,178 @@ const PropertyCard = () => {
         <span className="flex items-center justify-center">
           <p className="font-bold text-3xl p-4">Related Property</p>
         </span>
-      <PropertyCard2 properties={propertiesWithImages} />
-          </div>
- {/* wrap contactus and blogs  */}
-          <div className="flex flex-col items-center justify-center md:flex-row">
-                 {/* Blogs */}
-<div className="mt-8 md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
-  <h2 className="text-2xl font-semibold mb-6 text-gray-700 text-center">
-    Interesting Blogs
-  </h2>
-  <div className="flex flex-col space-y-8">
-    {[
-      {
-        src: "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
-        alt: "Blog 1",
-        title: "The Critical Role of Home Inspections: A Buyer's Guide to Informed Decisions",
-      },
-      {
-        src: "https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw=",
-        alt: "Blog 2",
-        title: "New Construction vs. Resale Homes: Making the Right Choice for Your Next Property",
-      },
-      {
-        src: "https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif",
-        alt: "Blog 3",
-        title: "Looking for 1 BHK Apartment Duplex",
-      },
-      {
-        src: "https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif",
-        alt: "Blog 4",
-        title: "Budget Allocations and Real Estate: Paving the Path Ahead",
-      },
-      {
-        src: "https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif",
-        alt: "Blog 5",
-        title: "Understanding Real Estate Dynamics: Future Perspectives",
-      },
-    ].map((blog, index) => (
-      <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-6">
-        <div className="w-full md:w-1/3">
-          <img
-            src={blog.src}
-            alt={blog.alt}
-            className="rounded-lg w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full md:w-2/3 mt-4 md:mt-0">
-          <div className="flex items-center gap-3 mb-2">
-            <FaHome />
-            <p className="text-sm md:text-base">Selling a home</p>
-          </div>
-          <Link
-            to="/blogs"
-            className="text-lg md:text-xl font-medium text-gray-800 leading-snug"
-          >
-            {blog.title}
-          </Link>
-        </div>
+        <PropertyCard2 properties={propertiesWithImages} />
       </div>
-    ))}
-  </div>
-</div>
-             {/* Contact Form */}
-      <div
-        className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
-        ref={formRef}
-      >
-        <h2 className="text-2xl font-bold text-gray-700 mb-4 text-center">
-          Contact Us
-        </h2>
-        <form onSubmit={formSubmit} className="space-y-4">
-          {/* Property Id and Name Fields in Same Row */}
-          <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
-            {/* Property Id Field */}
-            <div className="flex-1">
-              <label htmlFor="propertyId" className="font-semibold mb-1 block">
-                Property Id:
-              </label>
-              <input
-                name="propertyId"
-                value={id || ""}
-                id="propertyId"
-                className="w-full p-2 border border-gray-300 rounded"
-                readOnly
-              />
-            </div>
-
-            {/* Property Name Field */}
-            <div className="flex-1">
-              <label
-                htmlFor="propertyName"
-                className="font-semibold mb-1 block"
+      {/* wrap contactus and blogs  */}
+      <div className="flex flex-col items-center justify-center md:flex-row">
+        {/* Blogs */}
+        <div className="mt-8 md:mt-[7rem] w-full sm:max-w-md md:max-w-lg px-4 md:px-0">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-700 text-center">
+            Interesting Blogs
+          </h2>
+          <div className="flex flex-col space-y-8">
+            {[
+              {
+                src: "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
+                alt: "Blog 1",
+                title:
+                  "The Critical Role of Home Inspections: A Buyer's Guide to Informed Decisions",
+              },
+              {
+                src: "https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw=",
+                alt: "Blog 2",
+                title:
+                  "New Construction vs. Resale Homes: Making the Right Choice for Your Next Property",
+              },
+              {
+                src: "https://bharatroofers.com/static/media/blog3.a868ed5bc837e5adec6a.avif",
+                alt: "Blog 3",
+                title: "Looking for 1 BHK Apartment Duplex",
+              },
+              {
+                src: "https://bharatroofers.com/static/media/blog4.c13b6b74e4ac48492bfa.avif",
+                alt: "Blog 4",
+                title:
+                  "Budget Allocations and Real Estate: Paving the Path Ahead",
+              },
+              {
+                src: "https://bharatroofers.com/static/media/blog8.893a9c1a3a5bba7ae622.avif",
+                alt: "Blog 5",
+                title:
+                  "Understanding Real Estate Dynamics: Future Perspectives",
+              },
+            ].map((blog, index) => (
+              <div
+                key={index}
+                className="flex flex-col md:flex-row gap-4 md:gap-6"
               >
-                Property Name:
+                <div className="w-full md:w-1/3">
+                  <img
+                    src={blog.src}
+                    alt={blog.alt}
+                    className="rounded-lg w-full h-full object-cover"
+                  />
+                </div>
+                <div className="w-full md:w-2/3 mt-4 md:mt-0">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FaHome />
+                    <p className="text-sm md:text-base">Selling a home</p>
+                  </div>
+                  <Link
+                    to="/blogs"
+                    className="text-lg md:text-xl font-medium text-gray-800 leading-snug"
+                  >
+                    {blog.title}
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Contact Form */}
+        <div
+          className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
+          ref={formRef}
+        >
+          <h2 className="text-2xl font-bold text-gray-700 mb-4 text-center">
+            Contact Us
+          </h2>
+          <form onSubmit={formSubmit} className="space-y-4">
+            {/* Property Id and Name Fields in Same Row */}
+            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
+              {/* Property Id Field */}
+              <div className="flex-1">
+                <label
+                  htmlFor="propertyId"
+                  className="font-semibold mb-1 block"
+                >
+                  Property Id:
+                </label>
+                <input
+                  name="propertyId"
+                  value={id || ""}
+                  id="propertyId"
+                  className="w-full p-2 border border-gray-300 rounded"
+                  readOnly
+                />
+              </div>
+
+              {/* Property Name Field */}
+              <div className="flex-1">
+                <label
+                  htmlFor="propertyName"
+                  className="font-semibold mb-1 block"
+                >
+                  Property Name:
+                </label>
+                <input
+                  name="propertyName"
+                  value={title || ""}
+                  id="propertyName"
+                  className="w-full p-2 border border-gray-300 rounded"
+                  readOnly
+                />
+              </div>
+            </div>
+
+            {/* Name Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="name" className="font-semibold mb-1">
+                Your Name:
               </label>
               <input
-                name="propertyName"
-                value={title || ""}
-                id="propertyName"
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                id="name"
                 className="w-full p-2 border border-gray-300 rounded"
-                readOnly
+                onChange={handleInputChange}
+                required
               />
             </div>
-          </div>
 
-          {/* Name Field */}
-          <div className="flex flex-col mb-4">
-            <label htmlFor="name" className="font-semibold mb-1">
-              Your Name:
-            </label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              id="name"
-              className="w-full p-2 border border-gray-300 rounded"
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+            {/* Email Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="email" className="font-semibold mb-1">
+                Your Email:
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                id="email"
+                className="w-full p-2 border border-gray-300 rounded"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-          {/* Email Field */}
-          <div className="flex flex-col mb-4">
-            <label htmlFor="email" className="font-semibold mb-1">
-              Your Email:
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              id="email"
-              className="w-full p-2 border border-gray-300 rounded"
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+            {/* Message Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="message" className="font-semibold mb-1">
+                Your Message:
+              </label>
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                id="message"
+                rows="4"
+                className="w-full p-2 border border-gray-300 rounded"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-          {/* Message Field */}
-          <div className="flex flex-col mb-4">
-            <label htmlFor="message" className="font-semibold mb-1">
-              Your Message:
-            </label>
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              id="message"
-              rows="4"
-              className="w-full p-2 border border-gray-300 rounded"
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
-          >
-            Submit
-          </button>
-        </form>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-          </div>
-     
     </div>
   );
 };
