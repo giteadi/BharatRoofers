@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../Redux/slices/authSlice';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
-
+import  icon from '../Assets/brLogo.png'
 export default function UpperNav() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -43,7 +43,13 @@ export default function UpperNav() {
     <div className={`fixed top-0 left-0 w-full bg-gradient-to-r from-transparent via-transparent to-gray-900 bg-opacity-70 shadow-md z-10 transition-transform duration-500 ease-in-out ${showNavbar ? "translate-y-0" : "-translate-y-full"} ${isMenuOpen ? "h-screen" : "h-auto"}`}>
       <div className={`container mx-auto flex flex-col md:flex-row ${isMenuOpen ? 'h-full' : 'h-auto'} ${isMenuOpen ? 'justify-center' : 'justify-between'} items-center p-4 transition-all duration-500 ease-in-out`}>
         {/* Logo (Visible on desktop and tablet only) */}
-        <div className="text-2xl font-bold text-white hidden md:block">BharatRoofers</div>
+        <div className="text-2xl font-bold text-white hidden md:block">
+        <div className="flex items-center space-x-2">
+  <img src={icon} alt="icon" className="w-8 h-8" />
+  <p className="text-lg font-medium">BharatRoofers</p>
+</div>
+
+        </div>
         
         {/* Hamburger Menu for Mobile (Visible on mobile only) */}
         <div className="md:hidden absolute top-1 right-4">
