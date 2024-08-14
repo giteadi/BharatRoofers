@@ -157,57 +157,60 @@ const Nav2 = () => {
         </button>
       </div>
 {/* mobile nav */}
-      <div className="md:hidden fixed  left-0 w-full bg-opacity-80 p-4 rounded-lg shadow-lg z-10">
-  <div className="flex flex-row items-center space-x-2 justify-center">
-    <button
-      type="button"
-      className="text-gray-800 font-semibold hover:text-blue-700 focus:outline-none bg-white rounded-md px-4 py-2 shadow-sm"
-    >
-      Buy
-    </button>
-    <button
-      type="button"
-      className="text-gray-800 font-semibold hover:text-blue-700 focus:outline-none bg-white rounded-md px-4 py-2 shadow-sm"
-    >
-      Rent
-    </button>
-    <select
-      className="form-select border border-gray-300 rounded-lg py-2 px-3 shadow-sm focus:ring-blue-300 focus:border-blue-300"
-      onChange={handlePropertyTypeChange}
-      value={propertyType}
-    >
-      <option value="">All Types</option>
-      <option value="house">House</option>
-      <option value="villa">Villa</option>
-      <option value="plot">Plot</option>
-      <option value="flat">Flat</option>
-      <option value="land">Land</option>
-      <option value="farmLand">Farm Land</option>
-      <option value="farmHouse">Farm House</option>
-      <option value="commercial">Commercial</option>
-    </select>
+<div className="md:hidden fixed left-0 w-full bg-opacity-80 p-4 rounded-lg shadow-lg z-10">
+  {/* Center the search bar and button */}
+  <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-[20rem]">
+      <input
+        className="form-control p-2 border border-gray-300 rounded-lg w-[12rem] focus:outline-none focus:ring-blue-300 focus:border-blue-300"
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={handleSearchTermChange}
+      />
+      <button
+        type="button"
+        className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all duration-200 ease-in-out ml-2 w-[6rem]"
+        onClick={handleSearch}
+      >
+        Search
+      </button>
+    </div>
   </div>
-  <div className="flex items-center space-y-2 mt-2 justify-center">
-    <input
-      className="form-control p-2 border border-gray-300 rounded-lg w-[10rem] max-w-md focus:outline-none focus:ring-blue-300 focus:border-blue-300"
-      type="text"
-      placeholder="Search..."
-      value={searchTerm}
-      onChange={handleSearchTermChange}
-    />
-    <button
-      type="button"
-      className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all duration-200 ease-in-out ml-2"
-      onClick={handleSearch}
-    >
-      Search
-    </button>
+
+  {/* Center the filter buttons */}
+  <div className="flex items-center justify-center w-full mt-2">
+    <div className="flex flex-row items-center space-x-1 justify-center w-[20rem]">
+      <button
+        type="button"
+        className="text-gray-800 font-semibold hover:text-blue-700 focus:outline-none bg-white rounded-md px-4 py-2 shadow-sm"
+      >
+        Buy
+      </button>
+      <button
+        type="button"
+        className="text-gray-800 font-semibold hover:text-blue-700 focus:outline-none bg-white rounded-md px-4 py-2 shadow-sm"
+      >
+        Rent
+      </button>
+      <select
+        className="form-select border border-gray-300 rounded-lg py-2 px-3 shadow-sm focus:ring-blue-300 focus:border-blue-300"
+        onChange={handlePropertyTypeChange}
+        value={propertyType}
+      >
+        <option value="">All Types</option>
+        <option value="house">House</option>
+        <option value="villa">Villa</option>
+        <option value="plot">Plot</option>
+        <option value="flat">Flat</option>
+        <option value="land">Land</option>
+        <option value="farmLand">Farm Land</option>
+        <option value="farmHouse">Farm House</option>
+        <option value="commercial">Commercial</option>
+      </select>
+    </div>
   </div>
 </div>
-
-
-
-
       {/* Modal */}
       <div className="hidden md:block modal fade" id="searchModal" tabIndex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-fullscreen">
