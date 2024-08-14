@@ -209,7 +209,7 @@ const Nav2 = () => {
 
 
       {/* Modal */}
-      <div className="modal fade" id="searchModal" tabIndex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+      <div className="hidden md:block modal fade" id="searchModal" tabIndex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-fullscreen">
           <div className="modal-content">
             <div className="modal-header">
@@ -222,7 +222,7 @@ const Nav2 = () => {
               {loading ? (
                 <CarouselPlaceholder />
               ) : (
-                <div className="text-center text-gray-900 mt-4">
+                <div className=" hidden md:block text-center text-gray-900 mt-4">
                   {filteredProperties.length > 0 ? (
                     <p className="text-white font-semibold bg-gray-500/50 backdrop-5 rounded-full">
                       Showing {filteredProperties.length} properties matching your criteria.
