@@ -40,21 +40,21 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-800 text-white py-8 z-0">
+    <footer className="relative bg-black text-white py-4 z-0">
       {/* BackgroundBeams component */}
       <BackgroundBeams className="absolute inset-0 z-[-1]" />
 
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:justify-between mb-8">
+        <div className="flex flex-col md:flex-row md:justify-between mb-4 md:gap-4 items-center">
           {/* Popular Residential Property Searches */}
-          <div className="mb-8 md:mb-0">
-            <h6 className="text-lg font-bold border-b border-white pb-2 mb-4">Popular Residential Property Searches</h6>
-            <ul className="space-y-2">
+          <div className="mb-4 md:mb-0 text-center md:text-left">
+            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular Residential Property Searches</h6>
+            <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
                 <li key={type}>
                   <button
                     onClick={() => navigateToCategory(type)}
-                    className="text-white hover:text-gray-300"
+                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
                   >
                     {title} in Jabalpur
                   </button>
@@ -64,14 +64,14 @@ const Footer = () => {
           </div>
 
           {/* Popular BHK Searches */}
-          <div className="mb-8 md:mb-0">
-            <h6 className="text-lg font-bold border-b border-white pb-2 mb-4">Popular BHK Searches</h6>
-            <ul className="space-y-2">
+          <div className="mb-4 md:mb-0 text-center md:text-left">
+            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular BHK Searches</h6>
+            <ul className="space-y-1">
               {[1, 2, 3, 4].map(bhk => (
                 <li key={bhk}>
                   <button
                     onClick={() => navigateToCategory(`flat/${bhk}`)}
-                    className="text-white hover:text-gray-300"
+                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
                   >
                     {bhk} BHK Flats in Jabalpur
                   </button>
@@ -81,7 +81,7 @@ const Footer = () => {
                 <li key={`house-${bhk}`}>
                   <button
                     onClick={() => navigateToCategory(`house/${bhk}`)}
-                    className="text-white hover:text-gray-300"
+                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
                   >
                     {bhk} BHK House for Sale in Jabalpur
                   </button>
@@ -91,14 +91,14 @@ const Footer = () => {
           </div>
 
           {/* Popular Rental Property Searches */}
-          <div className="mb-8 md:mb-0">
-            <h6 className="text-lg font-bold border-b border-white pb-2 mb-4">Popular Rental Property Searches</h6>
-            <ul className="space-y-2">
+          <div className="mb-4 md:mb-0 text-center md:text-left">
+            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular Rental Property Searches</h6>
+            <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
                 <li key={type}>
                   <button
                     onClick={() => navigateToCategory(`propertiesForRent/${type}`)}
-                    className="text-white hover:text-gray-300"
+                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
                   >
                     {title} for Rent in Jabalpur
                   </button>
@@ -108,14 +108,14 @@ const Footer = () => {
           </div>
 
           {/* Popular Resale Property Searches */}
-          <div>
-            <h6 className="text-lg font-bold border-b border-white pb-2 mb-4">Popular Resale Property Searches</h6>
-            <ul className="space-y-2">
+          <div className="text-center md:text-left">
+            <h6 className="text-xs font-bold border-b border-white pb-1 mb-2">Popular Resale Property Searches</h6>
+            <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
                 <li key={type}>
                   <button
                     onClick={() => navigateToCategory(`propertiesForResale/${type}`)}
-                    className="text-white hover:text-gray-300"
+                    className="text-white hover:text-red-500 text-xs px-2 py-1 rounded"
                   >
                     {title} for Resale in Jabalpur
                   </button>
@@ -126,30 +126,30 @@ const Footer = () => {
         </div>
 
         {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <img src={logo} alt="Real Estate Logo" className="rounded-full h-24 w-24 object-cover" />
+        <div className="flex justify-center mb-4">
+          <img src={logo} alt="Real Estate Logo" className="rounded-full h-16 w-16 object-cover" />
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex justify-center gap-4 mb-4">
-          <a href="https://www.facebook.com/bharatroofers/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
-            <BsFacebook size={30} />
+        <div className="flex justify-center gap-3 mb-2">
+          <a href="https://www.facebook.com/bharatroofers/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-red-500 p-2 rounded">
+            <BsFacebook size={24} />
           </a>
-          <a href="https://www.instagram.com/bharatroofers?utm_source=qr&igsh=YzU1NGVlODEzOA==" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-700">
-            <BsInstagram size={30} />
+          <a href="https://www.instagram.com/bharatroofers?utm_source=qr&igsh=YzU1NGVlODEzOA==" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-red-500 p-2 rounded">
+            <BsInstagram size={24} />
           </a>
-          <a href="https://wa.me/+918839280515" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-700">
-            <BsWhatsapp size={30} />
+          <a href="https://wa.me/+918839280515" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-red-500 p-2 rounded">
+            <BsWhatsapp size={24} />
           </a>
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">
-            <IoLogoYoutube size={30} />
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-500 p-2 rounded">
+            <IoLogoYoutube size={24} />
           </a>
         </div>
 
         {/* Footer Text */}
         <div className="text-center">
-          <h5 className="text-sm mb-2">&copy; 2024 Bharatroofers.com | All Rights Reserved</h5>
-          <p className="text-sm">
+          <h5 className="text-xs mb-1">&copy; 2024 Bharatroofers.com | All Rights Reserved</h5>
+          <p className="text-xs">
             <a href="https://bharatroofers.com/info/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">Terms and Conditions</a> | 
             <a href="https://bharatroofers.com/info/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">Privacy Policy</a>
           </p>
