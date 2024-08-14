@@ -156,41 +156,40 @@ const Nav2 = () => {
           Search
         </button>
       </div>
-
-      {/* Simplified navbar for mobile devices */}
-      <div className="md:hidden fixed top-6 left-0 w-full  p-2 rounded-lg shadow-md z-10 ">
+{/* mobile nav */}
+      <div className="md:hidden fixed  left-0 w-full bg-opacity-80 p-4 rounded-lg shadow-lg z-10">
   <div className="flex flex-row items-center space-x-2 justify-center">
     <button
       type="button"
-      className="text-black font-medium hover:text-blue-700 focus:outline-none bg-white rounded-md"
+      className="text-gray-800 font-semibold hover:text-blue-700 focus:outline-none bg-white rounded-md px-4 py-2 shadow-sm"
     >
       Buy
     </button>
     <button
       type="button"
-      className="text-black font-medium hover:text-blue-700 focus:outline-none bg-white rounded-md"
+      className="text-gray-800 font-semibold hover:text-blue-700 focus:outline-none bg-white rounded-md px-4 py-2 shadow-sm"
     >
       Rent
     </button>
     <select
-          className="form-select  border rounded-lg md:border-none md:rounded-none"
-          onChange={handlePropertyTypeChange}
-          value={propertyType}
-        >
-          <option value="">All Types</option>
-          <option value="house">House</option>
-          <option value="villa">Villa</option>
-          <option value="plot">Plot</option>
-          <option value="flat">Flat</option>
-          <option value="land">Land</option>
-          <option value="farmLand">Farm Land</option>
-          <option value="farmHouse">Farm House</option>
-          <option value="commercial">Commercial</option>
-        </select>
+      className="form-select border border-gray-300 rounded-lg py-2 px-3 shadow-sm focus:ring-blue-300 focus:border-blue-300"
+      onChange={handlePropertyTypeChange}
+      value={propertyType}
+    >
+      <option value="">All Types</option>
+      <option value="house">House</option>
+      <option value="villa">Villa</option>
+      <option value="plot">Plot</option>
+      <option value="flat">Flat</option>
+      <option value="land">Land</option>
+      <option value="farmLand">Farm Land</option>
+      <option value="farmHouse">Farm House</option>
+      <option value="commercial">Commercial</option>
+    </select>
   </div>
-  <div className="flex  items-center space-y-2 mt-2">
+  <div className="flex items-center space-y-2 mt-2 justify-center">
     <input
-      className="form-control p-2 border rounded-lg w-[10rem] max-w-md focus:outline-none focus:ring-blue-300 focus:border-blue-300"
+      className="form-control p-2 border border-gray-300 rounded-lg w-[10rem] max-w-md focus:outline-none focus:ring-blue-300 focus:border-blue-300"
       type="text"
       placeholder="Search..."
       value={searchTerm}
@@ -198,7 +197,7 @@ const Nav2 = () => {
     />
     <button
       type="button"
-      className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all duration-200 ease-in-out "
+      className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all duration-200 ease-in-out ml-2"
       onClick={handleSearch}
     >
       Search
