@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import stringSimilarity from 'string-similarity';
-
+import { FaSearch } from 'react-icons/fa';
 const CarouselPlaceholder = () => {
   return (
     <div className="flex justify-around items-center flex-wrap">
@@ -162,22 +162,23 @@ const Nav2 = () => {
   <div className="flex items-center justify-center w-full">
     <div className="flex items-center justify-center w-[20rem]">
       <input
-        className="form-control p-2 border border-gray-300 rounded-lg w-[12rem] focus:outline-none focus:ring-blue-300 focus:border-blue-300"
+        className="form-control p-2 border border-gray-300 rounded-lg w-[18rem] focus:outline-none focus:ring-blue-300 focus:border-blue-300 relative"
         type="text"
-        placeholder="Search..."
+        placeholder="Enter Location or Project"
         value={searchTerm}
         onChange={handleSearchTermChange}
       />
-      <button
+      <FaSearch className='text-blue-600 text-lg absolute left-[8rem]'
+      onClick={handleSearch}/>
+      {/* <button
         type="button"
         className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all duration-200 ease-in-out ml-2 w-[6rem]"
         onClick={handleSearch}
       >
         Search
-      </button>
+      </button> */}
     </div>
   </div>
-
   {/* Center the filter buttons */}
   <div className="flex items-center justify-center w-full mt-2">
     <div className="flex flex-row items-center space-x-1 justify-center w-[20rem]">
