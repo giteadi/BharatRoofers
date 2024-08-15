@@ -29,6 +29,7 @@ import Box from "../Components/LightBox";
 import axios from "axios";
 import styled, { keyframes } from "styled-components";
 import { FaCar, FaRuler, FaBuilding } from "react-icons/fa";
+import Spinner from '../Pages/Spinner'
 
 const heartbeat = keyframes`
   0% { transform: scale(1); }
@@ -118,7 +119,7 @@ const PropertyCard = () => {
   }, [properties, propertyImages, id]);
 
   if (!selectedProperty) {
-    return <div>Loading...</div>;
+    return <div><Spinner/></div>;
   }
 
   const {
@@ -224,10 +225,10 @@ const PropertyCard = () => {
   });
 
   return (
-    <div className="max-w-full px-4 py-8 sm:mt-4 md:mt-10 xl:mt-12 2xl:mt-16">
+    <div className="max-w-full px-4 py-8  sm:mt-4 md:mt-10 xl:mt-12 2xl:mt-16">
       <div className="bg-white shadow-lg rounded-lg">
         <div className=" pl-8">
-          <p className="text-gray-500 md:mb-5 ">
+          <p className="text-gray-500 mt-12 md:mb-5 ">
             All you need to know about {title}
           </p>
           <h1 className="text-3xl  text-gray-700 mb-2">{title}</h1>
@@ -253,7 +254,7 @@ const PropertyCard = () => {
               {/* Main Content */}
               <div className="w-full pr-4 flex flex-col justify-between">
                 {/* Social media */}
-                <div className="flex flex-col items-center md:flex-row gap-5 mb-4">
+                <div className="flex flex-col items-center md:flex-row gap-2 md:gap-5 mb-4">
   <div className="flex gap-5 items-center justify-center">
     <p className="font-semibold text-2xl text-gray-700">Share:</p>
     <FaTelegram

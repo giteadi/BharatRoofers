@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, Link } from 'react-router-dom';
-import { FaLightbulb, FaRoad, FaWater, FaRupeeSign, FaCalendarAlt } from 'react-icons/fa'; // Added FaCalendarAlt
+import { FaRoad, FaRupeeSign, FaCalendarAlt } from 'react-icons/fa';
 import { formatDistanceToNow } from 'date-fns';
+import Spinner from '../Pages/Spinner';
 
 const CategoryPage = () => {
   const location = useLocation();
   const { filteredProperties } = location.state || { filteredProperties: [] };
   const [propertiesImages, setPropertiesImages] = useState([]);
+  const [loading, setLoading] = useState(true); // Track loading state
 
   useEffect(() => {
     console.log('Filtered Properties:', filteredProperties); // Add this to debug
@@ -26,6 +28,8 @@ const CategoryPage = () => {
         }
       } catch (error) {
         console.error('Error fetching property images:', error);
+      } finally {
+        setLoading(false); // Set loading to false when done
       }
     };
 
@@ -37,9 +41,13 @@ const CategoryPage = () => {
     return propertyImage && propertyImage.image ? propertyImage.image : 'https://via.placeholder.com/300'; // Placeholder image URL
   };
 
+  if (loading) {
+    return <Spinner />; // Show Spinner while loading
+  }
+
   return (
     <div className="container mx-auto mt-20 p-4">
-      <h1 className="text-2xl font-bold mb-4">Available Property </h1>
+      <h1 className="text-2xl font-bold mb-4">Available Property</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredProperties.length > 0 ? (
           filteredProperties.map(property => {

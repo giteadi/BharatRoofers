@@ -14,6 +14,8 @@ import CategoryPage from "./Pages/CategoryPage";  // Correctly import CategoryPa
 import FooterCategory from "./Pages/FooterCategory";
 import TermsAndCondition from "./Pages/TermsAndConditions";
 import PrivacyPolicy from "./Pages/Privacy";
+import  Spinner  from "./Pages/Spinner";
+import Test from "./Pages/test";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
          <Route path="/footer-category" element={<FooterCategory/>}/>
          <Route path='/terms' element={<TermsAndCondition/>}/>
          <Route path="/privacy" element={<PrivacyPolicy/>}/>
+         {/* <Route path="/spinner" element={<Spinner/>}/> */}
+         {/* <Route path="/t" element={<Test/>}/> */}
       </Routes>
       <Footer />
     </div>

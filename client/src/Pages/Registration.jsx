@@ -47,7 +47,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="relative flex justify-center items-center bg-black text-white min-h-screen p-8">
+    <div className="relative flex justify-center items-center bg-black text-white min-h-screen p-8 md:mt-20">
       <div
         className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm"
         style={{

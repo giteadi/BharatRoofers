@@ -118,13 +118,13 @@ const SinglePage = () => {
   if (!post) return <div className="text-center text-red-500 text-lg font-semibold">Post not found</div>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden md:mt-20">
       <h2 className="text-4xl font-extrabold text-gray-900 mb-6 text-center">{post.post.title}</h2>
       <div className={`flex flex-col items-center mb-6 ${post.post.imagePosition === 'center' ? 'items-center' : 'items-start'}`}>
         <img 
           src={post.link} 
           alt={post.post.title} 
-          className="object-cover rounded-lg w-full max-w-3xl h-80 mb-4"
+          className="object-fit rounded-lg w-full max-w-3xl h-80 mb-4"
         />
         <div className="text-gray-800 text-lg leading-relaxed max-w-3xl">
           {/* Use a safer way to render content if needed */}

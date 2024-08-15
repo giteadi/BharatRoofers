@@ -49,8 +49,11 @@ export default function UpperNav() {
         <div className={`container mx-auto flex flex-col lg:flex-row ${isMenuOpen ? 'h-full' : 'h-auto'} ${isMenuOpen ? 'justify-center' : 'justify-between'} items-center p-4 transition-all duration-500 ease-in-out`}>
           {/* Logo (Visible on desktop and tablet only) */}
           <div className="text-2xl font-bold text-white flex items-center space-x-2">
+            <Link to="/" className="flex gap-5 items-center">
             <img src={icon} alt="icon" className="w-8 h-8" />
             <p className="text-lg font-medium hidden md:block">BharatRoofers</p>
+             </Link>
+            
           </div>
           
           {/* Hamburger Menu for Mobile (Visible on mobile only) */}
