@@ -157,7 +157,7 @@ const Nav2 = () => {
         </button>
       </div>
 {/* mobile nav */}
-<div className="md:hidden fixed left-0 w-full bg-opacity-80 p-4 rounded-lg shadow-lg z-10">
+<div className="md:hidden fixed  top-[5rem] left-0 right-1 w-full bg-opacity-80 p-4 rounded-lg shadow-lg z-10">
   {/* Center the search bar and button */}
   <div className="flex items-center justify-center w-full">
     <div className="flex items-center justify-center w-[20rem]">

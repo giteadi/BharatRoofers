@@ -17,7 +17,6 @@ export default function UpperNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only change showNavbar if the sidebar is closed
       if (!isMenuOpen) {
         if (window.scrollY > lastScrollY) {
           setShowNavbar(false);
@@ -47,25 +46,23 @@ export default function UpperNav() {
     <div className={`relative`}>
       {/* Main Navbar */}
       <div className={`fixed top-0 left-0 w-full bg-gradient-to-r from-gray-600 to-gray-400 bg-opacity-90 shadow-md z-10 transition-transform duration-500 ease-in-out ${showNavbar ? "translate-y-0" : "-translate-y-full"} ${isMenuOpen ? "h-screen" : "h-auto"}`}>
-        <div className={`container mx-auto flex flex-col md:flex-row ${isMenuOpen ? 'h-full' : 'h-auto'} ${isMenuOpen ? 'justify-center' : 'justify-between'} items-center p-4 transition-all duration-500 ease-in-out`}>
+        <div className={`container mx-auto flex flex-col lg:flex-row ${isMenuOpen ? 'h-full' : 'h-auto'} ${isMenuOpen ? 'justify-center' : 'justify-between'} items-center p-4 transition-all duration-500 ease-in-out`}>
           {/* Logo (Visible on desktop and tablet only) */}
-          <div className="text-2xl font-bold text-white hidden md:block">
-            <div className="flex items-center space-x-2">
-              <img src={icon} alt="icon" className="w-8 h-8" />
-              <p className="text-lg font-medium">BharatRoofers</p>
-            </div>
+          <div className="text-2xl font-bold text-white flex items-center space-x-2">
+            <img src={icon} alt="icon" className="w-8 h-8" />
+            <p className="text-lg font-medium hidden md:block">BharatRoofers</p>
           </div>
           
           {/* Hamburger Menu for Mobile (Visible on mobile only) */}
-          <div className="md:hidden absolute top-1 right-4 ">
+          <div className="lg:hidden absolute top-1 right-4">
             <button onClick={toggleMenu} className="p-1 text-white">
               {isMenuOpen ? <MdClose size={24} /> : <GiHamburgerMenu size={24} />}
             </button>
           </div>
           
           {/* Navbar Links */}
-          <nav className={`md:flex ${isMenuOpen ? 'flex' : 'hidden md:flex'} ${isMenuOpen ? 'flex-col absolute top-0 left-0 w-[300px] bg-gray-900 h-full' : 'flex-row'} md:bg-transparent`}>
-            <ul className={`flex ${isMenuOpen ? 'flex-col gap-8 items-center' : 'md:flex-row md:space-x-4 md:items-center'}`}>
+          <nav className={`lg:flex ${isMenuOpen ? 'flex' : 'hidden'} ${isMenuOpen ? 'flex-col absolute top-0 left-0 w-[300px] bg-gray-900 h-full' : 'flex-row'} lg:bg-transparent`}>
+            <ul className={`flex ${isMenuOpen ? 'flex-col gap-8 items-center' : 'lg:flex-row lg:space-x-4 lg:items-center'}`}>
               <li><Link to="/" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Home</Link></li>
               <li><Link to="/about" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">About</Link></li>
               <li><Link to="/blogs" className="text-white font-semibold px-4 py-2 rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Blogs</Link></li>
@@ -88,7 +85,7 @@ export default function UpperNav() {
             </ul>
 
             {/* Mobile Sidebar */}
-            <div className={`fixed top-0 bottom-0 left-0 p-4 w-[300px] bg-gray-900 text-center transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
+            <div className={`fixed top-0 bottom-0 left-0 p-4 w-[300px] bg-gray-900 text-center transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}>
               <div className="text-gray-100 text-xl">
                 <div className="p-2.5 mt-1 flex items-center justify-between">
                   <i className="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
