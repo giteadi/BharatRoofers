@@ -1,12 +1,16 @@
 import React from 'react';
 import { FaBed, FaBath, FaRulerCombined, FaLocationArrow, FaDollarSign } from 'react-icons/fa';
 
-const PropertyCard2 = ({ properties }) => {
+const PropertyCard2 = ({ properties, currentPropertyId }) => {
   if (!properties || properties.length === 0) {
     return <p>Loading properties...</p>;
   }
 
-  const topProperties = properties.slice(0, 4);
+  // Filter out the current property
+  const filteredProperties = properties.filter(property => property.id !== currentPropertyId);
+
+  // Get top 4 properties after filtering
+  const topProperties = filteredProperties.slice(0, 4);
 
   return (
     <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

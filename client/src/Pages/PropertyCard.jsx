@@ -941,7 +941,7 @@ const PropertyCard = () => {
         <span className="flex items-center justify-center">
           <p className="font-bold text-3xl p-4">Related Property</p>
         </span>
-        <PropertyCard2 properties={propertiesWithImages} />
+        <PropertyCard2 properties={propertiesWithImages} currentPropertyId={selectedProperty.id} />
       </div>
       {/* wrap contactus and blogs  */}
       <div className="flex flex-col items-center justify-center md:flex-row md:ml-5">
