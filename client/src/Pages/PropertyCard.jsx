@@ -254,38 +254,38 @@ const PropertyCard = () => {
               {/* Main Content */}
               <div className="w-full pr-4 flex flex-col justify-between">
                 {/* Social media */}
-                <div className="flex flex-col items-center md:flex-row gap-2 md:gap-5 mb-4">
-  <div className="flex gap-5 items-center justify-center">
+                <div className="flex flex-col sm:flex-row items-center gap-2 mb-4">
+  <div className="flex flex-row  gap-2 sm:gap-4 items-center justify-center">
     <p className="font-semibold text-2xl text-gray-700">Share:</p>
     <FaTelegram
       className="cursor-pointer hover:animate-bounce text-blue-500"
-      size={32}
+      size={28}
       onClick={() => handleShareClick("telegram")}
     />
     <FaWhatsapp
       className="cursor-pointer hover:animate-bounce text-green-500"
-      size={32}
+      size={28}
       onClick={() => handleShareClick("whatsapp")}
     />
     <FaFacebookMessenger
       className="cursor-pointer hover:animate-bounce text-blue-600"
-      size={32}
+      size={28}
       onClick={() => handleShareClick("messenger")}
     />
     <FaTwitter
       className="cursor-pointer hover:animate-bounce text-blue-400"
-      size={32}
+      size={28}
       onClick={() => handleShareClick("twitter")}
     />
     <FaInstagram
       className="cursor-pointer hover:animate-bounce text-pink-500"
-      size={32}
+      size={28}
       onClick={() => handleShareClick("instagram")}
     />
   </div>
-  <div className="flex justify-center w-full mt-4 md:mt-0">
+  <div className="flex justify-center w-full mt-4 sm:mt-0">
     <HeartbeatButton
-      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 md:w-auto md:max-w-[20rem]"
+      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 sm:w-auto sm:max-w-[20rem]"
       onClick={() => {
         scrollToForm();
         toast.success("Scrolling to Contact Form");
@@ -295,6 +295,9 @@ const PropertyCard = () => {
     </HeartbeatButton>
   </div>
 </div>
+
+
+
 
 
 
