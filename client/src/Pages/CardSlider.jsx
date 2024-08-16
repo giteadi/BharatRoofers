@@ -21,7 +21,7 @@ const CarouselSlider = ({ images, propertyName, address, price, datePosted, ids 
 
   return (
     <div
-      className="relative mx-auto bg-white rounded-lg shadow-lg overflow-hidden p-5 flex flex-col cursor-pointer"
+      className="relative mx-auto bg-white rounded-lg shadow-lg overflow-hidden p-5 flex flex-col cursor-pointer "
       style={{ width: '350px', height: '400px' }} // Increased the width to 350px
       onClick={handleCardClick}
     >

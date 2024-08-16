@@ -142,7 +142,7 @@ const FeatureSection = () => {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gray-100 py-8 md:py-12">
+      <section className="bg-gray-100 py-8 md:py-12 md:pt-10 md:pb-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6 md:mb-8">Explore Our Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -167,7 +167,7 @@ const FeatureSection = () => {
 
       {/* Carousal */}
       <section className="max-w-screen">
-        <p className='text-3xl font-bold flex justify-center p-6'> Our Properties</p>
+        <p className='text-3xl font-bold flex justify-center p-6 '> Our Properties</p>
         <Carausal />
       </section>
 
@@ -220,8 +220,8 @@ const FeatureSection = () => {
       </section>
 
       {/* 3 carousal */}
-      <span className='font-bold flex items-center justify-center text-3xl text-center mb-4 md:mb-6 lg:mb-8 mt-5'>Our Property</span>
-      <section className='flex flex-col md:flex-row md:justify-around items-center flex-wrap w-full px-4 md:px-6 lg:px-8'>
+      <span className='font-bold flex items-center justify-center text-3xl text-center mb-4 md:mb-6 lg:mb-8 mt-5'>Our Projects</span>
+      <section className='flex flex-col md:flex-row md:justify-around items-center flex-wrap w-full px-4 md:px-6 lg:px-8 '>
         {
           ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
             <div key={index} className='flex flex-col items-center mb-6 md:mb-8 lg:mb-10'>
