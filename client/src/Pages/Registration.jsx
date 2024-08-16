@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import { registerUser } from '../Redux/slices/authSlice'; // Update the path if necessary
 import toast from 'react-hot-toast';
 import { HiEye, HiEyeOff } from 'react-icons/hi'; // Import eye icons
@@ -141,7 +141,7 @@ const RegisterForm = () => {
           {error && <p className="text-red-500 mt-4">{error}</p>}
         </form>
         <p className="text-center mt-6 text-gray-300 text-sm">
-          Already have an account? <a href="/login" className="text-blue-500 hover:underline">Sign in</a>
+          Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</Link>
         </p>
       </div>
     </div>

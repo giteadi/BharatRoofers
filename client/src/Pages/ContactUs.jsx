@@ -115,15 +115,15 @@ const ContactUs = () => {
             <div>
               <h3 className="text-lg font-medium">Company Information:</h3>
               <p>BharatRoofers PVT</p>
-              <p>bharatroofers@gmail.com</p>
+              <p>info@bharatroofers.com</p>
             </div>
           </div>
           <div className="flex items-center">
             <FaMapMarkerAlt className="mr-3 text-gray-500 text-2xl" />
             <div>
               <h3 className="text-lg font-medium">Address:</h3>
-              <p>Bhopal</p>
-              <p>Zip Code/Postal code: 03875</p>
+              <p>1815 Wright Town, Jabalpur,</p>
+              <p> Madhya pradesh INDIA 482002</p>
             </div>
           </div>
           <div className="flex items-center">
@@ -131,7 +131,7 @@ const ContactUs = () => {
             <div>
               <h3 className="text-lg font-medium">Call Us:</h3>
               <p>Call us to speak to a member of our team. We are always happy to help.</p>
-              <p>+1 234566789</p>
+              <p> +91-8839280515</p>
             </div>
           </div>
         </div>

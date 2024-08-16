@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../Redux/slices/authSlice'; // Update the path if necessary
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import { HiEye, HiEyeOff } from 'react-icons/hi'; // Updated to match registration form
 
 const LoginForm = () => {
@@ -98,7 +98,7 @@ const LoginForm = () => {
           {error && <p className="text-red-500 mt-4">{error}</p>}
         </form>
         <p className="text-center mt-6 text-gray-300 text-sm">
-          Don't have an account? <a href="/register" className="text-blue-500 hover:underline">Sign up</a>
+          Don't have an account? <Link to="/register" className="text-blue-500 hover:underline">Sign up</Link>
         </p>
       </div>
     </div>
