@@ -172,11 +172,11 @@ const PropertyCard = () => {
     }
   };
 
-  function scrollToForm() {
+  const scrollToForm = () => {
     if (formRef.current) {
-      formRef.current.scrollIntoView({ behavior: "smooth" });
+      formRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
   const DetailItem = ({ icon: Icon, label, color }) => {
     // Conditionally render null if the label includes certain values
     if (
@@ -1028,6 +1028,7 @@ const PropertyCard = () => {
         {/* Contact Form */}
    <div
       className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
+      ref={formRef}
     >
       <h2 className="text-2xl text-gray-700 mb-4 text-center">Contact Us</h2>
       <form onSubmit={formSubmit} className="space-y-4">

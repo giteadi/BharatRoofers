@@ -23,12 +23,33 @@ const FeatureSection = () => {
   const [mostVisitedProperties, setMostVisitedProperties] = useState([]);
   const [recentlyPosted, setRecentlyPosted] = useState([]);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleClick = () => setIsVideoOpen(prev => !prev);
 
   useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const response = await axios.get(
+          "https://bharatroofers.com/api/property/getAllProperty"
+        );
+        setProperties(response.data.data);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    };
+    const fetchPropertyImages = async () => {
+      try {
+        const response = await axios.get(
+          "https://bharatroofers.com/api/property/getAllPropertyImages"
+        );
+        const { data } = response.data;
+        setPropertiesImages(data);
+      } catch (error) {
+        console.error("Error fetching property images:", error);
+      }
+    };
     const fetchMostViewedProperties = async () => {
       try {
         const response = await axios.get('https://bharatroofers.com/api/property/getMostVisitedProperties');
@@ -58,6 +79,8 @@ const FeatureSection = () => {
   
     const fetchData = async () => {
       await Promise.all([
+        fetchProperties(),
+        fetchPropertyImages(),
         fetchMostViewedProperties(),
         fetchMostVisitedProperties(),
         fetchRecentlyPostedProperties()
@@ -73,7 +96,7 @@ const FeatureSection = () => {
     { name: 'house', title: 'House', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-2.png' },
     { name: 'land', title: 'Land', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-3.png' },
     { name: 'farmLand', title: 'Farm Land', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-4.png' },
-    { name: 'commercial', title: 'Commercial', defaultImage: 'default_commercial_image_url' },
+    { name: 'commercial', title: 'Commercial', defaultImage: 'https://solverwp.com/demo/react/mingrand/assets/img/product/cat-4.png' },
   ];
 
   const getCategoryCount = (category) => {
