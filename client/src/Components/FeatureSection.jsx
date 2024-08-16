@@ -20,6 +20,7 @@ const FeatureSection = () => {
   const [properties, setProperties] = useState([]);
   const [propertiesImages, setPropertiesImages] = useState([]);
   const [mostViewedProperties, setMostViewedProperties] = useState([]);
+  const [mostVisitedProperties, setMostVisitedProperties] = useState([]);
   const [recentlyPosted, setRecentlyPosted] = useState([]);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [loading, setLoading] = useState(true); // Add loading state
@@ -28,33 +29,24 @@ const FeatureSection = () => {
   const handleClick = () => setIsVideoOpen(prev => !prev);
 
   useEffect(() => {
-    const fetchProperties = async () => {
-      try {
-        const response = await axios.get('https://bharatroofers.com/api/property/getAllProperty');
-        setProperties(response.data.data);
-      } catch (error) {
-        console.error('Error fetching properties:', error);
-      }
-    };
-
     const fetchMostViewedProperties = async () => {
       try {
-        const response = await axios.get('https://bharatroofers.com/api/property/getSuggestedProperty');
+        const response = await axios.get('https://bharatroofers.com/api/property/getMostVisitedProperties');
         setMostViewedProperties(response.data.data);
       } catch (error) {
         console.error('Error fetching most viewed properties:', error);
       }
     };
-
-    const fetchPropertyImages = async () => {
+  
+    const fetchMostVisitedProperties = async () => {
       try {
-        const response = await axios.get('https://bharatroofers.com/api/property/getAllPropertyImages');
-        setPropertiesImages(response.data.data);
+        const response = await axios.get('https://bharatroofers.com/api/property/getSuggestedProperty');
+        setMostVisitedProperties(response.data.data);
       } catch (error) {
-        console.error('Error fetching property images:', error);
+        console.error('Error fetching most visited properties:', error);
       }
     };
-
+  
     const fetchRecentlyPostedProperties = async () => {
       try {
         const response = await axios.get("https://bharatroofers.com/api/property/getRecentlyPostedProperties");
@@ -63,17 +55,16 @@ const FeatureSection = () => {
         console.error("Error in fetching recently posted properties", error);
       }
     };
-
+  
     const fetchData = async () => {
       await Promise.all([
-        fetchProperties(),
         fetchMostViewedProperties(),
-        fetchPropertyImages(),
+        fetchMostVisitedProperties(),
         fetchRecentlyPostedProperties()
       ]);
       setLoading(false); // Set loading to false when all data is fetched
     };
-
+  
     fetchData();
   }, []);
 
@@ -221,46 +212,46 @@ const FeatureSection = () => {
 
       {/* 3 carousal */}
       <span className='font-bold flex items-center justify-center text-3xl text-center mb-4 md:mb-6 lg:mb-8 mt-5'>Our Projects</span>
-      <section className='flex flex-col md:flex-row md:justify-around items-center flex-wrap w-full px-4 md:px-6 lg:px-8 '>
-        {
-          ['Recommended Property', 'Most View', 'Recent Projects'].map((title, index) => (
-            <div key={index} className='flex flex-col items-center mb-6 md:mb-8 lg:mb-10'>
-              <p className='text-xl md:text-2xl font-bold mb-2 md:mb-4'>{title}</p>
-              {title === 'Recent Projects' ? (
-                <CarouselSlider
-                  titles={recentlyPosted.map(prop => prop.title)}
-                  propertyName={recentlyPosted.map(prop => prop.property_name)}
-                  address={recentlyPosted.map(prop => prop.property_address)}
-                  images={getImagesForCarousel(recentlyPosted)}
-                  price={recentlyPosted.map(prop => prop.price)}
-                  datePosted={recentlyPosted.map(prop => prop.created_at)}
-                  ids={recentlyPosted.map(property => property.id)}
-                />
-              ) : title === 'Most View' ? (
-                <CarouselSlider
-                  titles={mostViewedProperties.map(prop => prop.title)}
-                  propertyName={mostViewedProperties.map(prop => prop.property_name)}
-                  address={mostViewedProperties.map(prop => prop.property_address)}
-                  images={getImagesForCarousel(mostViewedProperties)}
-                  price={mostViewedProperties.map(prop => prop.price)}
-                  datePosted={mostViewedProperties.map(prop => prop.created_at)}
-                  ids={mostViewedProperties.map(property => property.id)}
-                />
-              ) : (
-                <CarouselSlider
-                  titles={properties.map(prop => prop.title)}
-                  propertyName={properties.map(prop => prop.property_name)}
-                  address={properties.map(prop => prop.property_address)}
-                  images={getImagesForCarousel(properties)}
-                  price={properties.map(prop => prop.price)}
-                  datePosted={properties.map(prop => prop.created_at)}
-                  ids={properties.map(property => property.id)}
-                />
-              )}
-            </div>
-          ))
-        }
-      </section>
+<section className='flex flex-col md:flex-row md:justify-around items-center flex-wrap w-full px-4 md:px-6 lg:px-8 '>
+  {
+    ['Most Viewed Properties', 'Recent Projects', 'Suggested Properties'].map((title, index) => (
+      <div key={index} className='flex flex-col items-center mb-6 md:mb-8 lg:mb-10'>
+        <p className='text-xl md:text-2xl font-bold mb-2 md:mb-4'>{title}</p>
+        {title === 'Recent Projects' ? (
+          <CarouselSlider
+            titles={recentlyPosted.map(prop => prop.title)}
+            propertyName={recentlyPosted.map(prop => prop.property_name)}
+            address={recentlyPosted.map(prop => prop.property_address)}
+            images={getImagesForCarousel(recentlyPosted)}
+            price={recentlyPosted.map(prop => prop.price)}
+            datePosted={recentlyPosted.map(prop => prop.created_at)}
+            ids={recentlyPosted.map(property => property.id)}
+          />
+        ) : title === 'Most Viewed Properties' ? (
+          <CarouselSlider
+            titles={mostViewedProperties.map(prop => prop.title)}
+            propertyName={mostViewedProperties.map(prop => prop.property_name)}
+            address={mostViewedProperties.map(prop => prop.property_address)}
+            images={getImagesForCarousel(mostViewedProperties)}
+            price={mostViewedProperties.map(prop => prop.price)}
+            datePosted={mostViewedProperties.map(prop => prop.created_at)}
+            ids={mostViewedProperties.map(property => property.id)}
+          />
+        ) : (
+          <CarouselSlider
+            titles={mostVisitedProperties.map(prop => prop.title)}
+            propertyName={mostVisitedProperties.map(prop => prop.property_name)}
+            address={mostVisitedProperties.map(prop => prop.property_address)}
+            images={getImagesForCarousel(mostVisitedProperties)}
+            price={mostVisitedProperties.map(prop => prop.price)}
+            datePosted={mostVisitedProperties.map(prop => prop.created_at)}
+            ids={mostVisitedProperties.map(property => property.id)}
+          />
+        )}
+      </div>
+    ))
+  }
+</section>
     </div>
   );
 };
