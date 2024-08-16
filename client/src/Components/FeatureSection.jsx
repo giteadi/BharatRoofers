@@ -172,7 +172,7 @@ const FeatureSection = () => {
       </section>
 
       {/* Video section */}
-      <section className="bg-black w-full h-[35rem] relative overflow-hidden">
+      <section className="mt-5 mb-5 bg-black w-full h-[35rem] relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img

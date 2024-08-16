@@ -14,7 +14,7 @@ const Footer = () => {
     const fetchProperties = async () => {
       try {
         const response = await axios.get('https://bharatroofers.com/api/property/getAllProperty');
-        setProperties(response.data.data || []); // Ensure data is an array
+        setProperties(response.data.data || []);
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
@@ -40,14 +40,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-black text-white py-4 z-0">
+    <footer className="relative bg-black text-white py-6 z-0">
       {/* BackgroundBeams component */}
       <BackgroundBeams className="absolute inset-0 z-[-1]" />
 
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:justify-between mb-4 md:gap-4 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
           {/* Popular Residential Property Searches */}
-          <div className="mb-4 md:mb-0 text-center md:text-left">
+          <div className="mb-4">
             <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular Residential Property Searches</h6>
             <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
 
           {/* Popular BHK Searches */}
-          <div className="mb-4 md:mb-0 text-center md:text-left">
+          <div className="mb-4">
             <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular BHK Searches</h6>
             <ul className="space-y-1">
               {[1, 2, 3, 4].map(bhk => (
@@ -91,7 +91,7 @@ const Footer = () => {
           </div>
 
           {/* Popular Rental Property Searches */}
-          <div className="mb-4 md:mb-0 text-center md:text-left">
+          <div className="mb-4">
             <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular Rental Property Searches</h6>
             <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
@@ -108,7 +108,7 @@ const Footer = () => {
           </div>
 
           {/* Popular Resale Property Searches */}
-          <div className="text-center md:text-left">
+          <div className="mb-4">
             <h6 className="text-sm font-bold border-b border-white pb-1 mb-2">Popular Resale Property Searches</h6>
             <ul className="space-y-1">
               {categoryLinks.map(({ type, title }) => (
