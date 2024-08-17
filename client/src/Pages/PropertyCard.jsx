@@ -274,7 +274,7 @@ const PropertyCard = () => {
           </div>
 
           {/* Lightbox image */}
-          <div className="bg-gray-100 max-w-2xl h-auto mx-auto">
+          <div className="bg-gray-100 max-w-lg h-auto mx-auto">
             <Box images={selectedProperty.images} />
           </div>
 
