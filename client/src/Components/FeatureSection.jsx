@@ -137,25 +137,31 @@ const FeatureSection = () => {
       <div
         key={category.name}
         className={`col-span-2 sm:col-span-1 md:col-span-${index === 3 ? '4' : '2'} relative overflow-hidden h-64 group`}
+        onClick={() => navigateToCategory(category.name)} // Add onClick handler to the container
       >
         <img
           loading="lazy"
           src={getCategoryImage(category.name, category.defaultImage)}
           alt={category.title}
-          className="transition-transform duration-500 transform group-hover:scale-110 w-full h-full object-cover opacity-90 group-hover:opacity-40"
-          onClick={() => navigateToCategory(category.name)}
+          className="transition-transform duration-500 transform group-hover:scale-110 w-full h-full object-cover opacity-95 group-hover:opacity-40 z-0"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-500"></div>
-        <div className="absolute top-4 left-4 z-10">
+        <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-500 z-10 pointer-events-none"></div>
+        <div className="absolute top-4 left-4 z-20">
           <p
             className="text-white text-3xl transition delay-100 ease-in-out transform font-bold"
-            onClick={() => navigateToCategory(category.name)}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents event from bubbling up to parent elements
+              navigateToCategory(category.name);
+            }}
           >
             {category.title}
           </p>
           <p
             className="text-white font-bold text-xl mt-1 hover:text-green-500 hover:underline"
-            onClick={() => navigateToCategory(category.name)}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents event from bubbling up to parent elements
+              navigateToCategory(category.name);
+            }}
           >
             Available Property ({getCategoryCount(category.name)})
           </p>
@@ -164,6 +170,7 @@ const FeatureSection = () => {
     ))}
   </div>
 </section>
+
 
 
       {/* Features Section */}
