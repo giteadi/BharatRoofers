@@ -24,16 +24,32 @@ import Singleblog6 from "./Pages/Single Blogs/Singleblog6";
 import Singleblog7 from "./Pages/Single Blogs/Singleblog7";
 import Singleblog8 from "./Pages/Single Blogs/Singleblog8";
 
-// ScrollToTop Component
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Scroll to top on pathname change (for forward navigation)
     window.scrollTo(0, 0);
+
+    // Scroll to top on backward navigation
+    const handlePopState = () => {
+      window.scrollTo(0, 0);
+    };
+
+    // Add event listener for popstate (backward navigation)
+    window.addEventListener("popstate", handlePopState);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, [pathname]);
 
   return null;
 }
+
+
 
 function App() {
   return (

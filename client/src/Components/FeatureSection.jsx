@@ -15,6 +15,7 @@ import CarouselSlider from '../Pages/CardSlider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../Pages/Spinner'; // Import the Spinner component
+import { FaThumbsUp, FaHandshake, FaShieldAlt } from 'react-icons/fa';
 
 const FeatureSection = () => {
   const [properties, setProperties] = useState([]);
@@ -174,34 +175,57 @@ const FeatureSection = () => {
 
 
       {/* Features Section */}
-      <section className="bg-gray-100 py-8 md:py-12 md:pt-10 md:pb-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-6 md:mb-8">Explore Our Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <FaHome className="text-4xl text-blue-500 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold mb-2">Buy a Home</h3>
-              <p className="text-gray-600">Find your dream home from our extensive collection of listings.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <FaBuilding className="text-4xl text-blue-500 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold mb-2">Rent a Home</h3>
-              <p className="text-gray-600">Explore rental options that suit your budget and lifestyle.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <FaRegBuilding className="text-4xl text-blue-500 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold mb-2">Sell a Home</h3>
-              <p className="text-gray-600">Get the best value for your property with our expert assistance.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="bg-gray-100 py-8 md:py-12 lg:py-16 xl:py-24">
+      <h2 className="text-3xl font-bold text-center mb-6 md:mb-8">Explore Our Features</h2>
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <FaHome className="text-4xl text-blue-500 mb-4 mx-auto" />
+        <h3 className="text-xl font-semibold mb-2">Buy a Home</h3>
+        <p className="text-gray-600">Find your dream home from our extensive collection of listings.</p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <FaBuilding className="text-4xl text-blue-500 mb-4 mx-auto" />
+        <h3 className="text-xl font-semibold mb-2">Rent a Home</h3>
+        <p className="text-gray-600">Explore rental options that suit your budget and lifestyle.</p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <FaRegBuilding className="text-4xl text-blue-500 mb-4 mx-auto" />
+        <h3 className="text-xl font-semibold mb-2">Sell a Home</h3>
+        <p className="text-gray-600">Get the best value for your property with our expert assistance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Carousal */}
       <section className="max-w-screen">
         <p className='text-3xl font-bold flex justify-center p-6 '> Our Properties</p>
         <Carausal />
       </section>
+      <section className="bg-gray-100 py-8 md:py-12 lg:py-16 xl:py-24">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-6 md:mb-8">Why BharatRoofers</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <FaThumbsUp className="text-4xl text-green-500 mb-4 mx-auto" />
+        <h3 className="text-xl font-semibold mb-2">Genuine Property</h3>
+        <p className="text-gray-600">We offer only genuine properties with verified documents to ensure a safe transaction.</p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <FaHandshake className="text-4xl text-green-500 mb-4 mx-auto" />
+        <h3 className="text-xl font-semibold mb-2">No Broker</h3>
+        <p className="text-gray-600">Directly connect with property owners—no middlemen involved, which means better deals for you.</p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <FaShieldAlt className="text-4xl text-green-500 mb-4 mx-auto" />
+        <h3 className="text-xl font-semibold mb-2">Trusted Service</h3>
+        <p className="text-gray-600">Our reputation for honesty and reliability ensures you get the best service and support throughout your property journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Video section */}
       <section className="mt-5 mb-5 bg-black w-full h-[35rem] relative overflow-hidden">

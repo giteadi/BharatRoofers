@@ -174,24 +174,24 @@ const PropertyCard = () => {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const DetailItem = ({ icon: Icon, label, color }) => {
-    // Conditionally render null if the label includes certain values
-    if (
-      label.includes("N/A") ||
-      label.includes("no") ||
-      label.includes(": 0")
-    ) {
-      return null;
-    }
-  
-    return (
-      <div className="flex items-center">
-        <Icon className={`mr-2 ${color}`} />
-        <p className="text-lg text-gray-600">{label}</p>
-      </div>
-    );
-  };
-  
+ const DetailItem = ({ icon: Icon, label, color }) => {
+  // Conditionally render null if the label includes certain values
+  if (
+    label.includes("N/A") ||
+    label.includes("no") ||
+    label.includes(": 0")
+  ) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-center">
+      <Icon className={`mr-2 ${color}`} />
+      <p className="text-lg text-gray-600">{label}</p>
+    </div>
+  );
+};
+
 
   console.log("Selected property:", selectedProperty);
   // console.log("feet",selectedProperty.square_ft);
