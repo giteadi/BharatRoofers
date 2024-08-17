@@ -162,7 +162,7 @@ const PropertyCard = () => {
       );
       if (res.data.success) {
         toast.success(res.data.message);
-  
+
         // Reset formData to empty values
         setFormData({
           propertyId: id || "",
@@ -177,31 +177,29 @@ const PropertyCard = () => {
       toast.error(error.response?.data?.error || "Something went wrong!");
     }
   };
-  
 
   const scrollToForm = () => {
     if (formRef.current) {
       formRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
- const DetailItem = ({ icon: Icon, label, color }) => {
-  // Conditionally render null if the label includes certain values
-  if (
-    label.includes("N/A") ||
-    label.includes("no") ||
-    label.includes(": 0")
-  ) {
-    return null;
-  }
+  const DetailItem = ({ icon: Icon, label, color }) => {
+    // Conditionally render null if the label includes certain values
+    if (
+      label.includes("N/A") ||
+      label.includes("no") ||
+      label.includes(": 0")
+    ) {
+      return null;
+    }
 
-  return (
-    <div className="flex items-center">
-      <Icon className={`mr-2 ${color}`} />
-      <p className="text-lg text-gray-600">{label}</p>
-    </div>
-  );
-};
-
+    return (
+      <div className="flex items-center">
+        <Icon className={`mr-2 ${color}`} />
+        <p className="text-lg text-gray-600">{label}</p>
+      </div>
+    );
+  };
 
   console.log("Selected property:", selectedProperty);
   // console.log("feet",selectedProperty.square_ft);
@@ -255,10 +253,10 @@ const PropertyCard = () => {
   });
 
   return (
-    <div className="max-w-full w-full px-4 py-8  sm:mt-4 md:mt-10 xl:mt-12 2xl:mt-16">
+    <div className="max-w-full w-full px-4 py-8  sm:mt-4  xl:mt-12 2xl:mt-16">
       <div className="bg-white  rounded-lg">
         <div className=" pl-8">
-          <p className="text-gray-500 mt-12  md:mb-5 ">
+          <p className="text-gray-500 mt-10 sm:mt-10 md:mb-5">
             All you need to know about {title}
           </p>
           <h1 className="text-3xl  text-gray-700 mb-2">{title}</h1>
@@ -278,60 +276,64 @@ const PropertyCard = () => {
             <Box images={selectedProperty.images} />
           </div>
 
-         {/* wrapping both */}
-<div className="flex flex-col">
-  <div className="flex mt-4">
-    {/* Main Content */}
-    <div className="w-full pr-4 flex flex-col justify-between">
-      {/* Social media */}
-      <div className="flex flex-col lg:flex-row items-center gap-2 mb-4 lg:justify-between lg:px-4 w-full">
-        <div className="flex flex-row gap-2 lg:gap-4 items-center justify-center ">
-          <p className="font-semibold text-2xl text-gray-700">Share:</p>
-          <FaTelegram
-            className="cursor-pointer hover:animate-bounce text-blue-500"
-            size={28}
-            onClick={() => handleShareClick("telegram")}
-          />
-          <FaWhatsapp
-            className="cursor-pointer hover:animate-bounce text-green-500"
-            size={28}
-            onClick={() => handleShareClick("whatsapp")}
-          />
-          <FaFacebookMessenger
-            className="cursor-pointer hover:animate-bounce text-blue-600"
-            size={28}
-            onClick={() => handleShareClick("messenger")}
-          />
-          <FaTwitter
-            className="cursor-pointer hover:animate-bounce text-blue-400"
-            size={28}
-            onClick={() => handleShareClick("twitter")}
-          />
-          <FaInstagram
-            className="cursor-pointer hover:animate-bounce text-pink-500"
-            size={28}
-            onClick={() => handleShareClick("instagram")}
-          />
-        </div>
-        <div className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0 lg:px-4">
-          <HeartbeatButton
-            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 w-full max-w-[18rem]"
-            onClick={() => {
-              scrollToForm();
-              toast.success("Scrolling to Contact Form");
-            }}
-          >
-            Contact Us
-          </HeartbeatButton>
-        </div>
-      </div>
+          {/* wrapping both */}
+          <div className="flex flex-col">
+            <div className="flex mt-4">
+              {/* Main Content */}
+              <div className="w-full pr-4 flex flex-col justify-between">
+                {/* Social media */}
+                <div className="flex flex-col lg:flex-row items-center gap-2 mb-4 lg:justify-between lg:px-4 w-full">
+                  <div className="flex flex-row gap-2 lg:gap-4 items-center justify-center ">
+                    <p className="font-semibold text-2xl text-gray-700">
+                      Share:
+                    </p>
+                    <FaTelegram
+                      className="cursor-pointer hover:animate-bounce text-blue-500"
+                      size={28}
+                      onClick={() => handleShareClick("telegram")}
+                    />
+                    <FaWhatsapp
+                      className="cursor-pointer hover:animate-bounce text-green-500"
+                      size={28}
+                      onClick={() => handleShareClick("whatsapp")}
+                    />
+                    <FaFacebookMessenger
+                      className="cursor-pointer hover:animate-bounce text-blue-600"
+                      size={28}
+                      onClick={() => handleShareClick("messenger")}
+                    />
+                    <FaTwitter
+                      className="cursor-pointer hover:animate-bounce text-blue-400"
+                      size={28}
+                      onClick={() => handleShareClick("twitter")}
+                    />
+                    <FaInstagram
+                      className="cursor-pointer hover:animate-bounce text-pink-500"
+                      size={28}
+                      onClick={() => handleShareClick("instagram")}
+                    />
+                  </div>
+                  <div className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0 lg:px-4">
+                    <HeartbeatButton
+                      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 w-full max-w-[18rem]"
+                      onClick={() => {
+                        scrollToForm();
+                        toast.success("Scrolling to Contact Form");
+                      }}
+                    >
+                      Contact Us
+                    </HeartbeatButton>
+                  </div>
+                </div>
 
-      {/* Property details */}
-      <div className="mt-5 p-2 w-full">
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">Property Details</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {/* Property Id */}
-          <DetailItem
+                {/* Property details */}
+                <div className="mt-5 p-2 w-full">
+                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+                    Property Details
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {/* Property Id */}
+                    <DetailItem
                       icon={PiArrowFatLineRightFill}
                       label={`Property Id: ${selectedProperty.id || "N/A"}`}
                       color="text-green-500  capitalize"
@@ -604,19 +606,25 @@ const PropertyCard = () => {
                       />
                     )}
                   </div>
-      </div>
+                </div>
 
-      {/* Description */}
-      <div className="mt-5 p-2 w-full">
-        <p className="text-xl font-semibold mb-4 text-gray-700">Description</p>
-        <p className="text-gray-700">{selectedProperty.property_description}</p>
-      </div>
+                {/* Description */}
+                <div className="mt-5 p-2 w-full">
+                  <p className="text-xl font-semibold mb-4 text-gray-700">
+                    Description
+                  </p>
+                  <p className="text-gray-700">
+                    {selectedProperty.property_description}
+                  </p>
+                </div>
 
-      {/* Amenities */}
-      <div className="mt-5 p-2 w-full">
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">Amenities</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {selectedProperty?.road == 1 && (
+                {/* Amenities */}
+                <div className="mt-5 p-2 w-full">
+                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
+                    Amenities
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {selectedProperty?.road == 1 && (
                       <DetailItem
                         icon={PiArrowFatLineRightFill}
                         label="Road"
@@ -799,12 +807,11 @@ const PropertyCard = () => {
                         color="text-green-500"
                       />
                     )}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* Related Property */}
@@ -883,122 +890,129 @@ const PropertyCard = () => {
             ))}
           </div>
         </div>
-       {/* Contact Form */}
-<div
-  className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
-  ref={formRef}
->
-  <h2 className="text-2xl text-gray-700 mb-4 text-center">Contact Us</h2>
-  <form onSubmit={formSubmit} className="space-y-4">
-    {/* Property Id and Name Fields in Same Row */}
-    <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
-      {/* Property Id Field */}
-      <div className="flex-1">
-        <label htmlFor="propertyId" className="font-semibold mb-1 block">
-          Property Id:
-        </label>
-        <input
-          name="propertyId"
-          value={formData.propertyId}
-          id="propertyId"
-          className="w-full p-2 border border-gray-300 rounded"
-          readOnly
-        />
-      </div>
+        {/* Contact Form */}
+        <div
+          className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
+          ref={formRef}
+        >
+          <h2 className="text-2xl text-gray-700 mb-4 text-center">
+            Contact Us
+          </h2>
+          <form onSubmit={formSubmit} className="space-y-4">
+            {/* Property Id and Name Fields in Same Row */}
+            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
+              {/* Property Id Field */}
+              <div className="flex-1">
+                <label
+                  htmlFor="propertyId"
+                  className="font-semibold mb-1 block"
+                >
+                  Property Id:
+                </label>
+                <input
+                  name="propertyId"
+                  value={formData.propertyId}
+                  id="propertyId"
+                  className="w-full p-2 border border-gray-300 rounded"
+                  readOnly
+                />
+              </div>
 
-      {/* Property Name Field */}
-      <div className="flex-1">
-        <label htmlFor="propertyName" className="font-semibold mb-1 block">
-          Property Name:
-        </label>
-        <input
-          name="propertyName"
-          value={formData.propertyName}
-          id="propertyName"
-          className="w-full p-2 border border-gray-300 rounded"
-          readOnly
-        />
-      </div>
-    </div>
+              {/* Property Name Field */}
+              <div className="flex-1">
+                <label
+                  htmlFor="propertyName"
+                  className="font-semibold mb-1 block"
+                >
+                  Property Name:
+                </label>
+                <input
+                  name="propertyName"
+                  value={formData.propertyName}
+                  id="propertyName"
+                  className="w-full p-2 border border-gray-300 rounded"
+                  readOnly
+                />
+              </div>
+            </div>
 
-    {/* Name Field */}
-    <div className="flex flex-col mb-4">
-      <label htmlFor="name" className="font-semibold mb-1">
-        Your Name:
-      </label>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}  // Add this
-        placeholder="Your Name"
-        id="name"
-        className="w-full p-2 border border-gray-300 rounded"
-        onChange={handleInputChange}
-        required
-      />
-    </div>
+            {/* Name Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="name" className="font-semibold mb-1">
+                Your Name:
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name} // Add this
+                placeholder="Your Name"
+                id="name"
+                className="w-full p-2 border border-gray-300 rounded"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-    {/* Email Field */}
-    <div className="flex flex-col mb-4">
-      <label htmlFor="email" className="font-semibold mb-1">
-        Your Email:
-      </label>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}  // Add this
-        placeholder="Your Email"
-        id="email"
-        className="w-full p-2 border border-gray-300 rounded"
-        onChange={handleInputChange}
-        required
-      />
-    </div>
+            {/* Email Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="email" className="font-semibold mb-1">
+                Your Email:
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email} // Add this
+                placeholder="Your Email"
+                id="email"
+                className="w-full p-2 border border-gray-300 rounded"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-    {/* Phone Number Field */}
-    <div className="flex flex-col mb-4">
-      <label htmlFor="phone" className="font-semibold mb-1">
-        Your Phone Number:
-      </label>
-      <input
-        type="tel"
-        name="phone"
-        value={formData.phone}  // Add this
-        placeholder="Your Phone Number"
-        id="phone"
-        className="w-full p-2 border border-gray-300 rounded"
-        onChange={handleInputChange}
-        required
-      />
-    </div>
+            {/* Phone Number Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="phone" className="font-semibold mb-1">
+                Your Phone Number:
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone} // Add this
+                placeholder="Your Phone Number"
+                id="phone"
+                className="w-full p-2 border border-gray-300 rounded"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-    {/* Message Field */}
-    <div className="flex flex-col mb-4">
-      <label htmlFor="message" className="font-semibold mb-1">
-        Your Message:
-      </label>
-      <textarea
-        name="message"
-        value={formData.message}  // Add this
-        placeholder="Your Message"
-        id="message"
-        rows="4"
-        className="w-full p-2 border border-gray-300 rounded"
-        onChange={handleInputChange}
-        required
-      />
-    </div>
+            {/* Message Field */}
+            <div className="flex flex-col mb-4">
+              <label htmlFor="message" className="font-semibold mb-1">
+                Your Message:
+              </label>
+              <textarea
+                name="message"
+                value={formData.message} // Add this
+                placeholder="Your Message"
+                id="message"
+                rows="4"
+                className="w-full p-2 border border-gray-300 rounded"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-    {/* Submit Button */}
-    <button
-      type="submit"
-      className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
-    >
-      Submit
-    </button>
-  </form>
-</div>
-
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
