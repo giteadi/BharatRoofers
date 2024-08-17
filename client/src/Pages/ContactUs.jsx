@@ -45,7 +45,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="relative flex justify-center items-center bg-black text-white min-h-screen p-8 md:mt-20">
+    <div className="relative flex justify-center items-center bg-black text-white min-h-screen p-8 md:mt-18 md:pt-[4rem]">
       <div className="absolute inset-0 bg-cover bg-center backdrop-filter backdrop-blur-sm" style={{ backgroundImage: 'url("https://thumbs.wbm.im/pw/small/e79ed78f33ea2825b7bb5598d66fe60c.jpg")', opacity: 0.3 }}></div>
       <div className="relative bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-screen-lg flex flex-col lg:flex-row gap-8 justify-center items-center">
         <div className="w-full lg:w-1/2 max-w-md">
