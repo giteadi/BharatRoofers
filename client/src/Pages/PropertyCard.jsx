@@ -245,10 +245,10 @@ const PropertyCard = () => {
   });
 
   return (
-    <div className="max-w-full px-4 py-8  sm:mt-4 md:mt-10 xl:mt-12 2xl:mt-16">
-      <div className="bg-white shadow-lg rounded-lg">
+    <div className="max-w-full w-full px-4 py-8  sm:mt-4 md:mt-10 xl:mt-12 2xl:mt-16">
+      <div className="bg-white  rounded-lg">
         <div className=" pl-8">
-          <p className="text-gray-500 mt-12 md:mb-5 ">
+          <p className="text-gray-500 mt-12  md:mb-5 ">
             All you need to know about {title}
           </p>
           <h1 className="text-3xl  text-gray-700 mb-2">{title}</h1>
@@ -268,67 +268,60 @@ const PropertyCard = () => {
             <Box images={selectedProperty.images} />
           </div>
 
-          {/* wrapping both */}
-          <div className="flex felx-col">
-            <div className="flex mt-4">
-              {/* Main Content */}
-              <div className="w-full pr-4 flex flex-col justify-between">
-                {/* Social media */}
-                <div className="flex flex-col lg:flex-row items-center gap-2 mb-4 lg:justify-between lg:px-4">
-  <div className="flex flex-row gap-2 lg:gap-4 items-center justify-center">
-    <p className="font-semibold text-2xl text-gray-700">
-      Share:
-    </p>
-    <FaTelegram
-      className="cursor-pointer hover:animate-bounce text-blue-500"
-      size={28}
-      onClick={() => handleShareClick("telegram")}
-    />
-    <FaWhatsapp
-      className="cursor-pointer hover:animate-bounce text-green-500"
-      size={28}
-      onClick={() => handleShareClick("whatsapp")}
-    />
-    <FaFacebookMessenger
-      className="cursor-pointer hover:animate-bounce text-blue-600"
-      size={28}
-      onClick={() => handleShareClick("messenger")}
-    />
-    <FaTwitter
-      className="cursor-pointer hover:animate-bounce text-blue-400"
-      size={28}
-      onClick={() => handleShareClick("twitter")}
-    />
-    <FaInstagram
-      className="cursor-pointer hover:animate-bounce text-pink-500"
-      size={28}
-      onClick={() => handleShareClick("instagram")}
-    />
-  </div>
-  <div className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0 lg:px-4">
-    <HeartbeatButton
-      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 w-[10rem] sm:max-w-[12rem] md:max-w-[14rem] lg:max-w-[16rem] xl:max-w-[18rem]"
-      onClick={() => {
-        scrollToForm();
-        toast.success("Scrolling to Contact Form");
-      }}
-    >
-      Contact Us
-    </HeartbeatButton>
-  </div>
-</div>
+         {/* wrapping both */}
+<div className="flex flex-col">
+  <div className="flex mt-4">
+    {/* Main Content */}
+    <div className="w-full pr-4 flex flex-col justify-between">
+      {/* Social media */}
+      <div className="flex flex-col lg:flex-row items-center gap-2 mb-4 lg:justify-between lg:px-4 w-full">
+        <div className="flex flex-row gap-2 lg:gap-4 items-center justify-center w-full">
+          <p className="font-semibold text-2xl text-gray-700">Share:</p>
+          <FaTelegram
+            className="cursor-pointer hover:animate-bounce text-blue-500"
+            size={28}
+            onClick={() => handleShareClick("telegram")}
+          />
+          <FaWhatsapp
+            className="cursor-pointer hover:animate-bounce text-green-500"
+            size={28}
+            onClick={() => handleShareClick("whatsapp")}
+          />
+          <FaFacebookMessenger
+            className="cursor-pointer hover:animate-bounce text-blue-600"
+            size={28}
+            onClick={() => handleShareClick("messenger")}
+          />
+          <FaTwitter
+            className="cursor-pointer hover:animate-bounce text-blue-400"
+            size={28}
+            onClick={() => handleShareClick("twitter")}
+          />
+          <FaInstagram
+            className="cursor-pointer hover:animate-bounce text-pink-500"
+            size={28}
+            onClick={() => handleShareClick("instagram")}
+          />
+        </div>
+        <div className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0 lg:px-4">
+          <HeartbeatButton
+            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-transform duration-300 transform hover:scale-105 w-full max-w-[18rem]"
+            onClick={() => {
+              scrollToForm();
+              toast.success("Scrolling to Contact Form");
+            }}
+          >
+            Contact Us
+          </HeartbeatButton>
+        </div>
+      </div>
 
-
-
-
-                {/* Property details */}
-                <div className="mt-5 p-2">
-                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                    Property Details
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {/* Property Id */}
-                    <DetailItem
+      {/* Property details */}
+      <div className="mt-5 p-2 w-full">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">Property Details</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {/* Property Id */}
+          <DetailItem
                       icon={PiArrowFatLineRightFill}
                       label={`Property Id: ${selectedProperty.id || "N/A"}`}
                       color="text-green-500  capitalize"
@@ -601,24 +594,19 @@ const PropertyCard = () => {
                       />
                     )}
                   </div>
-                </div>
+      </div>
 
-                {/* Description */}
-                <div className="mt-5 p-2 w-full lg:w-full ">
-                  <p className="text-2xl font-semibold text-2xl">Description</p>
-                  <p className="text-gray-700 flex flex-wrap w-full md:pr-20">
-                    {selectedProperty.property_description}
-                  </p>
-                </div>
+      {/* Description */}
+      <div className="mt-5 p-2 w-full">
+        <p className="text-xl font-semibold mb-4 text-gray-700">Description</p>
+        <p className="text-gray-700">{selectedProperty.property_description}</p>
+      </div>
 
-                {/* Amenities */}
-
-                <div className="mt-5 p-2">
-                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                    Amenities
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {selectedProperty?.road == 1 && (
+      {/* Amenities */}
+      <div className="mt-5 p-2 w-full">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">Amenities</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {selectedProperty?.road == 1 && (
                       <DetailItem
                         icon={PiArrowFatLineRightFill}
                         label="Road"
@@ -801,155 +789,12 @@ const PropertyCard = () => {
                         color="text-green-500"
                       />
                     )}
-                  </div>
-                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-                {/* About */}
-                {/* <div className="mt-5 p-2">
-                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                    About
-                  </h2>
-                  <p className="text-gray-600">
-                    {" "}
-                    City: {selectedProperty.property_city}
-                  </p>
-                  <p className="text-gray-600">
-                    Address:{selectedProperty.property_address}
-                  </p>
-                  <p className="text-gray-600">
-                    Year Build:{selectedProperty.year_built}
-                  </p>
-                </div> */}
-                {/* Special heigh light */}
-                <div className="col-12 special-highlights p-4 rounded-lg">
-                  <h5 className="text-lg font-semibold mb-3 text-gray-700">
-                    SPECIAL HIGHLIGHTS :
-                  </h5>
-                  <ul className="list-none p-0 space-y-2">
-                    {selectedProperty?.common_visitor_parking == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Good No. of Common/Visitor Parking
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.main_road_facing == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Main Road Facing
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.good_ceiling_height == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Good Ceiling Height
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.good_natural_light == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Good Natural Light in the Unit
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.attractive_entrance_gate == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Attractive Entrance Gate
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.gated_community == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Gated Community
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.property_for == "sale" &&
-                      selectedProperty?.immediate_possession == 1 && (
-                        <li className="flex items-center">
-                          <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                          <p className="text-gray-700 uppercase">
-                            Immediate Possession
-                          </p>
-                        </li>
-                      )}
-                    {selectedProperty?.landscape_garden == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Landscape Garden
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.water_supply_24_7 == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          24/7 Water Supply
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.bore_well_water_24_7 == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          24/7 Bore Well Water
-                        </p>
-                      </li>
-                    )}
-                    {selectedProperty?.environment_clearance_available == 1 && (
-                      <li className="flex items-center">
-                        <PiArrowFatLineRightFill className="text-green-500 mr-2" />
-                        <p className="text-gray-700 uppercase">
-                          Environment Clearance Available
-                        </p>
-                      </li>
-                    )}
-                  </ul>
-                </div>
-
-                {/* Recommended Section */}
-                <div className="mt-5 p-2">
-                  <h2 className="text-xl font-semibold mb-4 text-gray-700">
-                    Recommended
-                  </h2>
-                  <ul className="list-disc  text-gray-600">
-                    {selectedProperty?.long_term_investment == 1 && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label="Long Term Investment"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.own_purpose == 1 && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label="Own Purpose"
-                        color="text-green-500"
-                      />
-                    )}
-                    {selectedProperty?.investment == 1 && (
-                      <DetailItem
-                        icon={PiArrowFatLineRightFill}
-                        label="Investment"
-                        color="text-green-500"
-                      />
-                    )}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       {/* Related Property */}
