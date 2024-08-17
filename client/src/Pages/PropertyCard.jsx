@@ -162,12 +162,22 @@ const PropertyCard = () => {
       );
       if (res.data.success) {
         toast.success(res.data.message);
-        // window.location.reload();
+  
+        // Reset formData to empty values
+        setFormData({
+          propertyId: id || "",
+          propertyName: "",
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
       }
     } catch (error) {
-      toast.error(error.response.data.error);
+      toast.error(error.response?.data?.error || "Something went wrong!");
     }
   };
+  
 
   const scrollToForm = () => {
     if (formRef.current) {
@@ -275,7 +285,7 @@ const PropertyCard = () => {
     <div className="w-full pr-4 flex flex-col justify-between">
       {/* Social media */}
       <div className="flex flex-col lg:flex-row items-center gap-2 mb-4 lg:justify-between lg:px-4 w-full">
-        <div className="flex flex-row gap-2 lg:gap-4 items-center justify-center w-full">
+        <div className="flex flex-row gap-2 lg:gap-4 items-center justify-center ">
           <p className="font-semibold text-2xl text-gray-700">Share:</p>
           <FaTelegram
             className="cursor-pointer hover:animate-bounce text-blue-500"
@@ -873,125 +883,122 @@ const PropertyCard = () => {
             ))}
           </div>
         </div>
-        {/* Contact Form */}
-        <div
-          className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
-          ref={formRef}
-        >
-          <h2 className="text-2xl text-gray-700 mb-4 text-center">
-            Contact Us
-          </h2>
-          <form onSubmit={formSubmit} className="space-y-4">
-            {/* Property Id and Name Fields in Same Row */}
-            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
-              {/* Property Id Field */}
-              <div className="flex-1">
-                <label
-                  htmlFor="propertyId"
-                  className="font-semibold mb-1 block"
-                >
-                  Property Id:
-                </label>
-                <input
-                  name="propertyId"
-                  value={formData.propertyId}
-                  id="propertyId"
-                  className="w-full p-2 border border-gray-300 rounded"
-                  readOnly
-                />
-              </div>
+       {/* Contact Form */}
+<div
+  className="my-10 p-4 bg-gray-50 rounded-lg w-full max-w-2xl mx-auto"
+  ref={formRef}
+>
+  <h2 className="text-2xl text-gray-700 mb-4 text-center">Contact Us</h2>
+  <form onSubmit={formSubmit} className="space-y-4">
+    {/* Property Id and Name Fields in Same Row */}
+    <div className="flex flex-col sm:flex-row sm:space-x-4 mb-4 space-y-4 sm:space-y-0">
+      {/* Property Id Field */}
+      <div className="flex-1">
+        <label htmlFor="propertyId" className="font-semibold mb-1 block">
+          Property Id:
+        </label>
+        <input
+          name="propertyId"
+          value={formData.propertyId}
+          id="propertyId"
+          className="w-full p-2 border border-gray-300 rounded"
+          readOnly
+        />
+      </div>
 
-              {/* Property Name Field */}
-              <div className="flex-1">
-                <label
-                  htmlFor="propertyName"
-                  className="font-semibold mb-1 block"
-                >
-                  Property Name:
-                </label>
-                <input
-                  name="propertyName"
-                  value={formData.propertyName}
-                  id="propertyName"
-                  className="w-full p-2 border border-gray-300 rounded"
-                  readOnly
-                />
-              </div>
-            </div>
+      {/* Property Name Field */}
+      <div className="flex-1">
+        <label htmlFor="propertyName" className="font-semibold mb-1 block">
+          Property Name:
+        </label>
+        <input
+          name="propertyName"
+          value={formData.propertyName}
+          id="propertyName"
+          className="w-full p-2 border border-gray-300 rounded"
+          readOnly
+        />
+      </div>
+    </div>
 
-            {/* Name Field */}
-            <div className="flex flex-col mb-4">
-              <label htmlFor="name" className="font-semibold mb-1">
-                Your Name:
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                id="name"
-                className="w-full p-2 border border-gray-300 rounded"
-                onChange={handleInputChange}
-                required
-              />
-            </div>
+    {/* Name Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="name" className="font-semibold mb-1">
+        Your Name:
+      </label>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}  // Add this
+        placeholder="Your Name"
+        id="name"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
 
-            {/* Email Field */}
-            <div className="flex flex-col mb-4">
-              <label htmlFor="email" className="font-semibold mb-1">
-                Your Email:
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                id="email"
-                className="w-full p-2 border border-gray-300 rounded"
-                onChange={handleInputChange}
-                required
-              />
-            </div>
+    {/* Email Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="email" className="font-semibold mb-1">
+        Your Email:
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}  // Add this
+        placeholder="Your Email"
+        id="email"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
 
-            {/* Phone Number Field */}
-            <div className="flex flex-col mb-4">
-              <label htmlFor="phone" className="font-semibold mb-1">
-                Your Phone Number:
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone Number"
-                id="phone"
-                className="w-full p-2 border border-gray-300 rounded"
-                onChange={handleInputChange}
-                required
-              />
-            </div>
+    {/* Phone Number Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="phone" className="font-semibold mb-1">
+        Your Phone Number:
+      </label>
+      <input
+        type="tel"
+        name="phone"
+        value={formData.phone}  // Add this
+        placeholder="Your Phone Number"
+        id="phone"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
 
-            {/* Message Field */}
-            <div className="flex flex-col mb-4">
-              <label htmlFor="message" className="font-semibold mb-1">
-                Your Message:
-              </label>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                id="message"
-                rows="4"
-                className="w-full p-2 border border-gray-300 rounded"
-                onChange={handleInputChange}
-                required
-              />
-            </div>
+    {/* Message Field */}
+    <div className="flex flex-col mb-4">
+      <label htmlFor="message" className="font-semibold mb-1">
+        Your Message:
+      </label>
+      <textarea
+        name="message"
+        value={formData.message}  // Add this
+        placeholder="Your Message"
+        id="message"
+        rows="4"
+        className="w-full p-2 border border-gray-300 rounded"
+        onChange={handleInputChange}
+        required
+      />
+    </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+    {/* Submit Button */}
+    <button
+      type="submit"
+      className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
       </div>
     </div>
   );

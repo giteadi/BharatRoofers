@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBed, FaBath, FaRulerCombined, FaLocationArrow, FaDollarSign } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom';
 const PropertyCard2 = ({ properties, currentPropertyId }) => {
   if (!properties || properties.length === 0) {
     return <p>Loading properties...</p>;
@@ -26,8 +26,11 @@ const PropertyCard2 = ({ properties, currentPropertyId }) => {
               </div>
             )}
             {/* Details Section */}
+            
             <div className="flex-1 p-4">
-              <h5 className="text-lg font-semibold mb-2">{property.property_name || 'No Name'}</h5>
+            <Link to={`/property/${property.id}`}>
+              <h5 className="text-lg font-semibold mb-2 hover:text-blue-500">{property.property_name || 'No Name'}</h5>
+              </Link>
               <p className="text-gray-700 mb-2">
                 <FaLocationArrow className="inline-block mr-1" />
                 {property.property_address || 'No Address'}
@@ -51,9 +54,9 @@ const PropertyCard2 = ({ properties, currentPropertyId }) => {
             </div>
             {/* Button Section */}
             <div className="p-4">
-              <a href={`/property/${property.id}`} className="inline-block bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600 w-full text-center">
+              <Link to={`/property/${property.id}`} className="inline-block bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600 w-full text-center">
                 View Details
-              </a>
+              </Link>
             </div>
           </div>
         ))
