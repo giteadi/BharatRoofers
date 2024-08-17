@@ -34,23 +34,27 @@ function Singleblog6() {
             <span className="text-xl">
               <i className="bi bi-file-post"></i>
             </span>
-            Blog
+            
           </p>
           <h1 className="text-3xl font-bold mt-4">
             Looking for Rented House: Deciphering 2BHK vs. 3BHK
           </h1>
-          <p className="mt-2 text-gray-600">
+          {/* <p className="mt-2 text-gray-600">
             <small className="text-lg">
               <span className="text-xl">
                 <CgCalendarDates />
               </span>
               AUGUST 24, 2022
             </small>
-          </p>
+          </p> */}
+          <div className="flex justify-center items-cetner gap-5 text-lg mt-5">
+            <div className="pt-1"><CgCalendarDates /></div>
+            <div>AUGUST 24, 2022</div>
+          </div>
         </div>
 
         <div className="mt-4">
-          <img className="w-full rounded-lg" src={blog6} alt="Blog" />
+          <img  className="max-w-2xl h-auto mx-auto rounded-lg" src={blog6} alt="Blog" />
         </div>
 
         <div className="mt-5">

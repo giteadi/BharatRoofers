@@ -39,22 +39,26 @@ function Singleblog4() {
               <span className="text-xl">
                 <i className="bi bi-file-post"></i>
               </span>
-              Blog
+             
             </p>
             <h1 className="text-2xl font-bold mt-2">
               Budget Allocations and Real Estate: Paving the Path Ahead
             </h1>
-            <p className="mt-2 text-gray-600 text-sm">
+            {/* <p className="mt-2 text-gray-600 text-sm">
               <span className="text-xl">
                 <CgCalendarDates />
               </span> 
               AUGUST 24, 2022
-            </p>
+            </p> */}
+            <div className="flex justify-center items-cetner gap-5 text-lg mt-5">
+            <div className="pt-1"><CgCalendarDates /></div>
+            <div>AUGUST 24, 2022</div>
+          </div>
           </div>
         </div>
 
         <div className="mb-4">
-          <img className="w-full rounded-lg" src={blog4} alt="Blog" />
+          <img  className="max-w-2xl h-auto mx-auto rounded-lg" src={blog4} alt="Blog" />
         </div>
         <div>
           <h4 className="text-xl font-semibold mt-4">

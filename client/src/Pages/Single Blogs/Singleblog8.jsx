@@ -35,23 +35,25 @@ function Singleblog8() {
             <span className="text-xl">
               <i className="bi bi-file-post"></i>
             </span>
-            Blog
+           
           </p>
           <h1 className="text-3xl font-bold mt-4">
             Sale on 2-3 BHK House: Navigating the Real Estate Market
           </h1>
-          <p className="text-gray-600 mt-2">
+          {/* <p className="text-gray-600 mt-2 flex  items-center justify-center">
             <small className="text-lg">
-              <span className="text-xl">
-                <CgCalendarDates />
-              </span>{" "}
-              AUGUST 24, 2022
+            <CgCalendarDates />
+            <p>  AUGUST 24, 2022</p>
             </small>
-          </p>
+          </p> */}
+          <div className="flex justify-center items-cetner gap-5 text-lg mt-5">
+            <div className="pt-1"><CgCalendarDates /></div>
+            <div>AUGUST 24, 2022</div>
+          </div>
         </div>
 
         <div className="mt-4">
-          <img className="w-full rounded-lg" src={blog8} alt="Blog" />
+          <img  className="max-w-2xl h-auto mx-auto rounded-lg" src={blog8} alt="Blog" />
         </div>
 
         <div className="mt-5">
