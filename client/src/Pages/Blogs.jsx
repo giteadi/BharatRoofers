@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, } from 'react-router-dom';
 import { TextRevealCardPreview } from '../Components/CardAnimation';
-
+import { useState } from 'react';
 const Blog = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const posts = [
     {
       id: 1,
@@ -58,30 +59,62 @@ const Blog = () => {
   const navigate = useNavigate();
 
   const handleClick = (postId) => {
-    navigate(`/blog/${postId}`);
+    switch (postId) {
+      case 1:
+        navigate("/single-1");
+        break;
+      case 2:
+        navigate('/single-2');
+        break;
+      case 3:
+        navigate('/single-3');
+        break;
+      case 4:
+        navigate('/single-4');
+        break;
+      case 5:
+        navigate('/single-5');
+        break;
+      case 6:
+        navigate('/single-6');
+        break;
+      case 7:
+        navigate('/single-7');
+        break;
+      case 8:
+        navigate('/single-8');
+        break;
+      default:
+        console.error('Invalid postId:', postId);
+        break;
+    }
   };
+  
 
   return (
     <div className="container max-w-screen mx-auto px-4 py-8">
-      {/* <span className="flex justify-center items-center text-4xl font-bold underline">Blogs</span> */}
-      <span >
+      <span>
         <TextRevealCardPreview/>
       </span>
       {posts.map((post, index) => (
         <div
           key={post.id}
-          className={`flex flex-col md:flex-row items-center  mb-8 ${
+          className={`flex flex-col md:flex-row items-center mb-8 ${
             index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
           }`}
           onClick={() => handleClick(post.id)}
           style={{ cursor: 'pointer' }}
         >
-          <div className="w-full md:max-w-[40rem] md:h-1/2 overflow-hidden">
+          <div className="w-full md:max-w-[40rem] overflow-hidden">
             <img
               src={post.image}
               alt={post.title}
-              className="h-64 md:min-w-[40rem] cursor-pointer object-fit rounded-lg transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover"
+              className={`h-64 md:min-w-[40rem] cursor-pointer object-cover rounded-lg transition-transform duration-500 transform hover:scale-110 w-full h-full ${
+                imageLoaded ? '' : 'invisible'
+              }`}
+              onLoad={() => setImageLoaded(true)}
             />
+            {!imageLoaded && <div className="h-64 bg-gray-200"></div>} {/* Placeholder while loading */}
           </div>
           <div className="w-full md:w-1/2 p-4">
             <h2 className="text-xl font-bold mb-2">{post.title}</h2>

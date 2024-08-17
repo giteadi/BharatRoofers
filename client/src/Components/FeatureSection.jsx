@@ -132,28 +132,39 @@ const FeatureSection = () => {
     <div>
       {/* Image Grid Section */}
       <section className="mt-8 md:mt-12 max-w-screen mx-auto flex items-center justify-center px-4 hover:cursor-pointer md:mb-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl w-full">
-          {categories.map((category, index) => (
-            <div key={category.name} className={`col-span-2 sm:col-span-1 md:col-span-${index === 3 ? '4' : '2'} relative overflow-hidden h-64`}>
-              <img
-                loading="lazy"
-                src={getCategoryImage(category.name, category.defaultImage)}
-                alt={category.title}
-                className="transition-transform duration-500 transform hover:scale-110 w-full h-full object-cover cursor-pointer"
-                onClick={() => navigateToCategory(category.name)}
-              />
-              <div className="absolute top-4 left-4">
-                <p className="text-white text-3xl transition delay-100 ease-in-out transform hover:text-yellow-400 font-bold">
-                  {category.title}
-                </p>
-                <p className="text-white hover:text-yellow-500 font-bold text-xl mt-1">
-                  Available Property ({getCategoryCount(category.name)})
-                </p>
-              </div>
-            </div>
-          ))}
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl w-full">
+    {categories.map((category, index) => (
+      <div
+        key={category.name}
+        className={`col-span-2 sm:col-span-1 md:col-span-${index === 3 ? '4' : '2'} relative overflow-hidden h-64 group`}
+      >
+        <img
+          loading="lazy"
+          src={getCategoryImage(category.name, category.defaultImage)}
+          alt={category.title}
+          className="transition-transform duration-500 transform group-hover:scale-110 w-full h-full object-cover opacity-90 group-hover:opacity-40"
+          onClick={() => navigateToCategory(category.name)}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-500"></div>
+        <div className="absolute top-4 left-4 z-10">
+          <p
+            className="text-white text-3xl transition delay-100 ease-in-out transform font-bold"
+            onClick={() => navigateToCategory(category.name)}
+          >
+            {category.title}
+          </p>
+          <p
+            className="text-white font-bold text-xl mt-1 hover:text-green-500 hover:underline"
+            onClick={() => navigateToCategory(category.name)}
+          >
+            Available Property ({getCategoryCount(category.name)})
+          </p>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Features Section */}
       <section className="bg-gray-100 py-8 md:py-12 md:pt-10 md:pb-20">

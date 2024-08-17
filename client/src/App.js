@@ -15,8 +15,14 @@ import CategoryPage from "./Pages/CategoryPage";
 import FooterCategory from "./Pages/FooterCategory";
 import TermsAndCondition from "./Pages/TermsAndConditions";
 import PrivacyPolicy from "./Pages/Privacy";
-import Spinner from "./Pages/Spinner";
-import Test from "./Pages/test";
+import Singleblog1 from "./Pages/Single Blogs/Singleblog1";
+import Singleblog2 from "./Pages/Single Blogs/Singleblog2";
+import Singleblog3 from "./Pages/Single Blogs/Singleblog3";
+import Singleblog4 from "./Pages/Single Blogs/Singleblog4";
+import Singleblog5 from "./Pages/Single Blogs/Singleblog5";
+import Singleblog6 from "./Pages/Single Blogs/Singleblog6";
+import Singleblog7 from "./Pages/Single Blogs/Singleblog7";
+import Singleblog8 from "./Pages/Single Blogs/Singleblog8";
 
 // ScrollToTop Component
 function ScrollToTop() {
@@ -48,8 +54,15 @@ function App() {
         <Route path="/footer-category" element={<FooterCategory />} />
         <Route path="/terms" element={<TermsAndCondition />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
-        {/* <Route path="/spinner" element={<Spinner />} /> */}
-        {/* <Route path="/t" element={<Test />} /> */}
+        <Route path="/single-1" element={<Singleblog1/>}/>
+        <Route path="/single-2" element={<Singleblog2/>}/>
+        <Route path="/single-3" element={<Singleblog3/>}/>
+        <Route path="/single-4" element={<Singleblog4/>}/>
+        <Route path="/single-5" element={<Singleblog5/>}/>
+        <Route path="/single-6" element={<Singleblog6/>}/>
+        <Route path="/single-7" element={<Singleblog7/>}/>
+        <Route path="/single-8" element={<Singleblog8/>}/>
+      
       </Routes>
       <Footer />
     </div>

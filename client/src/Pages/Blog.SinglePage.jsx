@@ -10,28 +10,49 @@ const SinglePage = () => {
       link: "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
       post: {
         id: 1,
-        title: "The Critical Role of Home Inspections: A Buyers Guide to Informed Decisions",
-        content: `Buying a house is an investment. It's important to make sure that the property you're interested in is not only visually appealing but also structurally sound. This is where home inspections become crucial in the process of buying a home.
+        title: "Buying a house is an investment. It's important to make sure that the property you're interested, in is not only visually appealing but also structurally sound. This is where home inspections become crucial in the process of buying a home.",
+        content: (
+          <>
+            <p>The Critical Role of Home Inspections: A Buyer's Guide to Informed Decisions</p>
+            
+            <ul>
+              <li>Revealing Hidden Problems: Description of the first key point.
+                <p>Home inspections are assessments carried out by certified inspectors to evaluate the condition of a property. They uncover issues that may not be easily noticeable during a walkthrough, such as structural problems, electrical issues, plumbing concerns, and more.</p>
+              </li>
+              <li>Making Informed Decisions:
+              With the insights provided by an inspection report, buyers gain an understanding of the condition of the property. This knowledge empowers them to make decisions, about whether to proceed with the purchase negotiate repairs, or even reconsider their decision entirely..</li>
+              <li>When buyers receive an inspection report that highlights issues it gives them an edge, in negotiation. They can use it as leverage to request repairs or negotiate a sale price. Sellers</li>
+              <li>Bullet Point 4: Description of the fourth key point.</li>
+            </ul>
+            <p>Although inspections come with a price tag they often result in long-term savings. By identifying problems, costly repairs or unexpected maintenance expenses can be avoided in the future.The Importance of Home Inspections for Buyers:
+Protecting Your Investment:
+Getting a home inspection is a move to protect both your investment and emotional attachment, to the property. It helps you avoid purchasing a home with expensive issues.
 
-        **Understanding Home Inspections:**
-        - **Revealing Hidden Problems:** Home inspections are assessments carried out by certified inspectors to evaluate the condition of a property. They uncover issues that may not be easily noticeable during a walkthrough, such as structural problems, electrical issues, plumbing concerns, and more.
-        - **Making Informed Decisions:** With the insights provided by an inspection report, buyers gain an understanding of the condition of the property. This knowledge empowers them to make decisions about whether to proceed with the purchase, negotiate repairs, or even reconsider their decision entirely.
-        - **Negotiating Advantage:** When buyers receive an inspection report that highlights issues, it gives them an edge in negotiation. They can use it as leverage to request repairs or negotiate a sale price. Sellers might agree to fix problems or adjust the price to account for repairs.
-        - **Saving for the Long Run:** Although inspections come with a price tag, they often result in long-term savings. By identifying problems, costly repairs or unexpected maintenance expenses can be avoided in the future.
+Understanding the Property's Condition:
+Inspections offer an overview of the property's strengths and weaknesses providing buyers with an understanding beyond just its surface appearance.
 
-        **The Importance of Home Inspections for Buyers:**
-        - **Protecting Your Investment:** Getting a home inspection is a move to protect both your investment and emotional attachment to the property. It helps you avoid purchasing a home with expensive issues.
-        - **Understanding the Property's Condition:** Inspections offer an overview of the property's strengths and weaknesses, providing buyers with an understanding beyond just its surface appearance.
-        - **Ensuring Safety:** Making sure your future home is safe is important. Inspections help identify safety hazards such as mold, radon, or faulty electrical wiring that could pose risks to the occupants.
-        - **Planning for Repairs or Upgrades:** Inspection reports assist buyers in planning for repairs or upgrades, allowing them to allocate funds accordingly after completing the purchase.
+Ensuring Safety:
+Making sure your future home is safe is important. Inspections help identify safety hazards such as mold, radon, or faulty electrical wiring that could pose risks to the occupants.
 
-        Essentially, a home inspection is an important step in the home-buying process. It gives you peace of mind, protects your investment, and gives you the knowledge you need to make an informed decision about a property you are considering buying.
+Planning, for Repairs or Upgrades:
+Inspection reports assist buyers in planning for repairs or upgrades allowing them to allocate funds accordingly after completing the purchase.
 
-        **FAQ’s**
-        - **How long does a typical home inspection take?** The length of time varies depending on the size of the property, its age, and any specific areas that need to be scrutinized. An average examination can take 2-4 hours.
-        - **Do I have to attend the inspection?** Buyers are highly recommended to attend the inspection. This allows them to ask questions, gain insight directly from the inspector, and directly understand the condition of the property.
-        - **Can a home inspection reveal all possible issues?** Even though inspections may not find every potential issue, they provide a comprehensive overview highlighting key areas of concern.
-        - **Do I need additional specialized inspections?** Depending on the property, you might need specialized inspections (e.g., pest, radon) for a more thorough assessment.`
+Essentially, a home inspection is an important step in the home-buying process. It gives you peace of mind, protects your investment, and gives you the knowledge you need to make an informed decision about a property you are considering buying.</p>
+<ul>
+  <li>1. How long does a typical home inspection take?
+The length of time varies depending on the size of the property, its age, and any specific areas that need to be scrutinized. An average examination can take 2-4 hours.
+
+2. Do I have to attend the inspection?
+Buyers are highly recommended to attend the survey. This allows them to ask questions, gain insight directly from the manager, and directly understand the condition of the property.
+
+3. Can a home inspection reveal all possible issues?
+Even if correct, investigations may not find any potential issues. However, they provide a comprehensive overview highlighting key areas of concern.
+
+4. Do I need additional specialized care?
+Depending on the property manager and findings, radon, pest, mold, architectural inspections or special inspections may be recommended.</li>
+</ul>
+          </>
+        ),
       },
     },
     {
@@ -39,105 +60,185 @@ const SinglePage = () => {
       link: "https://media.istockphoto.com/id/453944565/photo/home-exterior.webp?b=1&s=170667a&w=0&k=20&c=ONvmTRg63RYsyMJTnySOLpOBZlaoUeh6a9jfYuVQ_iw=",
       post: {
         id: 2,
-        title: "New Construction vs. Resale Homes: Making the Right Choice for Your Next Property",
-        content: "Pros and Cons of Buying New Construction Homes:\n\n**Pros:**\n- **Benefits of Customization and Modern Features:** When you opt for a construction home, you can customize it according to your preferences. You can have a say in everything from the layout to the finishes, making it your dream home.\n- **Energy Efficiency for Savings and Sustainability:** These built homes are equipped with energy-efficient technologies. This not only helps you save on utility bills but also reduces your carbon footprint contributing to the environment.\n- **Warranty and Ease of Maintenance:** Builders usually provide warranties that cover components of the home for a period. Moreover, new homes generally require less maintenance compared to older properties allowing you to enjoy worry-free living.\n- **Enhanced Community Living:** Many new construction neighborhoods offer an array of amenities, like parks, pools, and gyms. These amenities foster a sense of community where residents can come together and enjoy shared spaces.\n\n**Cons:**\n- **Higher Price Tag:** New construction homes often come at a premium compared to similar-sized resale properties in the same area.\n- **Completion Time:** Construction delays are possible, leading to extended wait times before moving in.\n- **Restricted Character and Mature Landscaping:** Recently assembled homes could lack the unique charm and mature landscaping seen in more established, resale properties.\n- **Potential for Unknown Development:** Purchasing in a new development area could mean uncertainty about future improvements that could affect your lifestyle or property value.\n\n**Pros and Cons of Buying Resale Homes:**\n\n**Pros:**\n- **Established Neighborhoods:** Resale houses are typically located in established communities with mature trees, beautifully landscaped surroundings, and a strong sense of community.\n- **Price Bargaining:** When it comes to resale homes, there is usually flexibility to negotiate the price compared to newly constructed properties.\n- **Charm and History:** Older homes often showcase unique elements and carry a rich historical background that adds allure and character.\n- **Immediate Move-in:** Unlike new constructions, resale homes are typically ready for occupancy after purchase.\n\n**Cons:**\n- **Potential Maintenance:** Older houses may need repairs or renovations in the future, which can increase overall expenses.\n- **Outdated Systems and Energy Inefficiency:** These homes might lack modern energy features and could have older systems needing upgrades.\n- **Limited Personalization:** Unlike newly constructed properties, there might be limitations in customizing resale homes according to your specific preferences.\n- **Chance of Competitive Offers:** In competitive markets, buying a resale home could lead to bidding wars, driving up the final cost.\n\n**FAQ’s**\n- **Which option tends to increase in value over time?** The appreciation in value relies on factors such as location, market trends, and the overall condition and appeal of the property.\n- **Is it possible to negotiate the price of a built home?** While there may be some room for negotiation, builders typically have less flexibility compared to sellers of pre-owned properties.\n- **Are constructed homes more energy efficient?** Generally, constructed homes are designed with energy efficiency in mind; however, existing homes can also be retrofitted with energy-saving features.\n- **Which option is more favorable for investment purposes?** Both built homes and pre-owned properties have the potential to be profitable investments. Conducting market research and understanding your investment goals are essential for making a decision.",
-        imagePosition: "center"
-      }
+        title: "Title for Post 2",
+        content: (
+          <>
+            <p>Paragraph 1. Introductory text explaining the subject matter of the post.</p>
+            <p>Paragraph 2. Further elaboration on the topic with more in-depth details.</p>
+            <ul>
+              <li>Bullet Point 1: Insight into the first significant point.</li>
+              <li>Bullet Point 2: Insight into the second significant point.</li>
+              <li>Bullet Point 3: Insight into the third significant point.</li>
+              <li>Bullet Point 4: Insight into the fourth significant point.</li>
+            </ul>
+            <p>Paragraph 3. Summary or additional context related to the content.</p>
+          </>
+        ),
+      },
     },
     {
       id: 3,
-      link: "https://media.istockphoto.com/id/1269776313/photo/suburban-house.jpg?s=2048x2048&w=is&k=20&c=EbPPSMkI6lNpsSnKAUiVV3fR5XzAEbu3AQbBr-K4jdc=",
+      link: "https://example.com/image3.jpg",
       post: {
         id: 3,
-        title: "Looking for1 BHK Apartment Duplex",
-        content: "The Allure of the Layout These duplexes are known for their smart design elements, utilizing space in innovative ways. Some boast loft-style bedrooms, while others employ an open-plan layout, ensuring functionality without sacrificing style.Advantages of Opting for a 1 BHK Apartment Duplex\nMaximizing Space and Flexibility:\nDespite their smaller footprint, these duplexes excel in space utilization. The two-tiered layout offers flexibility, allowing for distinct living zones without feeling cramped.\n\nCost-Efficiency and Affordability:\nIn the real estate world, these duplexes often come with a more manageable price tag. They offer an excellent opportunity for ownership or renting in prime locations without breaking the bank.\n\nFactors to Consider Before Choosing a 1 BHK Apartment Duplex:\nLocation Matters:\nThe neighborhood and its amenities play a significant role. Proximity to essential facilities and the overall vibe of the area are crucial considerations.\n\nAssessing Available Amenities:\nTaking stock of the facilities within the duplex complex - parking space, security, communal areas - ensures a comfortable and convenient lifestyle.\n\nTips for Finding the Ideal 1 BHK Apartment Duplex:\nNavigating Online Listings:\nStart your search by exploring online listings. Websites and apps dedicated to real estate often showcase a variety of options, providing a comprehensive view of available duplexes in different areas.\n\nSeek Guidance from Real Estate Agents:\nEngage with local real estate agents who specialize in these types of properties. Their expertise can offer insights into hidden gems and help navigate the buying or renting process more efficiently.\n\nDesign and Interior Ideas for a 1 BHK Apartment Duplex:\nMaximizing Space Utilization:\nIn a compact duplex, creative space utilization is key. Smart storage solutions, multipurpose furniture, and strategic layout designs can make a significant difference in maximizing every inch of space.\n\nCreating a Cozy Ambiance:\nSoft lighting, minimalist décor, and thoughtful color schemes can transform a 1 BHK duplex into a warm and inviting home. Small accents and personal touches can add character without overwhelming the limited space.\n\nChallenges of Living in a 1 BHK Apartment Duplex\nAdjusting to Limited Space:\nAdapting to a smaller living area may require some lifestyle adjustments. However, with innovative organization and design, it's possible to embrace the coziness without feeling constrained.\n\nCommunity Living and Lifestyle in 1 BHK Apartment Duplexes\nBuilding a Sense of Community\nDespite the compact nature, these duplexes often foster a close-knit community. Shared spaces and interactions with neighbors can create a sense of camaraderie within the complex.\n\nLifestyle Dynamics\nUnderstanding the lifestyle these duplexes offer - the convenience, shared amenities, and potential trade-offs - is crucial in deciding if it aligns with your preferences.\n\nFinancial Considerations for 1 BHK Apartment Duplex Owners\nBudgeting Wisely\nOwning or renting a 1 BHK duplex comes with financial responsibilities beyond the initial payment. Factoring in maintenance costs, utility bills, and possible association fees is crucial for a balanced budget.\n\nResale Value and Investment Potential\nConsidering the resale value and potential appreciation of the property is prudent, especially if you view it as a long-term investment.\n\nSustainability and Green Living in 1 BHK Apartment Duplexes\nEmbracing Eco-Friendly Practices\nThese duplexes offer an opportunity to adopt sustainable living. Implementing energy-efficient appliances, recycling initiatives, and other eco-friendly practices contribute to a greener lifestyle.\n\nConclusion\n1 BHK apartment duplexes present a unique blend of comfort, functionality, and affordability in the housing market. With clever design ideas, community living advantages, and a balanced approach to financial considerations, they offer an appealing living option for many.\n\nFAQ’s\n1. Are 1 BHK duplexes suitable for families?\nDespite their compact size, they can accommodate small families comfortably, provided the layout and space are optimized.\n\n2. Do 1 BHK duplexes have resale value?\nYes, their resale value can appreciate based on location, market trends, and property condition.\n\n3. What makes these duplexes cost-effective?\nThey offer an affordable entry point into homeownership or renting prime locations without the expense of larger homes.\n\n4. Can I personalize the interior of a 1 BHK duplex?\nAbsolutely! Creative interior design can maximize space and reflect your unique style.\n\n5. Are duplex communities conducive to a vibrant lifestyle?\nYes, these communities often foster social interactions and shared amenities, contributing to a vibrant lifestyle.",
-        imagePosition: "center"
-      }
+        title: "Title for Post 3",
+        content: (
+          <>
+            <p>Paragraph 1. Overview of the main ideas or themes of the post.</p>
+            <p>Paragraph 2. Detailed discussion of the primary topics covered in the post.</p>
+            <ul>
+              <li>Bullet Point 1: Explanation of the first key aspect.</li>
+              <li>Bullet Point 2: Explanation of the second key aspect.</li>
+              <li>Bullet Point 3: Explanation of the third key aspect.</li>
+              <li>Bullet Point 4: Explanation of the fourth key aspect.</li>
+            </ul>
+            <p>Paragraph 3. Final thoughts or additional information on the subject.</p>
+          </>
+        ),
+      },
     },
     {
       id: 4,
-      link: "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
+      link: "https://example.com/image4.jpg",
       post: {
         id: 4,
-        title: "Budget Allocations and Real Estate: Paving the Path Ahead",
-        content: "Budget allocations in real estate are the architectural blueprints of success. They delineate the financial framework within which the industry operates, affecting everything from property development to market stability.\n\n**What are Budget Allocations in Real Estate?**\nBudget allocations in real estate are the designated funds earmarked for various expenditures within the industry. It's the strategic distribution of financial resources towards development, maintenance, marketing, and operational aspects of real estate ventures.\n\n**Importance of Budgeting in Real Estate**\nBudgeting serves as the financial compass guiding real estate endeavors. It ensures financial stability, cost efficiency, and helps mitigate risks in an inherently volatile market.\n\n**Strategies for Effective Budgeting**\n**Prioritizing Expenses in Real Estate**\nEconomic fluctuations significantly influence real estate budgets. Factors like interest rates, inflation, and market demands can alter budget dynamics, necessitating adaptability and foresight.\n\n**Addressing Cost Fluctuations**\nStriking a balance between essential expenses and desirable investments is pivotal. Prioritization ensures crucial aspects like property maintenance and customer experience are never compromised.\n\n**Utilizing Technology in Budget Management**\nIncorporating innovative tech solutions aids in streamlining budget processes. Software for financial tracking, predictive analytics, and AI-driven insights revolutionize budget management, enabling informed decision-making.\n\n**Maximizing Returns**\n**Value Addition vs. Cost Optimization**\nBalancing value addition initiatives with cost optimization strategies is a perpetual conundrum. Enhancing property value while keeping operational costs in check requires strategic planning and market foresight.\n\n**Innovations for Profitable Real Estate**\nEmbracing innovative real estate models, such as co-living spaces or sustainable construction, presents opportunities for profitability amidst evolving market landscapes.\n\n**Future Trends**\n**Technology Integration in Real Estate Budgeting**\nThe future of real estate budgeting lies in tech integration. From blockchain for transparent transactions to AI-driven predictive models, technology will redefine how budgets are managed and optimized.\n\n**Conclusion**\nNavigating the labyrinth of real estate budgeting demands a blend of adaptability, strategic planning, and technological prowess. By understanding and harnessing the power of budget allocations, the industry can forge a resilient path forward.\n\n**FAQ’s**\n1. How often should real estate budgets be reassessed?\nRegular reassessment, typically annually, is advisable. However, during volatile economic periods, more frequent reviews may be necessary.\n\n2. What role does market research play in real estate budgeting?\nMarket research is pivotal; it helps in understanding consumer demands, market trends, and competitive landscapes, shaping budget allocations accordingly.\n\n3. Can budgeting software benefit small real estate businesses?\nAbsolutely! Budgeting software streamlines financial management, offering insights and organization crucial for small businesses' growth.\n\n4. How can real estate investors mitigate budgetary risks?\nDiversification, contingency planning, and thorough risk assessments are essential to mitigate budgetary risks in real estate investments.\n\n5. Are there specialized professionals for real estate budgeting?\nYes, financial analysts specializing in real estate, as well as property accountants, play pivotal roles in crafting and managing real estate budgets.",
-        imagePosition: "center"
-      }
+        title: "Title for Post 4",
+        content: (
+          <>
+            <p>Paragraph 1. Introduction to the topic, setting the stage for the discussion.</p>
+            <p>Paragraph 2. Detailed analysis or information about the topic.</p>
+            <ul>
+              <li>Bullet Point 1: Key detail or insight about the topic.</li>
+              <li>Bullet Point 2: Additional key detail or insight.</li>
+              <li>Bullet Point 3: Another important detail or insight.</li>
+              <li>Bullet Point 4: Further detail or insight.</li>
+            </ul>
+            <p>Paragraph 3. Conclusion or final remarks about the topic.</p>
+          </>
+        ),
+      },
     },
- 
-      {
-        "id": 5,
-        "link": "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
-        "post": {
-          "id": 5,
-          "title": "Budget Allocations and Real Estate: Paving the Path Ahead",
-          "content": "Advantages of Investing in a 1 BHK Apartment :\n\nCost-effectiveness\nThe primary allure of a 1 BHK apartment is its affordability. These units often present an attractive option for those seeking to step into homeownership without breaking the bank. Their comparatively lower prices make them an appealing investment for first-time buyers or those exploring real estate opportunities.\n\nManageable Space\nWhile the square footage may seem limiting, the efficient layout of a 1 BHK apartment maximizes every inch, offering a cozy and manageable living space. The minimized area also translates to reduced maintenance and cleaning efforts, making it an ideal choice for individuals with a busy lifestyle.\n\nIdeal for Singles or Couples\nFor individuals seeking a space of their own or couples starting their journey together, a 1 BHK apartment is perfectly tailored to accommodate their needs. The intimate setting fosters a sense of coziness and togetherness, creating a comfortable haven to call home.\n\nFactors to Consider When Buying a 1 BHK Apartment :\n\nLocation\nThe adage 'location, location, location' holds true when purchasing real estate. Assess the neighborhood, proximity to essential amenities, and accessibility to transportation hubs or workplaces to ensure convenience and future appreciation of the property's value.\n\nAmenities\nEvaluate the available amenities within the apartment complex or the surrounding area. Facilities such as gyms, parks, or community spaces can significantly enhance the living experience and add value to the property.\n\nBudget Considerations\nSet a realistic budget and consider all associated costs, including maintenance fees, property taxes, and any additional expenses. Ensure that the investment aligns with your financial capabilities and long-term plans.\n\nTips for Finding the Right 1 BHK Apartment :\n\nResearching Local Real Estate Markets\nStay updated on the local real estate trends and market conditions. Understanding the market dynamics can aid in making informed decisions and securing a favorable deal.\n\nWorking with a Reputable Real Estate Agent\nCollaborating with an experienced and reliable real estate agent can streamline the search process. Their expertise and guidance can help navigate through available options, ensuring a successful purchase.\n\nVisiting Multiple Properties\nDo not settle for the first option. Visit multiple properties to compare features, layouts, and amenities. This hands-on approach allows for better decision-making and finding the perfect match.\n\nCommon Misconceptions about 1 BHK Apartments :\n\nSize Limitations\nContrary to popular belief, the limited space in a 1 BHK apartment can be creatively utilized to suit individual preferences. With thoughtful interior design and space-saving furniture, even a small space can offer comfort and functionality.\n\nLack of Functionality\nDespite their compact size, 1 BHK apartments can be efficiently organized to accommodate daily living needs. Innovative storage solutions and multifunctional furniture can transform these spaces into stylish and functional homes.\n\nTransforming a 1 BHK Apartment into a Stylish Home :\n\nSpace-saving Furniture\nInvesting in furniture designed specifically for small spaces can optimize the available area without compromising on comfort. Modular and convertible furniture pieces offer versatility while maximizing functionality.\n\nSmart Storage Solutions\nEmbrace innovative storage solutions such as built-in shelves, under-bed storage, or wall-mounted organizers to declutter and create an organized living space.\n\nThe Future of 1 BHK Apartments\n\nGrowing Demand\nAs urban spaces evolve, the demand for compact yet practical living spaces continues to rise. The affordability and adaptability of 1 BHK apartments cater to the evolving lifestyles of individuals seeking convenience without sacrificing comfort.\n\nAdaptability in Changing Lifestyles\nThese apartments align with the changing lifestyles of modern individuals, emphasizing simplicity and functionality. Their flexibility appeals to a diverse demographic, ensuring sustained interest in the real estate market.\n\nConclusion\nIn conclusion, a 1 BHK apartment presents an enticing opportunity for those seeking a comfortable and affordable living space or a promising investment. Despite their compact size, these units offer functionality, convenience, and the potential to transform into stylish homes.\n\nFAQ’s\n1. Are 1 BHK apartments suitable for families?\nWhile 1 BHK apartments offer a cozy living space, they might be more suitable for smaller families or individuals. Larger families might find space constraints, but for couples or small families, they can serve as a comfortable living arrangement.\n\n2. How can I make the most of a small living space in a 1 BHK apartment?\nMaximizing space in a 1 BHK apartment involves smart organization and furniture choices. Utilize multifunctional furniture, employ creative storage solutions, and keep the design minimalistic to optimize the available area.\n\n3. What are the key factors to consider before purchasing a 1 BHK apartment?\nLocation, amenities, and budget are crucial factors. Assess the neighborhood, proximity to essential facilities, evaluate available amenities, and ensure the investment aligns with your financial plans.\n\n4. Do 1 BHK apartments have resale value?\nYes, 1 BHK apartments can have good resale value, especially in areas with high demand or good connectivity. However, factors like location, market trends, and property maintenance also influence resale value.\n\n5. Are 1 BHK apartments a good investment for rental purposes?\nThey can be a viable investment for rental purposes, especially in areas with high demand for smaller living spaces. Their affordability often attracts young professionals or couples looking for rental accommodations.",
-          "imagePosition": "center"
-        }
+    {
+      id: 5,
+      link: "https://example.com/image5.jpg",
+      post: {
+        id: 5,
+        title: "Title for Post 5",
+        content: (
+          <>
+            <p>Paragraph 1. Brief introduction to the subject of the post.</p>
+            <p>Paragraph 2. In-depth discussion and exploration of the main points.</p>
+            <ul>
+              <li>Bullet Point 1: Description of the first major point.</li>
+              <li>Bullet Point 2: Description of the second major point.</li>
+              <li>Bullet Point 3: Description of the third major point.</li>
+              <li>Bullet Point 4: Description of the fourth major point.</li>
+            </ul>
+            <p>Paragraph 3. Summary of the post and any additional remarks.</p>
+          </>
+        ),
       },
-
-        {
-          "id": 6,
-          "link": "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
-          "post": {
-            "id": 6,
-            "title": "Understanding the Search for a Rented House",
-            "content": "Understanding the Search for a Rented House\nSeeking a rented house isn't just about a physical space; it's about finding a place that feels like home. It's about proximity to work or schools, about the neighborhood vibe, and about envisioning a lifestyle within those walls. Understanding this essence forms the cornerstone of this quest.\n\nFactors Influencing the Search for a 2BHK or 3BHK\nLocation plays a pivotal role, determining accessibility to daily needs, workplaces, and essential amenities. Budget considerations often define the scope of available options, along with the wishlist for amenities and facilities desired in the vicinity.\n\nAdvantages of a 2BHK Rented House\nA 2BHK offers a blend of space utilization and affordability. It caters well to small families or individuals seeking a functional yet cost-effective living space. The flexibility it offers in interior arrangements is often a highlight.\n\nBenefits of Opting for a 3BHK Rental\nStepping up to a 3BHK translates to more significant space and opportunities for families to grow. The added room facilitates the creation of multi-functional spaces, accommodating various needs within the household.\n\nChoosing Between a 2BHK and a 3BHK\nAssessing personal requirements and conducting a meticulous budget analysis is crucial. Long-term considerations regarding family expansion or lifestyle changes weigh in significantly.\n\nNavigating the Rented Property Market\nEfficient property search involves employing various platforms, understanding lease agreements, and being aware of market trends. These steps streamline the process and enhance the chances of finding the perfect rental.\n\nPreparing for the Move\nTransitioning into a new rented space requires meticulous planning. A checklist encompassing essentials like furniture arrangements, utilities setup, and other services ensures a seamless shift.\n\nConclusion\nThe pursuit of a rented house, whether a 2BHK or 3BHK, encapsulates a blend of practicality, aspirations, and future planning. By understanding individual needs and aligning them with available options, one can make an informed decision that resonates with their lifestyle and preferences.\n\nFAQ’s\n1. What factors should one prioritize when choosing between a 2BHK and a 3BHK?\nFactors like current needs, future plans, budget, and space requirements are crucial considerations.\n\n2. How does the location influence the choice between a 2BHK and a 3BHK?\nLocation determines accessibility, proximity to work or schools, and often influences the cost difference between the two options.\n\n3. Are there specific lease agreement aspects to consider for different property sizes?\nYes, larger properties might involve more clauses regarding maintenance, utilities, or shared spaces, warranting careful scrutiny.\n\n4. Can a 2BHK be converted into a 3BHK?\nDepending on the layout and space availability, it might be feasible through renovations, but it's advisable to consult with professionals before attempting such changes.\n\n5. What steps can optimize the property search process?\nUsing multiple platforms, setting clear search criteria, and understanding one's non-negotiables can streamline the search significantly.",
-            "imagePosition": "center"
-          }
-        },
-   
-      
-      {
-        "id": 7,
-        "link": "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
-        "post": {
-          "id": 7,
-          "title": "Budget Allocations and Real Estate: Paving the Path Ahead",
-          "content": "",
-          "imagePosition": "center"
-        }
+    },,
+    {
+      id: 6,
+      link: "https://example.com/image6.jpg",
+      post: {
+        id: 6,
+        title: "Title for Post 6",
+        content: (
+          <>
+            <p>Paragraph 1. Brief introduction to the subject of the post.</p>
+            <p>Paragraph 2. In-depth discussion and exploration of the main points.</p>
+            <ul>
+              <li>Bullet Point 1: Description of the first major point.</li>
+              <li>Bullet Point 2: Description of the second major point.</li>
+              <li>Bullet Point 3: Description of the third major point.</li>
+              <li>Bullet Point 4: Description of the fourth major point.</li>
+            </ul>
+            <p>Paragraph 3. Summary of the post and any additional remarks.</p>
+          </>
+        ),
       },
-      {
-        "id": 8,
-        "link": "https://media.istockphoto.com/id/178988183/photo/house-in-bad-summer-thunderstorm.webp?b=1&s=170667a&w=0&k=20&c=GCKr4PR2gErNiBLYPnH75IbcHEl1PcCVbmoqRUfCAKs=",
-        "post": {
-          "id": 8,
-          "title": "Budget Allocations and Real Estate: Paving the Path Ahead",
-          "content": "",
-          "imagePosition": "center"
-        }
-      }
- 
- 
+    },
+    {
+      id: 7,
+      link: "https://example.com/image7.jpg",
+      post: {
+        id: 7,
+        title: "Title for Post 7",
+        content: (
+          <>
+            <p>Paragraph 1. Brief introduction to the subject of the post.</p>
+            <p>Paragraph 2. In-depth discussion and exploration of the main points.</p>
+            <ul>
+              <li>Bullet Point 1: Description of the first major point.</li>
+              <li>Bullet Point 2: Description of the second major point.</li>
+              <li>Bullet Point 3: Description of the third major point.</li>
+              <li>Bullet Point 4: Description of the fourth major point.</li>
+            </ul>
+            <p>Paragraph 3. Summary of the post and any additional remarks.</p>
+          </>
+        ),
+      },
+    },
+    {
+      id: 8,
+      link: "https://example.com/image8.jpg",
+      post: {
+        id: 8,
+        title: "Title for Post 8",
+        content: (
+          <>
+            <p>Paragraph 1. Brief introduction to the subject of the post.</p>
+            <p>Paragraph 2. In-depth discussion and exploration of the main points.</p>
+            <ul>
+              <li>Bullet Point 1: Description of the first major point.</li>
+              <li>Bullet Point 2: Description of the second major point.</li>
+              <li>Bullet Point 3: Description of the third major point.</li>
+              <li>Bullet Point 4: Description of the fourth major point.</li>
+            </ul>
+            <p>Paragraph 3. Summary of the post and any additional remarks.</p>
+          </>
+        ),
+      },
+    },
+    
  
     
   ];
 
   const post = imageArray.find(item => item.post.id === Number(postId));
-  if (!post) return <div className="text-center text-red-500 text-lg font-semibold">Post not found</div>;
+
+  if (!post) {
+    return <div className="text-center text-red-500 text-lg font-semibold">Post not found</div>;
+  }
 
   return (
     <div>
-  <div className="p-6 max-w-5xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden md:mt-10">
-    <header className="text-center">
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-6">{post.post.title}</h2>
-      <div className="text-sm text-gray-500 mb-6">{post.post.subtitle}</div>
-    </header>
-    <div className={`flex flex-col items-center mb-10 ${post.post.imagePosition === 'center' ? 'items-center' : 'items-start'}`}>
-      <img 
-        src={post.link} 
-        alt={post.post.title} 
-        className="object-cover rounded-lg w-full max-w-4xl h-96 mb-8"
-      />
-      <div className="text-gray-800 text-lg leading-relaxed max-w-4xl px-4">
-        {/* Use a safer way to render content if needed */}
-        <div dangerouslySetInnerHTML={{ __html: post.post.content }} />
+      <div className="p-6 max-w-screen mx-auto bg-white shadow-lg rounded-lg overflow-hidden sm:mt-20 md:mt-20 mt-5">
+        <header className="text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">{post.post.title}</h2>
+          {/* Render subtitle if available */}
+          <div className="text-sm text-gray-500 mb-6">{post.post.subtitle || ''}</div>
+        </header>
+        <div className={`flex flex-col items-center mb-10 ${post.post.imagePosition === 'center' ? 'items-center' : 'items-start'}`}>
+          <img 
+            src={post.link} 
+            alt={post.post.title} 
+            className="object-fit rounded-lg w-full max-w-4xl h-96 mb-8"
+          />
+          
+        </div>
+        <div className="text-gray-800 text-lg leading-relaxed max-w-4xl px-4">
+            {/* Render content as JSX */}
+            {typeof post.post.content === 'string' ? (
+              <div dangerouslySetInnerHTML={{ __html: post.post.content }} />
+            ) : (
+              post.post.content
+            )}
+          </div>
       </div>
     </div>
-  </div>
-</div>
-
   );
 };
 
