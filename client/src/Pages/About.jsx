@@ -13,7 +13,7 @@ const AboutPage = () => {
         </Helmet>
 
         <div className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <section id="About" className="bg-white py-10">
+          <section id="About" className="bg-white py-10" data-aos="zoom-in" data-aos-duration="1500" >
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">About Us</h1>
             <p className="mt-4 text-gray-700 text-base sm:text-lg">
               Welcome to Bharat Roofers, your premier destination for all property needs in Jabalpur, Madhya Pradesh. With a commitment to excellence and a passion for serving our clients, Bharat Roofers has established itself as a trusted name in the real estate industry.
@@ -33,7 +33,7 @@ const AboutPage = () => {
             <p className="mt-2 text-gray-700 text-base sm:text-lg">
               To be the first choice of our consumers and partners in discovering, renting, buying, selling, and financing a home, and digitally enabling them throughout their journey. We do that with data, design, technology, and above all, the passion of our people while delivering value to our shareholders.
             </p>
-            <img src="https://th.bing.com/th/id/OIP.cgn2iMWQBHPgwm14g_eqtgHaE8?w=1500&h=1000&rs=1&pid=ImgDetMain" alt="Property Image" className="mt-10 w-full h-auto max-h-96 object-cover rounded-lg shadow-md"/>
+            <img src="https://th.bing.com/th/id/OIP.cgn2iMWQBHPgwm14g_eqtgHaE8?w=1500&h=1000&rs=1&pid=ImgDetMain" alt="Property Image" className="mt-10 w-full h-auto max-h-96 object-cover rounded-lg shadow-md" />
           </section>
 
           <section id="Our-Value" className="bg-gray-100 py-10">

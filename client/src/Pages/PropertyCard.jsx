@@ -256,7 +256,7 @@ const PropertyCard = () => {
     <div className="max-w-full w-full px-4 py-8  sm:mt-4  xl:mt-12 2xl:mt-16">
       <div className="bg-white  rounded-lg">
         <div className=" pl-8">
-          <p className="text-gray-500 mt-10 sm:mt-10 md:mb-5">
+          <p className="text-gray-500 mt-10 md:mt-2 sm:mt-10 md:mb-5">
             All you need to know about {title}
           </p>
           <h1 className="text-3xl  text-gray-700 mb-2">{title}</h1>
@@ -272,7 +272,7 @@ const PropertyCard = () => {
           </div>
 
           {/* Lightbox image */}
-          <div className="bg-gray-100 max-w-lg h-auto mx-auto">
+          <div className="bg-gray-100 max-w-lg h-auto mx-auto" data-aos="zoom-in" data-aos-duration="1500">
             <Box images={selectedProperty.images} />
           </div>
 
